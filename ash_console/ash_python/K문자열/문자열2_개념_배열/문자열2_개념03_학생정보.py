@@ -23,11 +23,15 @@ print("[문제3]")
 # 		print(student[i][0], student[i][1])
 # 	i += 1
 
-i = 1 
-while i < len(student) :
+# i = 1 
+# while i < len(student) :
+# 	if student[i][-2] > student[i][-1] :
+# 		print(student[i][0], student[i][1])
+		
+# 	i += 1 
+
+for i in range(1, len(student)) :
 	if student[i][-2] > student[i][-1] :
 		print(student[i][0], student[i][1])
-		
-	i += 1 
 
 

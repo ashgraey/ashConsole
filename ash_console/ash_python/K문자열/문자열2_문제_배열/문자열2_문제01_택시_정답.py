@@ -33,6 +33,6 @@ for i in range(len(arr)):
 		y -= arr[i][0]
 	elif arr[i][1] == "서":
 		x -= arr[i][0]
-	print(x, y)/
+	print(x, y)
 
 print("x :", x, "y :", y)

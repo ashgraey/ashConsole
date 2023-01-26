@@ -35,28 +35,48 @@ print("[문제4]")
 
 # 1214
 # 1등 찾기
-max = 0 
-i = 1 
-while i < len(student) :
-	total = student[i][-2] + student[i][-1] 
+# max = 0 
+# i = 1 
+# while i < len(student) :
+# 	total = student[i][-2] + student[i][-1] 
+	
+# 	if max < total :
+# 		max = total
+# 		maxIdx = i 
+# 	i += 1 
+
+# # print(student[maxIdx][0], student[maxIdx][1])
+
+# # 중복되는 1등 찾기
+# i = 1 
+# while i < len(student) :
+# 	total = student[i][-2] + student[i][-1]
+
+# 	if total == max :
+# 		totIdx = i
+# 		print(student[totIdx][0], student[totIdx][1])
+	
+# 	i += 1
+
+# 0126
+# [문제4] 
+# 1등의 번호, 이름을 출력하시오.
+# 만약 여러 명이면 전부 출력하시오.
+
+max = 0
+for i in range(1, len(student)) :
+	total = student[i][-2] + student[i][-1]
+	# print(total)
 	
 	if max < total :
 		max = total
-		maxIdx = i 
-	i += 1 
+print("max : ", max)
 
-# print(student[maxIdx][0], student[maxIdx][1])
-
-# 중복되는 1등 찾기
-i = 1 
-while i < len(student) :
+for i in range(1, len(student)) :
 	total = student[i][-2] + student[i][-1]
+	# print(total)
+	
+	if max == total :
+		print(student[i][0], student[i][1])
 
-	if total == max :
-		totIdx = i
-		print(student[totIdx][0], student[totIdx][1])
-	
-	i += 1
-	
-	
 	

@@ -24,18 +24,31 @@ arr = [
 x = 5
 y = 5
 
+# 0126
 for i in range(len(arr)) :
-	if arr[i][1] == "동" :
-		x += arr[i][0]
-	
-	elif arr[i][1] == "서" :
-		x -= arr[i][0]
-	
-	elif arr[i][1] == "남" :
-		y -= arr[i][0]
-	
-	elif arr[i][1] == "북" :
+	if arr[i][-1] == "북" :
 		y += arr[i][0]
-	# print(x, y)
+	elif arr[i][-1] == "남" :
+		y -= arr[i][0]
+	elif arr[i][-1] == "동" :
+		x += arr[i][0]
+	else :
+		x -= arr[i][0]
 
-print("x : ", x, "y : ", y)
+print(x, y)
+	
+# for i in range(len(arr)) :
+# 	if arr[i][1] == "동" :
+# 		x += arr[i][0]
+	
+# 	elif arr[i][1] == "서" :
+# 		x -= arr[i][0]
+	
+# 	elif arr[i][1] == "남" :
+# 		y -= arr[i][0]
+	
+# 	elif arr[i][1] == "북" :
+# 		y += arr[i][0]
+# 	# print(x, y)
+
+# print("x : ", x, "y : ", y)

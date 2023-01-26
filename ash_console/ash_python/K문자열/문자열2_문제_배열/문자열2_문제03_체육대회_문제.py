@@ -22,27 +22,51 @@
 c = []
 
 for i in range(len(달리기)) :
-	for j in range(len(달리기[i])) :
+	for j in range(len(달리기)) :
 		ck = False
-	
-		for y in range(len(배구)) :
-			for x in range(len(배구[y])) :
-				if 달리기[i][j] == 배구[y][x] :
-					ck = True
+		for k in range(len(달리기)) :
+			for n in range(len(달리기)) :
+				if 달리기[i][j] == 배구[k][n] :
+					ck = True 
 					break
 		if ck == False :
 			c.append(달리기[i][j])
 
 for i in range(len(배구)) :
-	for j in range(len(배구[i])) :
+	for j in range(len(배구)) :
 		ck = False
-	
-		for y in range(len(달리기)) :
-			for x in range(len(달리기[y])) :
-				if 배구[i][j] == 달리기[y][x] :
-					ck = True
+		for k in range(len(배구)) :
+			for n in range(len(배구)) :
+				if 배구[i][j] == 달리기[k][n] :
+					ck = True 
 					break
 		if ck == False :
 			c.append(배구[i][j])
-
 print(c)
+print(len(c))
+
+# for i in range(len(달리기)) :
+# 	for j in range(len(달리기[i])) :
+# 		ck = False
+	
+# 		for y in range(len(배구)) :
+# 			for x in range(len(배구[y])) :
+# 				if 달리기[i][j] == 배구[y][x] :
+# 					ck = True
+# 					break
+# 		if ck == False :
+# 			c.append(달리기[i][j])
+
+# for i in range(len(배구)) :
+# 	for j in range(len(배구[i])) :
+# 		ck = False
+	
+# 		for y in range(len(달리기)) :
+# 			for x in range(len(달리기[y])) :
+# 				if 배구[i][j] == 달리기[y][x] :
+# 					ck = True
+# 					break
+# 		if ck == False :
+# 			c.append(배구[i][j])
+
+# print(c)

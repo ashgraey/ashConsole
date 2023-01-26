@@ -15,7 +15,7 @@ for i in range(len(temp)):
     temp2[0] = int(temp2[0])
     temp2[2] = int(temp2[2])
     a.append(temp2)
-print(a)
+print("a : ", a)
 
 max = a[0][2]
 index = 0

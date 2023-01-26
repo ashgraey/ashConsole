@@ -25,23 +25,35 @@ score = [
 		333
 '''
 print("===== 문제1 =====")
-mTot = 0
-wTot = 0 
-i = 1
-while i < len(student) :
-	if student[i][-1] == "남" :
-		mIdx = i
-		mTot += score[mIdx][-2] + score[mIdx][-1]
+# mTot = 0
+# wTot = 0 
+# i = 1
+# while i < len(student) :
+# 	if student[i][-1] == "남" :
+# 		mIdx = i
+# 		mTot += score[mIdx][-2] + score[mIdx][-1]
 
-	if student[i][-1] == "여" :
-		wIdx = i
-		wTot += score[wIdx][-2] + score[wIdx][-1]
+# 	if student[i][-1] == "여" :
+# 		wIdx = i
+# 		wTot += score[wIdx][-2] + score[wIdx][-1]
 	
-	i += 1 
-if mTot > wTot :
-	print(mTot)
+# 	i += 1 
+# if mTot > wTot :
+# 	print(mTot)
+# else :
+# 	print(wTot)
+tot = [0, 0]
+for i in range(1, len(student)) :
+	if student[i][-1] == "남" :
+		tot[0] += (score[i][1] + score[i][2])
+	elif student[i][-1] == "여" :
+		tot[1] += (score[i][1] + score[i][2])
+
+if tot[0] > tot[1] :
+	print(tot[0])
 else :
-	print(wTot)
+	print(tot[1])
+
 '''
 	[문제2]
 		평균이 60점이상이면 합격이다.

@@ -51,9 +51,28 @@ total = [0, 0]
 # 	print(wTot)
 
 # 0126
-print(len(student))
+# print(len(student))
+manTot = 0
+womanTot = 0
 for i in range(len(student)) : 
-	
+
+	for j in range(len(student[i])) :
+		if student[i][j] == "남" :
+			manTot += (student[i][j + 1] + student[i][j + 2])
+			total[0] = manTot
+		
+		if student[i][j] == "여" :
+			womanTot += (student[i][j + 1] + student[i][j + 2])
+			total[1] = womanTot
+			
+print(total)
+if manTot > womanTot :
+	print("남 : ", manTot)
+else :
+	print("여 : ", womanTot)
+
+
+
 	
 		
 

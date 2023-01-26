@@ -21,8 +21,8 @@
 '''
 import random
 
-# num = random.randint(1, 200)
-num = 40
+num = random.randint(1, 200)
+# num = 40
 
 page = 0
 if num % 10 == 0:
