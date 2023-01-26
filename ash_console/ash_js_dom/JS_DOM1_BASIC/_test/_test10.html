@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>                           
+    .blue{color: blue;} 
+    .red{color: red;}
+</style>
+<body>
+    <script>
+        /*
+            <style>                           
+                .blue{color: blue;} 
+                .red{color: red;}
+            </style>
+        */
+        /*
+            숫자 1~10을 화면에 출력한다. 
+            단, 홀수일때는 빨간색으로,
+            짝수일때는 파란색으로 출력한다.
+        */
+
+        // var num = prompt("숫자를 입력하세요 :");
+
+        // var result = num <= 10 && num % 2 == 0 ? true : false;
+        
+        // if(result) {
+        //     document.write("<p class ='blue'> blue </p>")
+        // }
+        // else {
+        //     document.write("<p class ='red'> red </p>")
+        // }
+        // // switch(result) {
+        // //     case true :
+        // //     document.write("<p class ='blue'> blue </p>");
+        // //     break;
+
+        // //     case false :
+        // //     document.write("<p class ='red'> red </p>");
+        // //     break;
+                
+        // //     default :
+        // //         alert("범위를 벗어났습니다.")
+                
+        // // }
+
+        var i = 1;
+        while(i <= 10) {
+            if(i % 2 == 0) {
+                document.write("<p class='blue'>" + i + "</p>")
+            }
+            else {
+                document.write("<p class='red'>" + i + "</p>")
+            }
+            i ++;
+        }
+    
+    </script>
+</body>
+</html>

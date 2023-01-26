@@ -1,0 +1,141 @@
+<script>
+	/*	
+	문제 1) 각층별 관리비 합 출력
+	정답 1) 4400, 7100, 5400		
+	문제 2) 호를 입력하면 관리비 출력
+	정답 2) 입력 : 202	관리비 출력 : 2000	
+	문제 3) 관리비가 가장 많이 나온 집, 적게 나온 집 출력
+	정답 3) 가장 많이 나온 집(201), 가장 적게 나온 집(303)		
+	문제 4) 호 2개를 입력하면 관리비 교체 (101 , 102) ==>  (2100, 1000)		
+	문제 5) 관리비 많이 나온순서대로 관리비와 호수 출력 (정렬)
+	*/
+
+	function q1(p) {
+		console.log("===== 문제1 =====");
+		var i;
+		var j;
+		for (i = 0; i < p.length; i++) {
+			var total = 0;
+			for (j = 0; j < p.length; j++) {
+				total += p[i][j];
+			}
+			console.log(total);
+		}
+	}
+
+	function q2(a, p) {
+		console.log("===== 문제2 =====")
+		var r1 = parseInt(Math.random() * 3);
+		var r2 = parseInt(Math.random() * 3);
+		console.log(r1, r2);
+		console.log('입력 = ' + a[r1][r2], '출력 = ' + p[r1][r2]);
+	}
+
+	function q3(a, p) {
+		console.log("===== 문제3 =====")
+		var i;
+		var j;
+		var max = 0;
+		var maxIdx1 = 0;
+		var maxIdx2 = 0;
+		var min = 5000;
+		var minIdx1 = 0;
+		var minIdx2 = 0;
+		for (i = 0; i < p.length; i++) {
+			for (j = 0; j < p[i].length; j++) {
+				if (max < p[i][j]) {
+					max = p[i][j];
+					maxIdx1 = i;
+					maxIdx2 = j;
+				}
+				if (min > p[i][j]) {
+					min = p[i][j];
+					minIdx1 = i;
+					minIdx2 = j;
+				}
+			}
+		}
+		console.log("가장 많이 나온 집 = " + a[maxIdx1][maxIdx2], "가장 적게 나온 집 = " + a[minIdx1][minIdx2]);
+	}
+
+	function q4(a, p) {
+		console.log("===== 문제4 =====");
+		var ho1 = parseInt(Math.random() * 3);
+		var ho2 = parseInt(Math.random() * 3);
+		var ho3 = parseInt(Math.random() * 3);
+		var ho4 = parseInt(Math.random() * 3);
+		console.log(apt[ho1][ho2], apt[ho3][ho4]);
+
+		var temp = p[ho1][ho2];
+		p[ho1][ho2] = p[ho3][ho4];
+		p[ho3][ho4] = temp;
+		console.log(a);
+		console.log(p);
+	}
+
+	function q5(a, p) {
+		console.log("===== 문제5 =====");
+		var i;
+		var j;
+		var temp = [];
+		var tempD = [];
+		var idx = 0;
+		for (i = 0; i < p.length; i++) {
+			for (j = 0; j < p[i].length; j++) {
+				temp[idx] = p[i][j];
+				idx += 1;
+			}
+		}
+		// console.log(temp);
+
+		for (i = 0; i < 3; i++) {
+			tempD[i] = [0, 0, 0];
+		}
+		// console.log(tempD);
+
+		var tp;
+		var max;
+		var maxIdx;
+		for (i = 0; i < temp.length; i++) {
+			max = 0;
+			maxIdx = 0;
+			tp = 0;
+			for (j = i; j < temp.length; j++) {
+				if (max < temp[j]) {
+					max = temp[j];
+					maxIdx = j;
+				}
+			}
+			tp = temp[i];
+			temp[i] = temp[maxIdx];
+			temp[maxIdx] = tp;
+		}
+		console.log(temp);
+
+		idx = 0;
+		for (i = 0; i < p.length; i++) {
+			for (j = 0; j < p[i].length; j++) {
+				tempD[i][j] = temp[idx];
+				idx += 1;
+			}
+		}
+		console.log(tempD);
+	}
+
+	var apt = [
+		[101, 102, 103],
+		[201, 202, 203],
+		[301, 302, 303]
+
+	];
+	var pay = [
+		[1000, 2100, 1300],
+		[4100, 2000, 1000],
+		[3000, 1600, 800]
+	];
+	q1(pay);
+	q2(apt, pay);
+	q3(apt, pay);
+	q4(apt, pay);
+	q5(apt, pay);
+</script>

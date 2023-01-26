@@ -1,0 +1,166 @@
+<!-- <script>
+	/*
+		\n 은 줄바꿈이다.  구분자도 (\n 으로 넣으면 잘잘린다.)
+
+		 문제1) 위 데이터 는  각각의 회원이 물건을 구입가격들 을 기록한 내용이다.
+					회원별 구입 총합을 테이블로 만들려고한다.
+				데이터는 아래와 같이 나올수있도록 result 에 저장후 출력 
+				
+				10001 김철수 2670
+				10002 이영희 1950 
+				10003 유재석 4080
+				10004 박명수 7130	
+	*/
+	function dataArr(data) {
+		var dataArr = data.split("\n");
+		// data = data.split("\n");
+		var i;
+		for (i = 0; i < dataArr.length; i++) {
+			dataArr[i] = dataArr[i].split("/");
+		}
+		return dataArr;
+		// console.log(dataArr);
+
+	}
+
+	function result(data) {
+		console.log(data);
+		var result = [];
+		for (var i = 0; i < 4; i++) {
+			result[i] = [0, 0, 0];
+		}
+		// console.log(result);
+		for (var i = 0; i < data.length; i++) {
+			if (data[i][0] == '10001') {
+				result[0][0] = data[i][0];
+				result[0][1] = data[i][1];
+				result[0][2] += Number(data[i][2]);
+
+
+			}
+			else if (data[i][0] == '10002') {
+				result[1][0] = data[i][0];
+				result[1][1] = data[i][1];
+				result[1][2] += Number(data[i][2]);
+
+			}
+			else if (data[i][0] == '10003') {
+				result[2][0] = data[i][0];
+				result[2][1] = data[i][1];
+				result[2][2] += Number(data[i][2]);
+
+			}
+			else if (data[i][0] == '10004') {
+				result[3][0] = data[i][0];
+				result[3][1] = data[i][1];
+				result[3][2] += Number(data[i][2]);
+
+			}
+		}
+		return result;
+
+		// console.log(result);
+	}
+	var data = "";
+	data += "10001/김철수/600\n";
+	data += "10002/이영희/800\n";
+	data += "10001/김철수/1400\n";
+	data += "10003/유재석/780\n";
+	data += "10002/이영희/950\n";
+	data += "10004/박명수/330\n";
+	data += "10001/김철수/670\n";
+	data += "10003/유재석/3300\n";
+	data += "10002/이영희/200\n";
+	data += "10004/박명수/6800\n";
+	data = data.substring(0, data.length - 1); // 마지막 글삭제 
+	// console.log(data);
+	var dataArr = dataArr(data);
+	// console.log(result);
+	var result = result(dataArr);
+	console.log(result);
+
+</script> -->
+
+<!-- 종률 -->
+<script>
+    /*
+        \n 은 줄바꿈이다.  구분자도 (\n 으로 넣으면 잘잘린다.)
+
+         문제1) 위 데이터 는  각각의 회원이 물건을 구입가격들 을 기록한 내용이다.
+             회원별 구입 총합을 테이블로 만들려고한다.
+             데이터는 아래와 같이 나올수있도록 result 에 저장후 출력 
+            
+            10001 김철수 2670
+            10002 이영희 1950 
+            10003 유재석 4080
+            10004 박명수 7130
+    */
+    var data ="";
+      data += "10001/김철수/600\n";
+      data += "10002/이영희/800\n";
+      data += "10001/김철수/1400\n";
+      data += "10003/유재석/780\n";
+      data += "10002/이영희/950\n";
+      data += "10004/박명수/330\n";
+      data += "10001/김철수/670\n";
+      data += "10003/유재석/3300\n";
+      data += "10002/이영희/200\n";
+      data += "10004/박명수/6800\n";
+      data = data.substring(0 , data.length-1); // 마지막 글삭제 
+      console.log(data);
+    var result;
+
+function checknum(list, num){
+   for(var i = 0; i < list.length; i ++){
+      if(list[i][0] == num){
+         return true;
+      }
+   }
+   return false;
+}
+function plus(cut){
+   var list = []
+   list[0] = [cut[0], cut[1], 0]
+    //   console.log("리스트")
+    //   console.log(list[0])
+
+   for(var i = 0; i < cut.length; i++){
+      if(checknum(list, cut[i][0]) == false){
+         var temp = [cut[i][0], cut[i][1], 0]
+         list.push(temp)
+      }
+   }
+
+   for(var i = 0; i < list.length; i++){
+      for(var j = 0; j < cut.length; j ++){
+         if(list[i][0] == cut[j][0]){
+            list[i][2] += cut[j][2]
+         }
+      }
+   }
+//    console.log("Sss")
+//    console.log(list)
+   return list
+}
+
+function cutting(data){
+   var temp = data.split("\n")
+   var result = []
+   for(var i = 0; i < temp.length; i ++){
+      result[i] = temp[i].split("/")
+      result[i][2] = Number(result[i][2])
+   }
+   console.log("결과")
+   console.log(result)
+   return result
+}
+
+function play(dat){
+   var cut = cutting(dat)
+   var list = plus(cut)
+   return list
+}
+result = play(data)
+console.log(result)
+
+  </script>

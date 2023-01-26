@@ -1,0 +1,36 @@
+<script>
+	/*
+		 1) userData 는 학생 번호 데이터이다
+		 2) scoreData 는 학생 점수 데이터이다.
+		  
+		[문제] 1등 번호 와 점수출력  
+		   예) 1003 : 43
+		   
+		[문제] 전체 평균 출력
+		   예) (10 + 21 + 43 + 12) / 4.0
+	 */
+
+	var userData = "1001,1002,1003,1004";
+	var scoreData = "10,21,43,12";
+
+	var userArr = userData.split(',');
+	var scoreArr = scoreData.split(',');
+	console.log(userArr, scoreArr);
+
+	var i;
+	var max = 0;
+	var maxIdx = 0;
+	for(i = 0; i < scoreArr.length; i ++) {
+		if(max < scoreArr[i]) {
+			max = scoreArr[i];
+			maxIdx = i;
+		}
+	}
+	console.log("1등 = ", userArr[maxIdx], scoreArr[maxIdx]);
+	var total = 0;
+	for(i = 0; i < scoreArr.length; i ++) {
+		total += Number(scoreArr[i]);
+	}
+	var avg = total / scoreArr.length;
+	console.log(avg);
+</script>

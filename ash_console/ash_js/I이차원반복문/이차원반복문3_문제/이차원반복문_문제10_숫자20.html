@@ -1,0 +1,80 @@
+<script>
+
+	/*
+		[오징어 게임]
+		
+		[강화유리]	
+		
+		유리가 왼쪽오른쪽 2개씩 20개가 연결되어있다.
+		한쪽의 유리는 강화유리 이고 , 한쪽의 유리는 그냥유리이다.
+		참가자는 매번 강화유리를 선택해야지 다음 턴을 진행할수있다.
+		게임은 10회 진행이된다.
+		
+		참가자는 강화유리 판별을 위해 유리전문가와 팀을 맺었다.
+		유리전문가는 강화유리강도를 20 이라고했고 , 그냥유리는 17이라고했다.
+		각 유리별로 랜덤으로 숫자 3개씩 출력되고 숫자3개의 합이 유리강도이다.
+		예) [4 9 7] [8,3,6]	: 왼쪽이 강화유리이다.
+		게임을 10회 출력하고 강화유리만 선택해서 승리해보자.
+		단, 반드시 유리는 강화유리 한개 , 그냥 유리 한개 출력되어야하며,
+		매번 숫자는 랜덤으로 출력되어야한다. 
+		
+		[1]left , [2]right 를 선택한다.
+		
+	 */
+
+	 // 1206
+	var i;
+	var j;
+	var total;
+	var glass;
+	var gR = [];
+	var gL = [];
+	for (i = 0; i < 10; i++) {
+		console.log("=====" + i + "=====");
+		
+		var r = parseInt(Math.random() * 2);
+		if (r == 0) {
+			r = 'right';
+		}
+		else {
+			r = 'left';
+		}
+		console.log("user = ", r);
+
+		if (r == 'right') {
+			glass = 'right';
+			while (true) {
+				total = 0;
+				for (j = 0; j < 3; j++) {
+					gR[j] = parseInt(Math.random() * 10) + 1;
+					total += gR[j];
+				}
+				if (total == 20) {
+					break;
+				}
+
+			}
+			console.log("temglass = ", gR + " pass");
+		}
+
+		else if (r == 'left') {
+			glass = 'left';
+			while (true) {
+				total = 0;
+				for (j = 0; j < 3; j++) {
+					gL[j] = parseInt(Math.random() * 10) + 1;
+					total += gL[j];
+				}
+				if (total == 17) {
+					break;
+				}
+
+			}
+			console.log("glass = ", gL + " end");
+			// console.log("end");
+			break;
+		}
+	
+	}
+
+</script>

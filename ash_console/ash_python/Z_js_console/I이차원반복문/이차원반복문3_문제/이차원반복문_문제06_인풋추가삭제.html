@@ -1,0 +1,125 @@
+<script>
+
+	/*
+		1) arr 배열은 사이즈가 3이다.		
+		2) valueList 배열 안의 값들은  추가와 삭제를 반복할 값들이다.		
+		3) "추가" 는 순서대로 값을 저장한다.
+		4) "삭제" 는 뒤에서부터 앞으로 밀어내고 맨뒤에 0으로 표시 한다. 	
+		5) 중복된값은 "추가" 할수없고 , 없는값은 "삭제"할수없다.
+		6) 없는 값은 삭제할수없고 "삭제불가" 출력
+		7) 중복 된 값은 추가할수없고 "중복" 출력 
+		[예시]
+		 10 ==>  추가 ==> arr = [10,0,0];
+		 20 ==>  삭제 ==> 20은 없으므로 ==> "삭제불가"
+		 30 ==>  추가 ==> arr = [10,30,0];
+		 10 ==>  삭제 ==> arr = [30,0,0];
+		 30 ==>  추가 ==> 30 은 이미 저장되어서 ==> "중복"
+		 30 ==>  삭제 ==> arr = [0,0,0];
+		 */
+
+	var arr = [0, 0, 0];
+	var keyword = ["추가", "삭제", "추가", "삭제", "추가", "삭제"];
+	var valueList = [10, 20, 30, 10, 30, 30];
+	
+	// 1206
+	var i;
+	var j;
+	var value;
+	var len;
+	var check;
+	var idx = 0;
+	var dell;
+	var temp;
+	for (i = 0; i < keyword.length; i++) {
+		len = arr.length;
+		value = valueList[i];
+		temp = "";
+
+		if (keyword[i] == "추가") {
+			check = false;
+			for (j = 0; j < len; j++) {
+				if (arr[j] == value) {
+					check = true;
+					break;
+				}
+			}
+
+			if (check == false) {
+				arr[idx] = value;
+				idx += 1;
+			}
+			else {
+				temp = "중복";
+			}
+
+		}
+
+		else if (keyword[i] == "삭제") {
+			check = false;
+			for (j = 0; j < len; j++) {
+				if (arr[j] == value) {
+					check = true;
+					dell = j;
+					break;
+				}
+			}
+
+			if (check == true) {
+				arr[dell] = 0;
+				arr[dell] = arr[dell + 1];
+				arr[dell + 1] = 0;
+			}
+			else {
+				temp = "삭제불가";
+			}
+		}
+		console.log(value + " : " + keyword[i] + " : " + arr + " : " + temp);
+	}
+
+	// 1차
+	// var i;
+	// var j;
+	// var value;
+	// var check;
+	// var idx = 0;
+	// for (i = 0; i < keyword.length; i++) {
+	// 	value = valueList[i];
+
+	// 	if (keyword[i] == "추가") {
+	// 		check = false;
+	// 		for (j = 0; j < arr.length; j++) {
+	// 			if (arr[j] == value) {
+	// 				check = true;
+	// 				break;
+	// 			}
+	// 		}
+	// 		if (check == true) {
+	// 			console.log(keyword[i], valueList[i], arr, "중복");
+	// 		}
+	// 		else {
+	// 			arr[idx] = value;
+	// 			idx += 1;
+	// 			console.log(keyword[i], valueList[i], arr);
+	// 		}
+
+	// 	}
+
+	// 	else if (keyword[i] == "삭제") {
+	// 		var count = 0;
+	// 		for (j = 0; j < arr.length; j++) {
+	// 			if (arr[j] == value) {
+	// 				arr[j] = 0;
+	// 				count += 1;
+	// 				console.log(keyword[i], valueList[i], arr);
+	// 			}
+	// 		}
+
+	// 		if (count == 0) {
+	// 			console.log(keyword[i], valueList[i], arr, "삭제불가");
+	// 		}
+
+	// 	}
+
+	// }
+
+</script>

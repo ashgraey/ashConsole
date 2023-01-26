@@ -1,0 +1,75 @@
+<script>
+     
+    var jsonArr = [
+        {"num" : 1001 ,  "name" : "김철수" , "math" : 10, "eng" : 20, "kor" : 30},
+        {"num" : 1002 ,  "name" : "박민정" , "math" : 40, "eng" : 60, "kor" : 10},
+        {"num" : 1003 ,  "name" : "이상아" , "math" : 15, "eng" : 10, "kor" : 50},
+        {"num" : 1004 ,  "name" : "조민수" , "math" : 16, "eng" : 40, "kor" : 20},
+    ]
+
+    /*
+        
+        [문제1]
+            국어점수가 수학점수 보다 높은 학생들 번호 이름 출력 
+
+        [문제2]
+            국어 수학 영어 세과목의 평균이 30점이상이면  합격이다
+            win 항목을 추가하고 합격이면 true , 불합격이면 false 추가 
+          
+        [문제3]
+            rank 항목을 추가하고 총합에대한 등수 저장 
+    */
+
+    console.log("===== [문제1] =====");
+    var i;
+    for(i = 0; i < jsonArr.length; i ++) {
+        if(jsonArr[i]["kor"] > jsonArr[i]["math"]) {
+            console.log(jsonArr[i]["num"], jsonArr[i]["name"]);
+        }
+    }
+
+    console.log("===== [문제2] =====");
+    var total;
+    var avg;
+    var rank = [];
+    for(i = 0; i < jsonArr.length; i ++) {
+        total = jsonArr[i]["math"] + jsonArr[i]["eng"] + jsonArr[i]["kor"];
+        rank[i] = total;
+        jsonArr[i]["total"] = total;
+        
+        avg = total / 3;
+        avg = avg.toFixed(2);
+        jsonArr[i]["avg"] = avg;
+        
+        if(avg >= 30) {
+            jsonArr[i]["win"] = true;
+        }
+        else {
+            jsonArr[i]["win"] = false;
+        }
+    }
+    console.log(jsonArr);
+    
+    console.log("===== [문제3] =====");
+    // console.log(rank);
+
+    var c = [];
+    var count;
+    for(i = 0; i < rank.length; i ++) {
+        count = 1;
+        for(j = 0; j < rank.length; j ++) {
+            if(rank[i] < rank[j]) { 
+                count += 1;
+            }
+        }
+        c[i] = count;
+    }
+    // console.log(c);
+
+    for(i = 0; i < jsonArr.length; i ++) {
+        jsonArr[i]["rank"] = c[i];
+    }
+    console.log(jsonArr);
+
+
+</script>

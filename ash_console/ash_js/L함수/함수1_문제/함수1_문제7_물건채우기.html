@@ -1,0 +1,63 @@
+<script>
+
+	/*
+		  철수는 편의점에서 아르바이트를 하고있다. 
+		  장사가 잘되서 라면이 많이 팔렸다. 
+		  진열장은 최대 10개를 채울수있다.
+	 	
+		  재고는 4칸의 상자에 5개씩 담겨져있다.
+	 	
+		  진열장을 앞에서부터 순처적으로채워넣고 결과를 출력하시오.
+	 	
+		  [예]
+				각진열장마다 필요한개수는 아래와같다.
+				{6, 10, 1, 7, 9}
+		  	
+				하지만 가진 재고가 모자르기때문에 최대 아래와같이 채워넣을수있다.
+				{10, 10, 10, 6, 1};
+		  	
+
+	    
+	 */
+	function test(a, cnt) {
+		// console.log(a);
+		// console.log(cnt);
+
+		var max = 10;
+		var pls = 0;
+		var idx = 0;
+		var i = 0;
+		while (i < a.length) {
+
+			if (cnt[cnt.length - 1] == 0) {
+				break;
+			}
+
+			if (a[i] < max) {
+				pls = max - a[i];
+				if (pls >= cnt[idx]) {
+					a[i] += cnt[idx];
+					cnt[idx] = 0;
+					idx += 1;
+				}
+				else {
+					a[i] += pls;
+					cnt[idx] -= pls;
+				}
+			}
+
+			else {
+				i++;
+			}
+
+			console.log(a);
+			console.log(cnt);
+		}
+
+	}
+
+	var 진열장 = [4, 0, 9, 3, 1];
+	var 재고 = [5, 5, 5, 5];
+	test(진열장, 재고);
+
+</script>

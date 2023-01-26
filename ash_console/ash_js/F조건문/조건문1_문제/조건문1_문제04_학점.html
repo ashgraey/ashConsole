@@ -1,0 +1,41 @@
+<script>
+/*
+	 * [문제]
+	 * 
+	 * 	[학점]
+	 * 	시험점수(0~100) 을 랜덤으로 저장한다.  
+	 * 	시험점수에 해당하는 학점을 출력하시오.
+	 * 	아래는 점수표이다.
+	 * 		100~91 이면 A학점,
+	 * 		90~81  이면 B학점,
+	 * 		80이하는 "재시험"
+	 * 		
+	 * 		단, 만점이거나, A학점과 B학점의 일의 자리가 8점이상이면 + 추가하시오.
+	 * 		
+	 * 
+	 * 	예) 
+	 * 		100 => A+
+	 *     	88 ==> B+
+	 *     	82 ==> B
+	 *     	23 ==> 재시험
+	 */
+	var score = parseInt(Math.random() * 100);
+	console.log(score)
+
+	if (98 <= score && score <= 100) {
+		console.log("A+");
+	}
+	if (91 <= score && score < 98) {
+		console.log("A");
+	}
+	if (88 <= score && score < 91) {
+		console.log("B+");
+	}
+	if (81 <= score && score < 88) {
+		console.log("B");
+	}
+	if (80 >= score && 0 <= score) {
+		console.log("재시험");
+	}
+
+</script>

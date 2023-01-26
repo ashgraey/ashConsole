@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+             color : black;
+             text-decoration : none;
+        }
+        
+        a:hover{
+            color : purple;
+        }
+        
+    </style>
+
+</head>
+<body>
+      <!-- top -->
+      <div align="right">
+        <a href="_02_회원가입.html">회원가입</a>&nbsp;
+        <img alt="top" src="img/top.jpg" > &nbsp; 
+        <a href="_03_로그인.html">로그인</a>&nbsp;
+    </div>
+    <div align="center">
+		<br>
+		<img src="img/logo.png" height="80" onclick="location.href='_01_메인화면.html'">
+		<table >
+			<tr height="50">
+				<td width="180" align="center" >
+					<font size="3" color="black">
+						<a href="_04_전체상품.html"><b>전체상품 보기</b></a>
+					</font>
+				</td>
+				<td width="10" align="center">
+					<img alt="top" src="img/top.jpg">
+				</td>
+				
+				<td width="180" align="center">
+					<font size="3" color="black">
+						<a href="#"><b>신상품</b></a>
+					</font>
+				</td>
+				<td width="10" align="center">
+					<img alt="top" src="img/top.jpg">
+				</td>
+				
+				<td width="180" align="center">
+					<font size="3" color="black">
+						<a href="#"><b>베스트</b></a>
+					</font>
+				</td>
+				<td width="10" align="center">
+					<img alt="top" src="img/top.jpg">
+				</td>
+				<td width="180" align="center">
+					<font size="3" color="black">
+						<a href="#"><b>알뜰쇼핑</b></a>
+					</font>
+				</td>
+			</tr>
+		</table>		
+	</div>
+
+    <!-- center -->
+
+    <div align="center"> 
+		<h1>회원가입</h1>
+		<hr width="700" color="black" size="3" />
+		<br>
+		<table>
+			<tr height="50">
+				<th width="150">아이디</th>
+				<td width="300" align="center">
+					<input type="text" id="id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" style="width: 300px; height: 40px">
+				</td>
+				<td width="75">
+					<button id="checkDoubleId">중복확인</button>
+				</td>
+			</tr>
+			<tr height="50">
+				<th width="150">패스워드</th>
+				<td width="300" align="left" colspan="2">
+				<input type="password" id="pw"  placeholder="비밀번호를 입력해주세요" style="width: 300px; height: 40px">
+				</td>
+			</tr>
+			<tr height="50">
+				<th width="150">이름</th>
+				<td width="300" align="left" colspan="2">
+				<input type="text" id="name"  placeholder="이름을 입력해주세요" style="width: 300px; height: 40px">
+				</td>
+			</tr>
+			<tr height="50">
+				<th width="150">휴대폰</th>
+				<td width="300" align="left" colspan="2">
+				<input type="text" id="tel"  placeholder="(-)없이 입력" style="width: 300px; height: 40px">
+				</td>
+			</tr>
+			
+			<tr height="50">
+				<th width="150">우편번호</th>
+				<td width="300" align="left" colspan="2">
+					<input type="text" id="zipcode"  placeholder="우편번호를 입력해주세요" style="width: 200px; height: 40px">
+					<button onclick="location.href='javascript:execDaumPostcode()'">우편번호검색</button>
+				</td>			
+			</tr>
+			
+			<tr height="50">
+				<th width="150">지번 주소</th>
+				<td width="300" align="left" colspan="2">
+					<input type="text" id="jibunAddress"  placeholder="지번 주소를 입력해주세요" style="width: 300px; height: 40px">
+				</td>
+				
+			</tr>
+			
+			<tr height="50">
+				<th width="150">도로명 주소</th>
+				<td width="300" align="left" colspan="2">
+					<input type="text" id="roadAddress"  placeholder="도로명 주소를 입력해주세요" style="width: 300px; height: 40px">
+				</td>
+				
+			</tr>
+			 
+			<tr height="50">
+				<th width="150">남은주소</th>
+				<td width="300" align="left" colspan="2">
+					<input type="text" id="namujiAddress" placeholder="남은 주소를 입력해주세요" style="width: 300px; height: 40px">
+				</td>
+				
+			</tr>
+			
+			<tr height="50">
+				<th width="150">이메일</th>
+				<td width="300" align="center">
+					<input type="email" id="email" placeholder="예:marketkurly@kurly.com" style="width: 300px; height: 40px">
+				</td>				
+			</tr>
+					
+			<tr height="50">
+				<td colspan="3" align="center"><br>
+					<button id="join">가입하기</button>
+				</td>
+			</tr>
+		</table>
+	</div> 
+
+ <!-- bottom -->
+ <div align="center">
+	<hr color="lightgray" size="1">
+		
+		<table>
+			<tr height="50">
+				<td align="center" width="50">
+					<img alt="bottom(1)" src="img/bottom(1).png" width="40" height="40">
+				</td>
+				<td width="250">
+					<font size="1" color="gray">
+					[인증범위]마켓컬리 쇼핑몰 서비스 개발ㆍ운영<br>
+					[유효기간]2019.04.01~2022.03.31
+					</font>
+				</td>
+				<td align="center" width="50">
+					<img alt="bottom(3)" src="img/bottom(3).png" width="40" height="40">
+				</td>
+				<td width="250">
+					<font size="1" color="gray">
+					개인정보보호 우수 웹사이트<br>
+					개인정보처리시스템 인증(ePRIVACY PLUS)
+					</font>
+				</td>
+				<td align="center" width="150">
+					<img alt="bottom(2)" src="img/bottom(2).png" width="150" >
+				</td>
+				<td width="350">
+					<font size="1" color="gray">
+					고객님의 안전거래를 위해 현금 등으로 결제 시 저희 쇼핑몰에서 가입한 <br/>
+					토스 페이먼츠 구매안전(에스크로) 서비스를 이용하실 수 있습니다.
+					</font>
+				</td>
+			</tr>
+		</table>	
+	</div>	
+
+</body>
+</html>

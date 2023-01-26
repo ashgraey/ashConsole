@@ -1,0 +1,34 @@
+<script>
+/*
+    a 배열안 에 b 의 값이 있으면 a 와 b배열안의 값들을 0으로 변경한다. 	
+  
+*/
+var a =[
+  [10,20,30],
+  [40,50,60],
+  [70,80,90]
+];
+var b = [10, 2, 54, 90 , 50];
+
+var i;
+var j;
+var x;
+var idx1;
+var idx2;
+for(i = 0; i < a.length; i ++) {
+  for(j = 0; j < a[i].length; j ++) {
+    idx1 = i;
+    idx2 = j;
+    for(x = 0; x < b.length; x ++) {
+      if(a[idx1][idx2] == b[x]) {
+        a[idx1][idx2] = 0;
+        b[x] = 0;
+      }
+    }    
+    } 
+  }
+console.log(a);
+console.log(b);
+
+
+</script>

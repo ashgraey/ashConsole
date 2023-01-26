@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+        <meta charset="UTF-8">
+        <title> 배열 </title>
+        <script>
+                var dong = [
+                        [1001, 1002, 1003],
+                        [2001, 2002, 2003],
+                        [3001, 3002, 3003],
+                ];
+                var pay = [
+                        [34000, 12000, 31000],
+                        [40200, 65000, 20020],
+                        [45300, 1300, 24200],
+                ]
+
+                // 2차원배열
+
+                for (var i = 0; i < dong.length; i++) {
+                        for (var j = 0; j < dong[i].length; j++) {
+                                document.write(dong[i][j] + "  ");
+
+                        }
+                        document.write("<br>");
+                }
+
+                document.write("<hr>");
+
+                for (var i = 0; i < pay.length; i++) {
+                        for (var j = 0; j < pay[i].length; j++) {
+                                document.write(pay[i][j] + "  ");
+
+                        }
+                        document.write("<br>");
+                }
+
+/*
+                문제 1) 각층별 관리비 합 출력
+                정답 1) 4400, 7100, 5400	
+
+                문제 2) 호를 입력하면 관리비 출력
+                정답 2) 입력 : 202	관리비 출력 : 2000	
+
+                문제 3) 관리비가 가장 많이 나온 집, 적게 나온 집 출력
+                정답 3) 가장 많이 나온 집(201), 가장 적게 나온 집(303)	
+                
+                문제 4) 호 2개를 입력하면 관리비 교체 (101 , 102) ==>  (2100, 1000)		
+                문제 5) 관리비 많이 나온순서대로 관리비와 호수 출력 (정렬)
+        */
+
+        // 문제 1) 각 층별 관리비 합 출력
+        document.write("<hr>")
+        document.write("문제 1)", "<br>");
+        var i;
+        var j;
+        var total;
+        for(i = 0; i < pay.length; i ++) {
+                total = 0;
+                for(j = 0; j < pay[i].length; j ++) {
+                        total += pay[i][j];
+                }
+                document.write(i + 1, "층 " + total, "<br>");
+        }
+
+        // 문제2) 호를 입력하면 관리비 합 출력
+        // 호 입력
+        document.write("<br> 문제2)")
+        var i;
+        var j;
+        var ho = prompt("호를 입력해주세요.");
+
+        // 호의 위치값 찾기
+        var hoIdx1 = 0;
+        var hoIdx2 = 0;
+
+        for(i = 0; i < dong.length; i ++) {
+                for(j = 0; j < dong[i].length; j ++) {
+                        if(ho == dong[i][j]) {
+                                hoIdx1 = i;
+                                hoIdx2 = j;
+                        }
+                }
+        }
+
+        document.write("<br> 관리비 : ", pay[hoIdx1][hoIdx2]);
+
+        // 문제3) 관리비가 가장 많이 나온집, 가장 적게 나온집
+        var max = 0;
+        var maxY = 0;
+        var maxX = 0;
+        var min = 100000;
+        var minY = 0;
+        var minX = 0;
+        for(i = 0; i < pay.length; i ++) {
+                for(j = 0; j < pay[i].length; j++) {
+                        if(max < pay[i][j]) {
+                                max = pay[i][j];
+                                maxY = i;
+                                maxX = j;
+
+                        }
+                        if(min > pay[i][j]) {
+                                min = pay[i][j];
+                                minY = i;
+                                minX = j;
+
+                        }
+                }
+        }
+        document.write("<br><br> 문제3)")
+        document.write("<br> 가장 많이 나온집 : ", dong[maxY][maxX], "<br>")
+        document.write("가장 적게 나온집 : ", dong[minY][minX], "<br>")
+
+        // 문제4) 호 2개를 입력하면 관리비 교체 (101 , 102) ==>  (2100, 1000)
+        document.write("<br> 문제4) <br>")
+
+        var ho1 = parseInt(Math.random() * 3);
+        var ho2 = parseInt(Math.random() * 3);
+        var ho3 = parseInt(Math.random() * 3);
+        var ho4 = parseInt(Math.random() * 3);
+
+        document.write(dong[ho1][ho2] + "호 ", dong[ho3][ho4] + "호 <br>");
+
+        var temp = pay[ho1][ho2];
+        pay[ho1][ho2] = pay[ho3][ho4];
+        pay[ho3][ho4] = temp;
+
+        document.write("<br>");
+        for(i = 0; i < pay.length; i ++) {
+               document.write(pay[i], "<br>")
+        }
+
+        // 문제5) 관리비가 많이 나온순으로 호수 정렬
+
+        var tempPay = [];
+        var idx = 0;
+        for(i = 0; i < pay.length; i ++) {
+                for(j=0; j<pay[i].length; j++) {
+                        tempPay[idx] = pay[i][j];
+                        idx ++;
+                }
+        }
+        // document.write("<br>", tempPay);
+
+        var tempDong = [];
+        var idx = 0;
+        for(i = 0; i < pay.length; i ++) {
+                for(j=0; j<pay[i].length; j++) {
+                        tempDong[idx] = dong[i][j];
+                        idx ++;
+                }
+        }
+        // document.write("<br>", tempDong);
+
+  
+        for(i = 0; i < tempPay.length; i ++) {
+                tempP = 0;
+                tempD = 0
+                max = 0;
+                maxIdx = 0;
+                for(j = i; j < tempPay.length; j ++) {
+                        if(max < tempPay[j]) {
+                                max = tempPay[j];
+                                maxIdx = j;
+                        }
+                }
+                tempP = tempPay[i];
+                tempPay[i] = tempPay[maxIdx];
+                tempPay[maxIdx] = tempP;
+
+                tempD = tempDong[i];
+                tempDong[i] = tempDong[maxIdx];
+                tempDong[maxIdx] = tempD;
+        }
+        document.write("<br> 문제 5) <br>");
+        document.write(tempPay);
+        document.write("<br>", tempDong);
+                
+
+
+
+                        
+
+
+
+        
+
+        </script>
+</head>
+
+<body>
+</body>
+
+</html>

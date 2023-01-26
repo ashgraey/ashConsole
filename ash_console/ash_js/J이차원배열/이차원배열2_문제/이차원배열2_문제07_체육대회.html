@@ -1,0 +1,52 @@
+<script>
+    /*	
+        철수네반은 체육대회를 준비하고있다. 
+        달리기 배열은 달리기대회 에 참가하는 학생들이다. 
+        배구 배열은 배구 대회에 참가하는 학생들이다.
+        둘중 하나만 참가하는 학생들을 c배열에 저장하시오.
+    */
+
+    var 달리기 = [
+        ["김철수", "이서영", "최민식"],
+        ["조춘자", "김말숙", "이진상"],
+        ["유재석", "박명수", "킬리만자로"],
+    ];
+    var 배구 = [
+        ["신민아", "김말숙", "최재식"],
+        ["최민식", "이서영", "소지석"],
+        ["이민자", "유명새", "조춘자"],
+    ];
+    var c = [];
+
+    var d = [];
+    var v = [];
+    var i;
+    var j;
+    var idx = 0;
+    for (i = 0; i < 달리기.length; i++) {
+        for (j = 0; j < 달리기[i].length; j++) {
+            d[idx] = 달리기[i][j];
+            v[idx] = 배구[i][j];
+            idx += 1;
+        }
+    }
+    console.log(d);
+    console.log(v);
+
+    var check;
+    idx = 0;
+    for (i = 0; i < d.length; i++) {
+        check = false;
+        for (j = 0; j < v.length; j++) {
+            if (d[i] == v[j]) {
+                check = true;
+                break;
+            }
+        }
+        if (check == false) {
+            c[idx] = d[i];
+            idx += 1;
+        }
+    }
+    console.log("둘 중 하나만 참가하는 학생 = " + c);
+</script>

@@ -1,0 +1,132 @@
+<script>
+	/*	
+	문제 1) 각층별 관리비 합 출력
+	정답 1) 4400, 7100, 5400		
+	문제 2) 호를 입력하면 관리비 출력
+	정답 2) 입력 : 202	관리비 출력 : 2000	
+	문제 3) 관리비가 가장 많이 나온 집, 적게 나온 집 출력
+	정답 3) 가장 많이 나온 집(201), 가장 적게 나온 집(303)		
+	문제 4) 호 2개를 입력하면 관리비 교체 (101 , 102) ==>  (2100, 1000)		
+	문제 5) 관리비 많이 나온순서대로 관리비와 호수 출력 (정렬)
+	*/
+	var apt = [
+		[101, 102, 103],
+		[201, 202, 203],
+		[301, 302, 303]
+
+	];
+
+	var pay = [
+		[1000, 2100, 1300],
+		[4100, 2000, 1000],
+		[3000, 1600, 800]
+	];
+
+	console.log("===== 문제1 =====");
+	var i;
+	var j;
+	for (i = 0; i < apt.length; i++) {
+		total = 0;
+		for (j = 0; j < pay.length; j++) {
+			total += pay[i][j];
+		}
+		console.log((i + 1) + "층", total);
+	}
+
+
+	console.log("===== 문제2 =====");
+	var r1 = parseInt(Math.random() * apt.length);
+	var r2 = parseInt(Math.random() * apt.length);
+	console.log(r1, r2);
+
+	console.log("입력 = ", apt[r1][r2]);
+	console.log("관리비 출력 = ", pay[r1][r2]);
+
+	console.log("===== 문제3 =====");
+	var max = 0;
+	var maxIdx1 = 0;
+	var maxIdx2 = 0;
+	var min = 10000;
+	var minIdx1 = 0;
+	var minIdx2 = 0;
+	for (i = 0; i < pay.length; i++) {
+		for (j = 0; j < pay[i].length; j++) {
+			if (max < pay[i][j]) {
+				max = pay[i][j];
+				maxIdx1 = i;
+				maxIdx2 = j;
+			}
+			if (min > pay[i][j]) {
+				min = pay[i][j]
+				minIdx1 = i;
+				minIdx2 = j;
+
+			}
+		}
+	}
+	console.log("가장 많이 나온 집 =", apt[maxIdx1][maxIdx2]);
+	console.log("가장 적게 나온 집 =", apt[minIdx1][minIdx2]);
+
+
+	console.log("===== 문제4 =====");
+	var ho1 = parseInt(Math.random() * apt.length);
+	var ho2 = parseInt(Math.random() * apt.length);
+	var ho3 = parseInt(Math.random() * apt.length);
+	var ho4 = parseInt(Math.random() * apt.length);
+	console.log(apt[ho1][ho2], apt[ho3][ho4]);
+
+	var temp = pay[ho1][ho2];
+	pay[ho1][ho2] = pay[ho3][ho4];
+	pay[ho3][ho4] = temp;
+	console.log(pay[ho1][ho2], pay[ho3][ho4]);
+
+	console.log("===== 문제5 =====");
+	var temp = [];
+	var temp2 = [];
+	var idx = 0;
+	for (i = 0; i < pay.length; i++) {
+		for (j = 0; j < pay[i].length; j++) {
+			temp[idx] = pay[i][j];
+			temp2[idx] = apt[i][j]
+			idx += 1;
+		}
+	}
+	// console.log(temp);
+	// console.log(temp2);
+
+	var x = 0;
+	var y = 0;
+	for (i = 0; i < temp.length; i++) {
+		max = temp[i];
+		maxIdx = i;
+		for (j = i; j < temp.length; j++) {
+			if (max < temp[j]) {
+				max = temp[j];
+				maxIdx = j;
+			}
+		}
+		x = temp[maxIdx];
+		temp[maxIdx] = temp[i];
+		temp[i] = x;
+
+		y = temp2[maxIdx];
+		temp2[maxIdx] = temp2[i];
+		temp2[i] = y;
+
+	}
+	console.log(temp);
+	console.log(temp2);
+
+	idx = 0;
+	for (i = 0; i < apt.length; i++) {
+		for (j = 0; j < apt[i].length; j++) {
+			apt[i][j] = temp2[idx];
+			idx += 1;
+		}
+	}
+	console.log(apt);
+
+
+
+
+</script>

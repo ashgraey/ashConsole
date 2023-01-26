@@ -1,0 +1,22 @@
+<script>
+    	/*
+	  	숫자(10~50) 한개를 랜덤으로 저장하고 
+          배열안에서 그숫자보다 작은값들의 합을 출력 
+	  	
+	  	예) 34
+	  	결과) 10,20,30 ==> 60
+
+		  */
+var array = [10,20,30,40,50];
+var r = parseInt(Math.random() * 41) + 10;
+console.log("랜덤 값 = ", r);
+
+var total = 0;
+for(var i = 0; i < array.length; i ++) {
+	if(r > array[i]) {
+		console.log(array[i])
+		total += array[i];
+	}
+}
+console.log("합 =", total);
+</script>

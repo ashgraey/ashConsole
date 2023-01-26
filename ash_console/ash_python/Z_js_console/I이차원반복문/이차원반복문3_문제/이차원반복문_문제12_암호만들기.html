@@ -1,0 +1,32 @@
+<script>
+
+/*
+	input 에 비밀번호를  password 배열로 저장할려고한다.
+	단, 암호로 만들기위해 2칸씩 뒤로 밀어서 저장한다. 밀린글자는 앞에서 저장한다.
+	
+	[예]
+		input = "qwer1234";
+		password = ["3","4","q","w","e","r","1","2"];
+ */
+var input = "qwer1234";
+var password = ["","","","","","","",""];
+
+console.log(input.length);
+var i;
+for(i = 0; i < input.length; i++) {
+	if(input[i] == "3") {
+		var idx = i;
+	}
+}
+console.log(idx);
+
+var j;
+for(j = 0; j < password.length; j ++) {
+	password[j] = input[idx];
+	idx += 1;
+	if(idx == password.length) {
+		idx = 0;
+	}
+}
+console.log(password);
+</script>

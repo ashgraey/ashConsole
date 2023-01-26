@@ -1,0 +1,40 @@
+<script>
+	/*
+		[문제]
+			array 배열에 -100~100사이의 랜덤값중 홀수만 5개 저장한다. 
+	 		그중 가장작은값의 인덱스와 값을 출력한다. 
+
+             
+	 */
+var arr = [];
+
+var i = 0;
+var r = 0; 
+var c = 0;
+// var idx = 0;
+while (true) {
+	r = parseInt(Math.random() * 201) - 100;
+	if(r % 2 == 1 || r % 2 == -1) {
+		arr[i] = r;
+		c += 1;
+		i += 1;
+	}
+	if(c == 5) {
+		break;
+	}
+
+}
+console.log(arr);
+
+var minIdx = 0;
+var min = 1000;
+for(i = 0; i < arr.length; i ++) {
+	if(min > arr[i]) {
+		min = arr[i];
+		minIdx = i;
+	}
+}
+console.log("가장작은값 = " + arr[minIdx])
+console.log("idx = " + minIdx)
+
+</script>

@@ -1,0 +1,24 @@
+<script>
+    /*
+	 * [석차 출력]
+	 * 		성적 순으로 번호와 점수 출력 
+ 
+	 */
+
+var numList = [1001, 1002, 1003, 1004];
+var scoreList = [87, 42,  11, 98];
+
+var i;
+var j;
+var count;
+for(i = 0; i < scoreList.length; i++) {
+	count = 0;
+	for(j = 0; j < scoreList.length; j ++) {
+		if(scoreList[i] <= scoreList[j]) {
+			count += 1;
+		}
+	}
+	console.log("순위 = " + count, "번호 = " + numList[i], "점수 = " + scoreList[i]);
+}
+
+</script>

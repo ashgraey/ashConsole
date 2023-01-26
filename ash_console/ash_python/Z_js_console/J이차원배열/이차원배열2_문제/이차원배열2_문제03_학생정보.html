@@ -1,0 +1,106 @@
+<script>
+	/*
+			//[문제1] 여학생들 점수총합 과 남학생들의 점수총합을 비교하고 점수가 더큰쪽을 출력
+			
+			//[문제2] 평균이 60점이상이면 합격 : 합격생들 번호 이름 점수 출력 
+			
+			//[문제3] 이름을 입력하면 번호 점수 출력 
+			
+			//[문제4] 국어점수가 수학점수 보다 큰 학생들 번호 이름 출력 
+			
+			//[문제5] 1등 번호, 이름 출력 (여러명이면 전부 출력)
+		 */
+	var student = [
+		["번호", "이름", "성별", "국어", "수학"],
+		[1001, "이만수", "남", 10, 20],
+		[1002, "이영희", "여", 70, 30],
+		[1003, "김민정", "여", 64, 65],
+		[1004, "이철민", "남", 13, 87],
+		[1005, "오만석", "남", 49, 80],
+		[1005, "최이슬", "여", 14, 90],
+	];
+
+	console.log("===== 문제1 =====");
+	var i;
+	var j;
+	var mtotal = 0;
+	var wtotal = 0;
+	for (i = 0; i < student.length; i++) {
+		if (i > 0) {
+			for (j = 0; j < student[i].length; j++) {
+				if (student[i][j] == "남") {
+					mtotal += student[i][j + 1];
+					mtotal += student[i][j + 2];
+					// console.log(mantotal);
+				}
+				else if (student[i][j] == "여") {
+					wtotal += student[i][j + 1];
+					wtotal += student[i][j + 2];
+				}
+			}
+		}
+	}
+	if (mtotal > wtotal) {
+		console.log("남자 총합 =", mtotal);
+	}
+	else {
+		console.log("여자 총합 =", wtotal);
+	}
+
+	console.log("===== 문제2 =====");
+	var total;
+	for (i = 0; i < student.length; i++) {
+		if (i > 0) {
+			total = 0;
+			for (j = 3; j < student[i].length; j++) {
+				total += student[i][j];
+			}
+
+			avg = parseInt(total / 2);
+			if (avg >= 60) {
+				console.log("합격", "번호 = " + student[i][0], "이름 = " + student[i][1]);
+			}
+		}
+	}
+
+	console.log("===== 문제3 =====");
+	var idx1 = parseInt(Math.random() * 6) + 1;
+	console.log(student[idx1][1]);
+
+	for (i = 1; i < student.length; i++) {
+
+		for (j = 1; j < student[i].length; j++) {
+			if (student[idx1][1] == student[i][j]) {
+				console.log(student[i][0], student[i][3], student[i][4]);
+			}
+
+		}
+	}
+
+	console.log("===== 문제4 =====");
+	for (i = 1; i < student.length; i++) {
+
+		if (student[i][3] > student[i][4]) {
+			console.log(student[i][1]);
+		}
+	}
+
+	console.log("===== 문제5 =====");
+	var max = 0;
+	var maxIdx = 0;
+	for (i = 1; i < student.length; i++) {
+		total = 0;
+		for (j = 3; j < student[i].length; j++) {
+			total += student[i][j];
+		}
+		if (max < total) {
+			max = total;
+			maxIdx = i;
+		}
+
+	}
+	console.log(max);
+	console.log("1등 번호 = ", student[maxIdx][0], "1등 이름 = ", student[maxIdx][1]);
+
+
+</script>

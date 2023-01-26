@@ -1,0 +1,39 @@
+<script>
+    	/*
+	 * [랜덤점수통계]
+	 * 
+ *	   1. 10회 반복을 한다.
+	 * 2. 0~100 사이의 랜덤 숫자를 출력한다 (학생 점수)
+	 * 3. 번호는 1번부터 시작한다. 번호와 점수를 출력한다 
+	 * 4. 성적이 60점 이상이면 합격생이다. 합격생은 점수옆에[합격] 불합격은 [불합격] 을 출력한다. 
+	 * 5. 전교생(10명)의 총점과 평균을 출력한다.
+	   6. 1등의 번호와 점수를 출력한다.
+	 */
+
+var num = 1;
+var total = 0;
+var max = 0;
+var maxNum = 0;
+
+for(var i = 0; i < 10; i ++) {
+	var score = parseInt(Math.random() * 100);
+	console.log(num + " : " + score);
+	total += score;
+
+	if(score >= 60) {
+		console.log("합격");
+	}
+	else {
+		console.log("불합격");
+	}
+
+	if(max < score) {
+		max = score;
+		maxNum = num;
+	}
+	num += 1;
+}
+var avg = parseInt(total / 10);
+console.log("평균 =", avg);
+console.log("1등 번호 =", maxNum, "1등 점수 =", max );
+</script>

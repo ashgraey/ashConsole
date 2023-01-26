@@ -1,0 +1,38 @@
+<script>
+    /*
+		[문제]		
+    a 는 랜덤으로 1~99를 랜던저장한다.
+    c 는 랜덤으로 101~199 를 랜덤저장한다.
+
+    a 와 c 중 어떤숫자가 b 와 더가까운지 출력하시오.
+    [1] a 가 b 보다 가까우면 "a가 가깝다."
+    [2] c 가 a 보다 가까우면 "c가 가깝다."
+    [3] 서로 거리가 같으면 "서로같다"
+	 */
+    var a = parseInt(Math.random() * 99) + 1;
+    var c = parseInt(Math.random() * 99) + 101;
+    var b = 100;
+    // var a = 50;
+    // var c = 150;
+    
+    console.log(a + " : " + c)
+    var ab = b - a;
+    var cb = c - b;
+    console.log("a거리 = " + ab, "c거리 = " + cb)
+
+    if (ab > cb) {
+      console.log("c가 가깝다");
+    }
+    if (ab < cb) {
+      console.log("a가 가깝다");
+    }
+    if (ab == cb) {
+      console.log("서로같다.")
+    }
+    
+
+
+
+ 
+
+</script>

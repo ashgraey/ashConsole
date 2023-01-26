@@ -1,0 +1,22 @@
+<script>
+    	/*
+	  	[문제] 
+	  	 	120의 약수중에서 순서대로 약수를 출력했을때, 
+               일의자리가4인두번째 약수를 출력하시오.
+	 */
+var i = 1;
+var count = 0;
+var result = 0;
+while(i <= 120) {
+	if(120 % i == 0 && i % 10 == 4) {
+		count += 1;
+		// console.log(i);
+		if(count == 2) {
+			// console.log();
+			result = i;
+		}
+	}
+	i ++;
+}
+console.log("result = " + result);
+</script>

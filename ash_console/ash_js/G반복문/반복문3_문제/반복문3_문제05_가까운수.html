@@ -1,0 +1,17 @@
+<script>
+    	/*
+	 * [문제] 
+	 * 	 	100의 약수중에서 50에 가장 가까운수를 구하시오.
+	 */
+var i = 1;
+var fir = 0;
+while(i <= 50) {
+	if(100 % i == 0) {
+		if(fir < i) {
+			fir = i;
+		}
+	}
+	i ++;
+}
+console.log(fir);
+</script>

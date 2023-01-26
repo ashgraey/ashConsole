@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title> 퀴즈 </title>
+	<script>
+	/*  
+		[문제] 
+		321321초를  "시간" , "분" , "초" 로 표현햇을때 ,
+	    "분" 이  홀수인가요?
+	*/
+	var num = 321321;
+
+	var 시간 = num / 3600;
+	var 분 = num / 60
+	// document.write(분, "<br>");
+
+	result = 분 % 2 == 0 ? "짝수" : "홀수";
+	document.write("문제1 : ", result,"<br>");
+	
+	/*
+ 		[문제] 
+		돈20000원에서 오이(1200원)  을 9개 사고,
+		남은 거스름돈이 10000원 이하입니까?
+	*/
+	var money = 20000
+	var 오이 = 1200
+
+	var 거스름돈 = 10000
+	var result1 = money - (오이 * 9) <= 거스름돈 ? "10000원 이하입니다." : "10000원 이상입니다.";
+	document.write("문제2 : ", result1, "<br>");
+
+	/*
+		[문제]
+		작년 연봉은 970 원이다 올해는 11 프로 인상이 되었다. 
+		올해 우리 회사 평균 월급은 91 원이다. 
+		올해의  내연봉이 올해의 우리회사 평균 연봉 보다 큽니까?
+	 */
+	
+	var 작년연봉 = 970;
+	var 인상율 = 0.11;
+	var 올해연봉 = 작년연봉 + (작년연봉 * 인상율);
+	var 회사연봉 = 91 * 12;
+
+	var result2 = 올해연봉 > 회사연봉 ? "크다" : "작다";
+	document.write("문제 3 : ", result2, "<br>");
+	// document.write(올해연봉," ", 회사연봉);
+	</script>
+	
+</head>
+<body>
+</body>
+</html>

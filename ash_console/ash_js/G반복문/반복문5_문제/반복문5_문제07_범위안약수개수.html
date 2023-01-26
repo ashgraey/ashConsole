@@ -1,0 +1,17 @@
+<script>
+	/*
+	 * [문제] 
+	 * 	48의 약수중 홀수의 개수를 출력하시오.
+	 */
+var count = 0;
+for(var i = 1; i <= 48; i ++) {
+	if(48 % i == 0) {
+		// console.log(i);
+		if(i % 2 == 1) {
+			count += 1;
+		}
+	}
+}
+console.log("홀수 개수 =", count)
+
+</script>

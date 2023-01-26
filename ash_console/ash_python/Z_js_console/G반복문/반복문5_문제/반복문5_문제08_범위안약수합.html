@@ -1,0 +1,16 @@
+<script>
+    	/*
+	 * [문제] 
+	 * 	48의 약수중 홀수의 합을 출력하시오.
+	 */
+
+var total = 0; 
+for(var i = 1; i <= 48; i ++) {
+	if(48 % i == 0) {
+		if(i % 2 == 1) {
+			total += i;
+		}
+	}
+}
+console.log(total);
+</script>

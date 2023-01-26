@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            prompt("메세지" );
+            
+            window.location.href = 뒤에 문자열로 주소를 저장하면 해당주소로 강제이동된다. 
+	    */
+
+        /*
+            네이버 , 구글 둘중하나를 입력받고 해당사이트로 강제이동시키시오.
+        */
+
+        var move = prompt("네이버나 구글 중 하나를 입력하시오.")
+        var url;
+
+        switch(move) {
+            case "네이버" :
+                url = "www.naver.com"
+                break;
+            case "구글" :
+                url = "www.google.com"
+                break;
+
+            default :
+                alert("보기중에 없는 사이트입니다.")
+        }
+
+        if(url) location.href = "http://" + url;
+        
+    </script>
+</body>
+</html>

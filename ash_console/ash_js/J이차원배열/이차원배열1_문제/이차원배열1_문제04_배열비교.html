@@ -1,0 +1,39 @@
+<script>
+	/*
+		a배열과 b배열의 겹치는 값을 전부 0으로 변경 
+		[정답]
+		30, 40, 50 을 전부 0으로 변경한다.
+	*/
+
+	var a = [
+		[10, 20, 30],
+		[40, 50, 60],
+		[70, 80, 90],
+	];
+	var b = [
+		[23, 40, 21],
+		[4, 34, 50],
+		[67, 11, 30],
+	];
+
+	var i;
+	var j;
+	var x;
+	var y;
+	for (i = 0; i < a.length; i++) {
+		for (j = 0; j < a[i].length; j++) {
+			for (x = 0; x < b.length; x++) {
+				for (y = 0; y < b[i].length; y++) {
+					if (a[i][j] == b[x][y]) {
+						a[i][j] = 0;
+						b[x][y] = 0;
+					}
+				}
+			}
+		}
+	}
+
+	console.log(a);
+	console.log(b);
+
+</script>

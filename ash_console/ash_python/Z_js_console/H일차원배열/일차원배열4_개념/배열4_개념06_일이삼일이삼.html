@@ -1,0 +1,24 @@
+<script>
+	/*
+	  	[문제]
+		 	
+		 	arr 배열에 순서대로 123을 반복적으로 저장후 출력	 	
+	 	[예] 
+	 		
+	 	    arr = [1,2,3,1,2,3,1,2];
+	  
+	 */
+var arr = [0,0,0,0,0,0,0,0];
+
+var num = 1;
+var i;
+for(i = 0; i < arr.length; i ++) {
+	arr[i] = num;
+	num += 1;
+	
+	if(i % 3 == 2) {
+		num = 1;
+	}
+}
+console.log(arr);
+</script>

@@ -1,0 +1,17 @@
+<script>
+    	/*
+	 * [문제] 
+	 * 	 	100의 약수중에서 큰수부터 4개만 출력
+	 */
+var i = 100;
+var count = 0;
+while(i >= 1) {
+	if(100 % i == 0) {
+		count += 1;
+		if(count <= 4) {
+			console.log(i);
+		}
+	}
+	i --;
+}
+</script>

@@ -1,0 +1,36 @@
+<script>
+
+    /*
+	  [문제]
+	  
+	 	[로또] 
+		1~45사이의 랜덤값 6 개를 lotto1 에 저장할려고 한다.
+		[조건] 중복되는숫자는 없어야한다. 
+	*/
+
+var i = 0;
+var j;
+var check;
+var lotto = [];
+while(true) {
+	check = false;
+	var r = parseInt(Math.random() * 45) + 1;
+
+	for(j = 0; j < i; j ++) {
+		if(lotto[j] == r) {
+			check = true;
+			break;
+		}
+	}
+
+	if(check == false) {
+		lotto[i] = r;
+		i += 1;
+	}
+	if(i == 6) {
+		break;
+	}
+
+}
+console.log(lotto);
+</script>

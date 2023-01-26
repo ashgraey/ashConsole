@@ -1,0 +1,53 @@
+<script>
+
+	/*
+	 * [개수찾기]
+	 
+	  	 아래배열의 문자들을 새로운배열두개를 만들어서 문자별 개수로 모으시오.
+		 var arr = [ "a", "b", "c", "c", "d", "a", "c", "c", "b", "c", "b" ];	
+	  	 var str = ["a","b","c","d"];
+	  	 var count = [2,3,5,1];
+
+
+        	
+	 */
+
+var arr = [  "a", "b", "c", "c", "d", "a", "c", "c", "b", "c", "b"];	
+var str = [];
+var count = [];
+
+// str[0] = arr[0];
+
+var check;
+var i;
+var j;
+var idx = 0;
+for(i = 0; i < arr.length; i ++) {
+	check = false;
+	for(j = 0; j < str.length; j ++) {
+		if(arr[i] == str[j]) {
+			check = true;
+			break;
+		}
+	}
+	if(check == false) {
+		str[idx] = arr[i];
+		idx ++;
+	}
+		
+}
+console.log(str);
+// console.log(arr);
+
+var cnt;
+for(i = 0; i < str.length; i ++) {
+	cnt = 0;
+	for(j = 0; j < arr.length; j ++) {
+		if(str[i] == arr[j]) {
+			cnt += 1;
+		}
+	}
+	count[i] = cnt;
+}
+console.log(count);
+</script>

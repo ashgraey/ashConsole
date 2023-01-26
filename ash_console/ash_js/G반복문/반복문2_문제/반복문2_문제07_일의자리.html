@@ -1,0 +1,24 @@
+<script>
+    	
+	/*
+	  [문제] 
+	  	9의 배수중 일의 자리가 6인 첫번째 배수 출력하시오.
+	    답 : 36
+	 */
+	var i = 1;
+	var count = 0;
+	while(true) {
+		if(i % 9 == 0) {
+			if(i % 10 == 6) {
+				count += 1;
+				// console.log(i)
+				if(count == 1) {
+					console.log(i);
+					break;
+				}
+			}
+		}
+		i ++;
+	}
+		
+</script>

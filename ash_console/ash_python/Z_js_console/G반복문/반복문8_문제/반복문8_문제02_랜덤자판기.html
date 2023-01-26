@@ -1,0 +1,39 @@
+<script>
+    	/* 
+	 	자판기에서 음료수를 뽑을려고한다. 
+	 	음료수 번화와 가격은 아래와 같이 준비되어있다. 
+	 	
+	 	[1] 콜라 200원 
+	 	[2] 사이다 300원
+	 	[3] 환타 400원
+	 	
+	 	랜덤으로 5회 반복하고 철수가 구입한 총금액을 출력하시오. 
+		 do while 사용	 	
+	 */
+
+
+var total = 0;
+var i = 0;
+do {
+var num = parseInt(Math.random() * 3) + 1;
+console.log(num);
+
+if(num == 1) {
+	console.log("[1] 콜라 : 200원")
+	total += 200;
+}
+
+if(num == 2) {
+	console.log("[2] 사이다 : 300원")
+	total += 300;
+}
+
+if(num == 3) {
+	console.log("[3] 환타 : 400원")
+	total += 400;
+}
+i ++;
+} while(i < 5);
+
+console.log("총 금액 = ", total)
+</script>

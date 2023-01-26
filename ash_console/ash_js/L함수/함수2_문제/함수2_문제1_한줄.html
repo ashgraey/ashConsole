@@ -1,0 +1,33 @@
+<script>
+/*
+	
+	아래배열 3개는 학생 점수 데이터 이다 
+	이름 한줄로 저장하시오.
+	[예시]
+		data = [1001,"김철수",32,1002,"이만수",54,1003,"조영민",12];
+ */
+	function test(num,N,sc,dt) {
+		// var size = num.length + N.length + sc.length;
+		// console.log(size);
+
+		var idx = 0;
+		for(var i = 0; i < num.length; i ++) {
+			dt[idx] = num[i];
+			idx += 1;
+			dt[idx] = N[i];
+			idx += 1;
+			dt[idx] = sc[i];
+			idx += 1;
+		}
+		console.log(dt); 	
+
+	}
+
+
+	 var number= [1001,1002,1003];
+	 var Name = ["김철수","이만수","조영민"];
+	 var score = [32,54,12];
+
+	 var data = [];
+	 test(number, Name, score, data);
+</script>

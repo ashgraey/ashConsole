@@ -1,0 +1,110 @@
+<script>
+/*		
+아래 배열에 값을 1~9까지 저장할려고한다. 
+저장방식은 4가지의 지렁이 모양으로 저장할려고한다.
+1~4를 입력받고 해당모양으로 숫자를 저장하시오.
+지렁이 모양은 아래와같다. 
+
+[예]
+	[1 번 선택시] 
+	
+	123
+	654
+	789
+	
+	[2 번 선택시]
+	
+	
+	761		012		0
+	852		012		1
+	943		012		2
+	
+	[3번 선택시]
+	
+	987
+	456
+	321
+	
+	[4번 선택시]
+	
+	349
+	258
+	167
+*/	
+
+var arr = [[],[],[]];
+var r = parseInt(Math.random() * 4 + 1)
+console.log(r)
+var n = 1
+if(r == 1){
+	for(var i = 0; i < arr.length; i ++){
+		if(i % 2 == 0){
+			for(var j = 0; j < 3; j ++){
+				arr[i][j] = n
+				n++;
+			}
+		}
+		else{
+			for(var j = 2; j >= 0; j--){
+				arr[i][j] = n
+				n++;
+			}
+		}
+	}
+}
+else if(r == 2){
+	for(var i = 2; i >= 0; i --){
+		if(i % 2 == 0){
+		for(var j = 0; j < 3; j ++){
+			arr[j][i] = n
+			n++;
+			}
+		}
+		else{
+			for(var j = 2; j >= 0; j--){
+			arr[j][i] = n
+			n++;
+			}
+		}
+	}
+}
+
+else if(r == 3){
+	for(var i = 2; i >= 0; i --){
+		if(i % 2 == 0){
+			for(var j = 2; j >= 0; j --){
+				arr[i][j] = n
+				n ++;
+			}
+		}
+		else{
+			for(var j = 0; j < 3; j ++){
+				arr[i][j] = n
+				n ++;
+			}
+		}
+	}
+}
+
+else{
+	for(var i = 0; i < 3; i ++){
+		if(i % 2 == 0){
+			for(var j = 2; j >= 0; j --){
+				arr[j][i] = n
+				n++
+			}
+		}
+		else{
+			for(var j = 0; j <= 2; j ++){
+				arr[j][i] = n
+				n++
+			}
+		}
+	}
+}
+
+
+
+console.log(arr)
+
+</script>

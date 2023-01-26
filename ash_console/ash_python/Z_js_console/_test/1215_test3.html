@@ -1,0 +1,41 @@
+<script>
+    /*
+        [문제1]
+            numList , nameList , scoreList 는 한쌍으로 각각 번호 이름 점수이다. 
+
+            searchList는 학생들이 본인 점수를 위해 검색한 순서이다. 
+            각 순서에 맞는 이름과 점수를 출력해주시오. 
+            단 , 없는 번호인 경우는 "x" 를 출력하시오.
+        [예시]
+            1001 => "김철수" , 100
+            1003 => "조영희" , 65
+            1006 => "이정아" , 90
+            1003 => "조영희" , 65
+            1007 => "x"
+            1002 => "이만수" , 32
+    */
+
+    numList = [1001, 1002, 1003, 1004, 1005, 1006];
+    nameList = ["김철수", "이만수", "조영희", "주정민", "김소희", "이정아"];
+    scoreList = [100, 32, 65, 77, 12, 90]
+
+    searchList = [1001, 1003, 1006, 1003, 1007, 1002];
+
+
+    var i;
+    var j;
+    var ck;
+    for(i = 0; i < searchList.length; i ++) {
+        ck = false
+        for(j = 0; j < numList.length; j ++) {
+            if(searchList[i] == numList[j]) {
+                console.log(searchList[i], nameList[j], scoreList[j])
+                ck = true
+            }
+        }
+        if(ck == false) {
+            console.log(searchList[i], "x")
+        }
+    }
+
+</script>

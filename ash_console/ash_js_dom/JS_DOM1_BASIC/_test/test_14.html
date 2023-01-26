@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        /*
+            아래 배열값을 화면에 출력하시오. 
+            단, 랜덤 (10~100) 사이의 값을  맨앞과 맨뒤에 각각 추가후 출력하시오.
+        */
+
+        var x = [1,2,3,4,5,6,7,8]
+
+        // 랜덤값
+        var fir = parseInt(Math.random() * 91) + 10;
+        document.write(fir,"<br>");
+        var las = parseInt(Math.random() * 91) + 10;
+        document.write(las);
+
+        // 맨 앞에 추가 .unshift
+        x.unshift(fir);
+
+        // 맨 뒤에 추가 .push
+        x.push(las);
+
+        // 출력
+        console.log(x);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<script>
+    	/* 
+	 	[자리별홀수개수]
+		  1 ~ 10000 사이의 숫자를 입력받고 
+		  자리별 홀수의 개수를 출력하시오.
+		  
+		  예) 
+		     561  ==> 2개
+		  	 1    ==> 1개
+		  	 668  ==> 0개
+		  	 9999 ==> 4개
+	 
+	 */
+var r = parseInt(Math.random() * 10000) + 1;
+console.log("입력값 =", r); 
+
+var count = 0;
+while(true) {
+	var unit = r % 10;
+	if(unit % 2 == 1) {
+		count += 1;
+	}
+	if(r == 0) {
+		break;
+	}
+	r = parseInt(r / 10);
+}
+console.log("홀수의 개수 =", count);
+</script>
