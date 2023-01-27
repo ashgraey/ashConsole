@@ -8,25 +8,39 @@
 '''
 text = "13,32,80,3,23"
 
-score = text.split(',')
-print(score)
+# score = text.split(',')
+# print(score)
 
 # 정수로 형변환
-scList = []
-for i in range(len(score)) :
-    scList.append(int(score[i]))
-print(scList)
+# scList = []
+# for i in range(len(score)) :
+#     scList.append(int(score[i]))
+# print(scList)
 
-# 평균 / 일등
+# # 평균 / 일등
+# tot = 0
+# max = scList[0]
+# for i in range(len(score)) :
+#     tot += scList[i]
+#     if scList[i] > max :
+#         max = scList[i]
+# avg = tot / len(score)
+# print(avg)
+# print(max)
+
+# 0127
+score = text.split(",")
+print(score)
+
+max = score[0]
+maxIdx = 0
 tot = 0
-max = scList[0]
 for i in range(len(score)) :
-    tot += scList[i]
-    if scList[i] > max :
-        max = scList[i]
+    if max < score[i] :
+        max = score[i]
+        maxIdx = i
+    tot += int(score[i])
+
 avg = tot / len(score)
-print(avg)
-print(max)
-
-
+print(score[maxIdx], avg)
 

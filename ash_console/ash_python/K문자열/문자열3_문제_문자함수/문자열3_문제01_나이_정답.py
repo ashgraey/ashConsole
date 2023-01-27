@@ -14,6 +14,7 @@ age = 2022 - year
 print(age, "세")
 
 key = jumin[7:8]
+print(key)
 if key == "1" or key == "3":
     print("남성")
 elif key == "2" or key == "4":

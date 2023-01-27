@@ -8,6 +8,7 @@
 '''
 text = "1001,김철수,17/1002,이민수,80/1003,신민아,49"
 temp = text.split("/")
+# print(temp)
 
 a = []
 for i in range(len(temp)):
@@ -18,6 +19,7 @@ for i in range(len(temp)):
 print("a : ", a)
 
 max = a[0][2]
+print("max", max)
 index = 0
 for i in range(len(a)):
     if max < a[i][2]:

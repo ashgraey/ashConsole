@@ -35,7 +35,7 @@ for i in range(len(temp)):
     info = temp[i].split(",")
     info[2] = int(info[2])
     orderList.append(info)
-print(orderList)
+    print(orderList[i])
 
 # cancel split
 temp = cancel.split("/")
@@ -44,7 +44,7 @@ for i in range(len(temp)):
     info = temp[i].split(",")
     info[2] = int(info[2])
     cancelList.append(info)
-print(cancelList)
+    print(cancelList[i])
 
 print("------------------------------------------")
 

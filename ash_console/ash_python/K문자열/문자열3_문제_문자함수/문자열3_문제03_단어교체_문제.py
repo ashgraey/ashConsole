@@ -17,4 +17,8 @@ chList = change.split(",")
 print("교체할 단어 : ", chList[0])
 print("교체 단어 : ", chList[1])
 
-# 1214 : retry
+chTxt = text[0:12]
+chTxt += chList[1]
+chTxt += "."
+text = chTxt
+print(text)

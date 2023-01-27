@@ -14,6 +14,49 @@ member = "qwer1234,pythongood,testid"
 item = "사과,1100/바나나,2000/딸기,4300"
 order = "qwer1234,사과,3/phthongood,바나나,2/qwer1234,딸기,5/testid,사과,4"
 
+# 0127
+# member = member.split(",")
+# print(member)
+
+# item = item.split("/")
+# for i in range(len(item)) :
+#     item[i] = item[i].split(",")
+#     print(item[i])
+
+# order = order.split("/")
+# for i in range(len(order)) :
+#     order[i] = order[i].split(",")
+#     print(order[i])
+
+# # order 수량을 품목별로 받아오기
+# apple = 0
+# berry = 0
+# banana = 0
+# for i in range(len(order)) :
+
+#     if order[i][1] == "사과" :
+#         apple += int(order[i][-1]) 
+    
+#     elif order[i][1] == "바나나" :
+#         banana += int(order[i][-1])
+    
+#     elif order[i][1] == "딸기" :
+#         berry += int(order[i][-1])
+
+# print(apple, banana, berry)
+
+# 품목별 매출을 tot변수에 합산하여 담기
+# tot = 0 
+# for i in range(len(item)) :
+#     if item[i][0] == "사과" :
+#         tot += apple * int(item[i][1])
+#     if item[i][0] == "바나나" :
+#         tot += banana * int(item[i][1])
+#     if item[i][0] == "딸기" :
+#         tot += berry * int(item[i][1])
+# print(tot)
+
+# 1차
 # member 스플릿
 memList = member.split(",")
 print("member = ", memList)
