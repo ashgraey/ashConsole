@@ -64,6 +64,17 @@ orderList = [
 # 각아이템별로 구입한 회원이름과 개수를 구하시오.
 # 단, 주문목록에 없는 아이템은 구하지않는다. 
 
+# 0129 어렵누
+# for i in range(len(itemList)) :
+#     item = itemList[i]
+
+#     for j in range(len(orderList)) :
+#         order = orderList[j]
+#         if item["itemnumber"] == order["itemnumber"] :
+#             for k in range(len(memberList)) :
+#                 member = memberList[k]
+#                 if member["membernumber"] == order["membernumber"] :
+                    
 
 # 1215 조건이 자꾸 꼬인다
 # membernumber 중복 찾기 -> itemnumber 중복찾기 

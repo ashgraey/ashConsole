@@ -46,7 +46,25 @@ for i in range(len(order)) :
     orderList.append(order[i])
     print(orderList[i])
 
-# 
+# 카운트 로직
+cnt = []
+for i in range(len(memberList)) :
+    temp = [0, 0, 0]
+    for j in range(len(orderList)) :
+        if memberList[i][0] == orderList[j][0] :
+            for k in range(len(itemList)) :
+                if orderList[j][1] == itemList[k][0] :
+                    temp[k] += 1
+    cnt.append(temp)
+print(cnt)
+
+# 출력
+for i in range(len(memberList)) :
+    print(memberList[i][1], end = " : ")
+    for j in range(len(cnt)) :
+        if cnt[i][j] > 0 :
+            print(itemList[j][1], cnt[i][j], end = " ")
+    print()
 
 # 1차
 # temp = member.split(',')

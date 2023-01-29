@@ -46,6 +46,8 @@ orderList = [
     {"orderid" : "cccddd" , "itemname" : "바나나" , "count" : 3},
     {"orderid" : "cccddd" , "itemname" : "사과" , "count" : 2},
 ]
+# 각회원별 상품별 이름과 총가격을 구하시오.
+# 단, 아무것도 주문하지않은 회원은 구하지않는다.
 
 
 

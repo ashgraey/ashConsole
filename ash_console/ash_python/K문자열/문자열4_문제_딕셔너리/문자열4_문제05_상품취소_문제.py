@@ -40,43 +40,75 @@ cancleList = [
     {"canclenumber" : 100005 },
 ]
 
-totalList = []
+# 0129
+tempList = []
 for i in range(len(cancleList)) :
     cancle = cancleList[i]
-    n = ""
-
+    temp = {}
     for j in range(len(orderList)) :
         order = orderList[j]
         if cancle["canclenumber"] == order["ordernumber"] :
+            name = order["itemname"]
+            cnt = order["count"]
             for k in range(len(itemList)) :
                 item = itemList[k]
                 if order["itemname"] == item["itemname"] :
-                    n = item["itemname"]
-                    price = item["price"] * order["count"]
-                    total = {"itemname" : n, "total" : price}
-                    totalList.append(total)
+                    total = cnt * item["price"]
 
-            print(n, price)
+            temp = {"itemname" : name, "total" : total}
+            tempList.append(temp)
+
+# print(tempList)
+
+# 중복찾기
+for i in range(len(tempList)) :
+    for j in range(i, len(tempList)) :
+        if i != j and tempList[i]["itemname"] == tempList[j]["itemname"] :
+            total = (tempList[i]["total"] + tempList[j]["total"])
+            tempList[i]["total"] = total
+
+del tempList[-1]
+print(tempList)
+
+
+# 1차
+# totalList = []
+# for i in range(len(cancleList)) :
+#     cancle = cancleList[i]
+#     n = ""
+
+#     for j in range(len(orderList)) :
+#         order = orderList[j]
+#         if cancle["canclenumber"] == order["ordernumber"] :
+#             for k in range(len(itemList)) :
+#                 item = itemList[k]
+#                 if order["itemname"] == item["itemname"] :
+#                     n = item["itemname"]
+#                     price = item["price"] * order["count"]
+#                     total = {"itemname" : n, "total" : price}
+#                     totalList.append(total)
+
+#             print(n, price)
+
+# # for i in range(len(totalList)) :
+# #     print(totalList[i])
 
 # for i in range(len(totalList)) :
+#     info1 = totalList[i]
+#     ck = False
+#     for j in range(len(totalList)) :
+#         info2 = totalList[j]
+#         if i != j and info1["itemname"] == info2["itemname"] :
+#             ck = True
+#             break 
+
+#     if ck == True :
+#         info1["total"] += info2["total"]
+#         del(totalList[j])
+#         break
+# # 출력
+# for i in range(len(totalList)) :
 #     print(totalList[i])
-
-for i in range(len(totalList)) :
-    info1 = totalList[i]
-    ck = False
-    for j in range(len(totalList)) :
-        info2 = totalList[j]
-        if i != j and info1["itemname"] == info2["itemname"] :
-            ck = True
-            break 
-
-    if ck == True :
-        info1["total"] += info2["total"]
-        del(totalList[j])
-        break
-# 출력
-for i in range(len(totalList)) :
-    print(totalList[i])
 
 
 

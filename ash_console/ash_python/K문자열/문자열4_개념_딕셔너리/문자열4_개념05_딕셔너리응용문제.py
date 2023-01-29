@@ -12,6 +12,7 @@ studentList.append(info)
 for i in range(len(studentList)):
     studentList[i]["총점"] = studentList[i]["수학"] + studentList[i]["국어"]
     studentList[i]["평균"] = studentList[i]["총점"] / 2
+    print(studentList[i])
 
 '''
     [문제1]
@@ -20,13 +21,23 @@ for i in range(len(studentList)):
         이만수
 '''
 print("[문제1]")
-minScore = 100
-minIndex = 0
-for i in range(len(studentList)):
-    if minScore > studentList[i]["수학"]:
-        minScore = studentList[i]["수학"]
-        minIndex = i
-print("수학점수가 꼴등인 학생 =", studentList[minIndex]["이름"])
+min = 100
+minIdx = 0
+for i in range(len(studentList)) :
+    if studentList[i]["수학"] < min :
+        min = studentList[i]["수학"]
+        minIdx = i
+
+print(studentList[minIdx]["이름"])
+
+# 정답
+# minScore = 100
+# minIndex = 0
+# for i in range(len(studentList)):
+#     if minScore > studentList[i]["수학"]:
+#         minScore = studentList[i]["수학"]
+#         minIndex = i
+# print("수학점수가 꼴등인 학생 =", studentList[minIndex]["이름"])
 
 '''
     [문제2]
@@ -35,25 +46,45 @@ print("수학점수가 꼴등인 학생 =", studentList[minIndex]["이름"])
         박영희 김철수 이만수 
 '''
 print("[문제2]")
-i = 0
-while i < len(studentList):
-    maxScore = 0
-    maxIndex = 0
+
+max = 0
+maxIdx = 0
+for i in range(len(studentList)) :
 
     j = i
-    while j < len(studentList):
-        if maxScore < studentList[j]["총점"]:
-            maxScore = studentList[j]["총점"]
-            maxIndex = j
+    while j < len(studentList) :
+        if max < studentList[j]["총점"] :
+            max = studentList[j]["총점"]
+            maxIdx = j
         j += 1
-
+    
     temp = studentList[i]
-    studentList[i] = studentList[maxIndex]
-    studentList[maxIndex] = temp
+    studentList[i] = studentList[maxIdx]
+    studentList[maxIdx] = temp
 
-    print(studentList[i]["이름"], end=" ")
-    i += 1
-print()
+for i in range(len(studentList)) :
+    print(studentList[i]["이름"])
+
+# 정답
+# i = 0
+# while i < len(studentList):
+#     maxScore = 0
+#     maxIndex = 0
+
+#     j = i
+#     while j < len(studentList):
+#         if maxScore < studentList[j]["총점"]:
+#             maxScore = studentList[j]["총점"]
+#             maxIndex = j
+#         j += 1
+
+#     temp = studentList[i]
+#     studentList[i] = studentList[maxIndex]
+#     studentList[maxIndex] = temp
+
+#     print(studentList[i]["이름"], end=" ")
+#     i += 1
+# print()
 
 '''
     [문제3]
@@ -66,11 +97,14 @@ print("[문제3] 방법1 >>> del 함수 사용")
 # del studentList[1]
 # print(studentList)
 
-print("[문제3] 방법2")
-delIndex = 1
-temp = studentList
-studentList = []
-for i in range(len(temp)):
-    if i != delIndex:
-        studentList.append(temp[i])
+del studentList[1]
 print(studentList)
+
+print("[문제3] 방법2")
+# delIndex = 1
+# temp = studentList
+# studentList = []
+# for i in range(len(temp)):
+#     if i != delIndex:
+#         studentList.append(temp[i])
+# print(studentList)

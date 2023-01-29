@@ -13,25 +13,22 @@ msg = ["문자만 있다", "숫자만 있다", "문자와 숫자가 섞여있다
 hint1 = "abcdefghijklmnopqrstuvwxyz"
 hint2 = "0123456789"
 
+# count를 이용하여 hint1의 count가 문자열의 길이와 일치하면 문자만있다.
+# count == 0이면 숫자만 있다
+# count != 0 and count != 문자열의 길이이면 문자와 숫자가 섞여있다 출력
+
 for i in range(len(a)) :
-    ck = False
+    cnt = 0
     for j in range(len(a[i])) :
-        
+
         for k in range(len(hint1)) :
             if a[i][j] == hint1[k] :
-                ck = True 
-        
-            if ck == True :
-                for n in range(len(hint2)) :
-                    if a[i][j] == hint2[n] :
-                        result = msg[2]
-                        ck = 0
-                        break
-
-    if ck == True :
-        result = msg[0]
-    if ck == False :
-        result = msg[1]
-    
-    print(result)
+                cnt += 1 
+    print(cnt)
+    if cnt == len(a[i]) :
+        print(msg[0])
+    elif cnt == 0 : 
+        print(msg[1])
+    elif cnt != 0 and cnt != len(a[i]) :
+        print(msg[2])
 

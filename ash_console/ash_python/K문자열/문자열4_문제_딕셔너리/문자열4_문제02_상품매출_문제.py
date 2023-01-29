@@ -38,25 +38,48 @@ orderList = [
     {"orderid" : "testid" , "itemname" : "바나나" , "count" : 7},
     {"orderid" : "qwer1234" , "itemname" : "사과" , "count" : 1}, 
 ]
-# 중복 아이디 찾기
-# 중복 아이디 찾기(품목 찾기)
-# {중복 아이디 찾기(품목 찾기(품목의 가격 * 개수)}
+
+# 0129
 totalList = [0, 0, 0]
 for i in range(len(memberList)) :
     member = memberList[i]
-
     for j in range(len(orderList)) :
-        order = orderList[j]
-        if member["id"] == order["orderid"] :
+         order = orderList[j]
+         if member["id"] == order["orderid"] :
+            total = 0
             for k in range(len(itemList)) :
                 item = itemList[k]
                 if order["itemname"] == item["itemname"] :
-                    totalList[i] += (item["price"] * order["count"])
+                    total = item["price"] * order["count"]
+                    totalList[i] += total
 
-# 출력
-for i in range(len(totalList)) :
-    memberList[i]["total"] = totalList[i]
-    del(memberList[i]["number"])
+print(totalList)
+
+for i in range(len(memberList)) :
+    memberList[i]["총액"] = totalList[i]
+    del memberList[i]["number"]
     print(memberList[i])
-# print(totalList)
+            
+
+# 중복 아이디 찾기
+# 중복 아이디 찾기(품목 찾기)
+# {중복 아이디 찾기(품목 찾기(품목의 가격 * 개수)}
+# totalList = [0, 0, 0]
+# for i in range(len(memberList)) :
+#     member = memberList[i]
+
+#     for j in range(len(orderList)) :
+#         order = orderList[j]
+#         if member["id"] == order["orderid"] :
+#             for k in range(len(itemList)) :
+#                 item = itemList[k]
+#                 if order["itemname"] == item["itemname"] :
+#                     totalList[i] += (item["price"] * order["count"])
+
+# # 출력
+# for i in range(len(totalList)) :
+#     memberList[i]["total"] = totalList[i]
+#     del(memberList[i]["number"])
+#     print(memberList[i])
+# # print(totalList)
 
