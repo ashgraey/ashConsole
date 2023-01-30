@@ -7,5 +7,22 @@
 		True
 '''
 
-arr = [10, 0, 2, 6]
+def allEven(arr) :
+	cnt = 0 
+	for i in range(len(arr)) :
+		if arr[i] % 2 == 0 :
+			cnt += 1
+		else :
+			cnt = 0 
+	if cnt == len(arr) :
+		ck = True
+	else :
+		ck = False
+
+	return ck 
+
+arr = [8, 0, 2, 6]
+result = allEven(arr)
+print("전부 짝수 : ", result)
+
 

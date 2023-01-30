@@ -12,7 +12,7 @@
 """
 import random
 def make20(sum):
-    count = 0;
+    count = 0
     total = 0
     while(True):     
         if count == 3 and total == 20 :

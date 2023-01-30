@@ -16,8 +16,29 @@
 	 	   	y가 2감소해  x : 5, y : 7이 된다. 
 '''
 
+
+def listTaxi(speed, dir, x, y) :
+	print("position X : ", x, "position Y : ", y)
+
+	for i in range(len(dir)) :
+		if dir[i] == 0 : 
+			y += speed[i]
+		elif dir[i] == 1 : 
+			x += speed[i]
+		elif dir[i] == 2 : 
+			y -= speed[i]
+		elif dir[i] == 3 :
+			x -= speed[i]
+		print(x, y)
+		
+	print("position X : ", x, "position Y : ", y)
+
+# 0 1 2 3 북동남서
 speed = [4, 2, 1, 5, 4, 2]
 dir = [0, 1, 3, 2, 2, 1]
 
 x = 5
 y = 5
+
+listTaxi(speed, dir, x, y)
+

@@ -1,5 +1,5 @@
 function init(){
-  document.addEventListener("keydown", keyDownHandler, false);
+  document.addEventListener("keydown", keyDownHandler, false); // false 생략가능
   document.addEventListener("keyup", keyUpHandler, false);
   
 }
@@ -20,6 +20,7 @@ function drawPlayer(){
   ctx.closePath();
 }
 
+// 키입력 함수
 function keyDownHandler(e) {
   // 아스키코드 값
   // 68 ==> d
@@ -57,6 +58,7 @@ function keyUpHandler(e) {
  
 }
 
+// 이동
 function movePlayer() {
   if(key["right"] ){
     player["x"] += player["speed"];
@@ -76,7 +78,7 @@ function movePlayer() {
 //-------------------------------------------------
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d"); 
-var key = { "right" : false , "left" : false, "up" : false , "down" : false};
+var key = { "right" : false , "left" : false, "up" : false , "down" : false}; // key를 json으로
 var player = {"x" : 0 , "y" : 0 , "size" : 50 , "speed" : 2};
 init();
 setInterval(draw, 10);

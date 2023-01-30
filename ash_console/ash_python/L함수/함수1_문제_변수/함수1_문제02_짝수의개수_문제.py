@@ -5,4 +5,16 @@
     [정답]
         2
 '''
+
+
+def evenCnt(arr) :
+    cnt = 0 
+    for i in range(len(arr)) :
+        if arr[i] % 2 == 0 :
+            cnt += 1 
+
+    return cnt
+
 arr = [2, 45, 1, 12]
+result = evenCnt(arr)
+print("evenCnt : ", result)

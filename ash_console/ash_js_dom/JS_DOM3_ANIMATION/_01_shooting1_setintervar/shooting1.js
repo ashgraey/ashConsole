@@ -1,5 +1,5 @@
 function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // 캔버스 삭제
     drawPlayer();
 }
 
@@ -16,4 +16,4 @@ function drawPlayer(){
 //-------------------------------------------------
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d"); 
-setInterval(draw, 10);
+setInterval(draw, 10); // 100frame

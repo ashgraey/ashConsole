@@ -5,16 +5,34 @@
 	[예시]
 		data = [1001,"김철수",32,1002,"이만수",54,1003,"조영민",12]
 """
-def oneline(number , name, score, data):
-    for i in range(len(number)):
-        data.append(number[i])
-        data.append(name[i])
-        data.append(score[i])
 
-number= [1001,1002,1003];
+def strungOut(num, name, score, data) :
+	for i in range(len(num)) :
+		data.append(num[i])
+		data.append(name[i])
+		data.append(score[i])
+
+	return data
+
+number= [1001,1002,1003]
 name = ["김철수","이만수","조영민"]
 score = [32,54,12]
 data = []
 
-oneline(number , name , score, data)
-print(data)
+result = strungOut(number, name, score, data)
+print(result)
+
+# 정답
+# def oneline(number , name, score, data):
+#     for i in range(len(number)):
+#         data.append(number[i])
+#         data.append(name[i])
+#         data.append(score[i])
+
+# number= [1001,1002,1003];
+# name = ["김철수","이만수","조영민"]
+# score = [32,54,12]
+# data = []
+
+# oneline(number , name , score, data)
+# print(data)

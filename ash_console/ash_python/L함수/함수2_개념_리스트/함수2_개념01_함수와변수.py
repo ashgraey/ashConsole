@@ -21,4 +21,5 @@ b = 10
 c = b  
 c = 20
 print(b)
+# print(c)
 

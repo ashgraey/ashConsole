@@ -12,13 +12,25 @@
 		 2   : **
 '''
 
-def makeGraph(graph):
-	for i in range(len(graph)):
-		print(graph[i], end=" :\t")
+# def makeGraph(graph):
+# 	for i in range(len(graph)):
+# 		print(graph[i], end=" :\t")
 
-		for j in range(graph[i]):
-			print("*", end="")
+# 		for j in range(graph[i]):
+# 			print("*", end="")
+# 		print()
+
+# graph = [3, 7, 5, 0, 10, 2]
+# makeGraph(graph)
+
+def makeGraph(a) :
+
+	for i in range(len(a)) :
+		print(a[i], end = " \t: ")
+		for j in range(a[i]) :
+			print("*", end = "")
 		print()
+
 
 graph = [3, 7, 5, 0, 10, 2]
 makeGraph(graph)

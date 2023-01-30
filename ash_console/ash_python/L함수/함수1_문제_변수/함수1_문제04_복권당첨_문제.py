@@ -5,5 +5,28 @@
     [정답]
         당첨
 '''
+def lottoCk(lotto) :
+   
+    cnt = 0 
+    ck = False
+    for i in range(len(lotto)) :
+        if lotto[i] == 7 :
+            cnt += 1 
+            if cnt >= 3 :
+                ck = True
+                break 
+        else : 
+            cnt = 0 
+    
+    result = ""
+    if ck == False :
+        result = "꽝"
+    else :
+        result = "당첨"
 
+    return result
+ 
+            
 lotto = [1, 7, 7, 1, 7, 7, 7]
+a = lottoCk(lotto)
+print(a)

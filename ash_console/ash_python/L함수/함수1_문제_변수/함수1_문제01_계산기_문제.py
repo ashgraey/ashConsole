@@ -10,5 +10,27 @@
        r = 3
        3은 / 이므로 10 / 3 
 '''
-x = 10
-y = 3
+import random
+
+def calculator(r) :
+    print("r : ", r)
+    x = 10
+    y = 3
+    result = 0
+ 
+    if r == 0 : 
+        result = y + x
+
+    elif r == 1 : 
+        result = y - x
+    
+    elif r == 2 :
+        result = y * x
+
+    elif r == 3 :
+        result = y / x
+    
+    return result
+
+result = calculator(random.randint(0, 3))
+print("result : ", result)
