@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function calcSum(n) {
+        let sum = 0 
+        for(let i = 0; i < n + 1; i ++) {
+            sum += i
+            console.log(sum);
+        }
+    }
+    calcSum(10);
+    console.log(sum); // sum is not defined 오류가 난다. sum은 지역변수로 calcSum함수의 {}안에서만 유효하다.
+</script>
+</html>

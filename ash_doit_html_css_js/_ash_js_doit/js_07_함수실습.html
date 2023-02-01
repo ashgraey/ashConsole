@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // 문제) 사용자에게 입력값을 받고 입력값만큼 더한 값을 구하는 함수를 구현하시오.
+
+    function addSum(n) {
+        var sum = 0;
+        for(let i = 1; i <= n; i ++) {
+            sum += i;
+        }
+        document.write("입력값 : " + n + " 합산 : " + sum);
+    }
+
+    var userNum = prompt("숫자를 입력하세요.");
+    if(userNum != null) {
+        addSum(parseInt(userNum));
+    }
+    else {
+        alert("입력값이 없습니다.")
+    }
+</script>
+<body>
+    
+</body>
+</html>

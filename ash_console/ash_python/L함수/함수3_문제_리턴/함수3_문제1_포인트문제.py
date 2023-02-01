@@ -10,46 +10,57 @@
     이만수  1002
       
 """
-def mySplit(str, d):
-	arr = []
-	temp = ""
-	for i in range(len(str)):
-		if str[i] == d :
-			arr.append(temp)
-			temp = ""
-		else:
-			temp += str[i]
-	arr.append(temp)
-	return arr
-
-def getMax(userList , pointList):
-  maxPoint = 0
-  for i in range(len(userList)): 
-    user = userList[i]
-    total = 0
-  for j in range(len(pointList)):
-    point = pointList[j]
-    if user[0] == point[1]:
-      total += int(point[0])
-    if total > maxPoint:
-      maxPoint = total 
-  return user
-
-def maxPoint(userData , pointData):
+def setUserSplit(user) :
+  temp = ""
   userList = []
-  token1 = mySplit(userData , ",")
-  for i in range(len(token1)):
-    token2 = mySplit(token1[i] , "/")
-    userList.append(token2)
+  for i in range(len(user)) :
+    if user[i] == "," :
+      userList.append(temp)
+      temp = ""
+    else :
+      temp += user[i]
+  userList.append(temp)
 
+  for i in range(len(userList)) :
+    userList[i] = userList[i].split("/")
+
+  return userList
+
+def setDataSplit(point) :
+  temp = ""
   pointList = []
-  token1 = mySplit(pointData , ",")
-  for i in range(len(token1)):
-    token2 = mySplit(token1[i] , "/")
-    pointList.append(token2)
+  for i in range(len(point)) :
+    if point[i] == "," :
+      pointList.append(temp)
+      temp = ""
+    else :
+      temp += point[i]
+  pointList.append(temp)
 
-  maxUser = getMax(userList, pointList)
-  print(maxUser)  
+  for i in range(len(pointList)) :
+    pointList[i] = pointList[i].split("/")
+    
+  return pointList
+
+def getPoint(point, user) :
+  pointTot = [0, 0, 0]
+  for i in range(len(pointTot)) :
+
+    for j in range(len(point)) :
+      if user[i][0] == point[j][1] :
+        pointTot[i] += int(point[j][0])
+    
+  return pointTot
+
+def maxPoint(point, user) :
+  max = 0 
+  maxIdx = 0
+  for i in range(len(point)) :
+    if point[i] > max :
+      max = point[i]
+      maxIdx = i
+
+  return maxIdx
 
 userData = "1001/김철수,"
 userData += "1002/이만수,"
@@ -60,9 +71,14 @@ pointData += "1/1002,"
 pointData += "2/1003,"
 pointData += "1/1001,"
 pointData += "2/1002"
+print(userData, pointData)
 
-#print(userData)
-#print(pointData)
-maxPoint(userData , pointData)
-
+userList = setUserSplit(userData)
+print(userList)
+pointList = setDataSplit(pointData)
+print(pointList)
+a = getPoint(pointList, userList)
+print(a)
+maxIdx = maxPoint(a, userList)
+print(userList[maxIdx])
 

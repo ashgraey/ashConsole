@@ -9,7 +9,7 @@ def mySplit(str, d):
 			temp = ""
 		else:
 			temp += str[i]
-	arr.append(temp)
+	arr.append(temp) # 마지막 문자열 추가, 마지막 문자열에는 ,가 없으니
 	return arr
 
 

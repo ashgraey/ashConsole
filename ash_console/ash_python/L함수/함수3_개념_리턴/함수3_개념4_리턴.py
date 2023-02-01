@@ -11,6 +11,7 @@ def checkEven(a):
     for i in range(len(a)):
         if a[i] % 2 == 0:
             print("x")
+            cnt += 1 
             return # 리턴을 만나면 함수가 즉시종료되므로 아래는 실행되지않는다.
     print("o") 
 
