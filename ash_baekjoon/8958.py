@@ -13,3 +13,21 @@ output//
 각 테스트 케이스마다 점수를 출력한다.
 
 '''
+
+size = int(input())
+
+for i in range(size) :
+    ox = (list(map(str, input().split())))
+
+    score = 0 
+    cnt = 0
+    for j in range(len(ox)) :
+        if ox[j] == "O" :
+            cnt += 1
+            score += cnt 
+
+        if ox[j] == "X" :
+            cnt = 0
+           
+    print(score)
+
