@@ -16,18 +16,51 @@ output//
 
 size = int(input())
 
-for i in range(size) :
-    ox = (list(map(str, input().split())))
+for i in range(size):
+    ox = list(str(input()))
 
-    score = 0 
+    score = 0
     cnt = 0
-    for j in range(len(ox)) :
-        if ox[j] == "O" :
+    for j in range(len(ox)):
+        if ox[j] == "O":
             cnt += 1
-            score += cnt 
+            score += cnt
 
-        if ox[j] == "X" :
+        if ox[j] == "X":
             cnt = 0
-           
+
     print(score)
 
+
+# # 정답 코드
+# n = int(input())
+# for _ in range(n):
+#     ox_list = list(input())
+#     score = 0
+#     sum_score = 0  # 새로운 ox리스트를 입력 받으면 점수 합계를 리셋한다.
+#     for ox in ox_list:
+#         if ox == 'O':
+#             score += 1  # 'O'가 연속되면 점수가 1점씩 커진다.
+#             sum_score += score  # sum_score = sum_score + score
+#         else:
+#             score = 0
+#     print(sum_score)
+
+
+# size = int(input())
+# for _ in range(size):
+
+#     ox_list = list(input())
+#     print(ox_list)
+
+#     score = 0
+#     total_score = 0
+#     for ox in ox_list:
+#         if ox == 'O':
+#             score += 1
+#             total_score += score
+#             print(score)
+
+#         else:
+#             score = 0
+#     print(total_score)
