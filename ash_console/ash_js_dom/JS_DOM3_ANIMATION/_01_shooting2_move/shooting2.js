@@ -8,14 +8,17 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawPlayer();
   movePlayer();
+  // console.log(key)
 }
 
 function drawPlayer(){
   ctx.beginPath();
 
+  // json배열을 받아 player의 위치와 속력을 조절
   ctx.rect(player["x"], player["y"],  player["size"],  player["size"]);
   ctx.fillStyle = "blue";
   ctx.fill();
+  // ctx.stroke();
 
   ctx.closePath();
 }

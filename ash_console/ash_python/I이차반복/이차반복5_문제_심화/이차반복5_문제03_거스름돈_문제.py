@@ -35,24 +35,24 @@ for i in range(len(money)) :
 print(money)
 print(count)
  
-# 1124
+1124
 # # -되는 count값의 어떻게 해야할지 모르겠음
 # 값을 한번에 구해서 해결하려함 
 # 조건문이 아닌 반복문을 통해 해결해야했음
-# # while True : 
-# #     for i in range(len(money)) :
-# #         if charge > money[i] :
-# #             c = charge // money[i]
-# #             charge %= money[i]
-# #             print(c, charge)
+# while True : 
+#     for i in range(len(money)) :
+#         if charge > money[i] :
+#             c = charge // money[i]
+#             charge %= money[i]
+#             print(c, charge)
 
-# #             if count[i] - c > 0 :
-# #                 count[i] -= c
-# #                 print(count)
+#             if count[i] - c > 0 :
+#                 count[i] -= c
+#                 print(count)
     
-# #     if charge == 0 :
-# #         break
-# # print(count)
+#     if charge == 0 :
+#         break
+# print(count)
             
 # 1122
 # # 거스름돈 7800원을 뺀 나머지 금액(61700)

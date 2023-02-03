@@ -1,6 +1,6 @@
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // 캔버스 삭제
-    drawPlayer();
+    drawPlayer(); // 호출
 }
 
 function drawPlayer(){

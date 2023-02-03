@@ -23,12 +23,15 @@ for i in range(len(money)):
         # temp보다 작은 money의 인덱스3인 5000 and count[3] == 1 
         # 조건문이 아닌 반복문으로 해결해야함
         # 조건문같은 반복문
-        while money[i] <= temp and count[i] > 0:
-            # 7800 - 5000 == 2800
-            temp -= money[i]
+        while True :
+                temp -= money[i]
+                count[i] -= 1
+                print(count, temp)
+                if money[i] > temp or count[i] == 0 :
+                    break
+            # 78 00 - 5000 == 2800
             # count 1감소
-            count[i] -= 1
-            print(count, temp)
+            
 
 '''
     7800,   5000 1장    = 2800      : count [1, 1, 0, 1, 5, 10]

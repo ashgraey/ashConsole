@@ -13,6 +13,7 @@ function setNumber() {
         backList.push(i + 10);
     }
 
+    // 셔플
     for(var i=0; i<50; i++) {
         var r = Math.floor(Math.random() * 9);
         var temp = frontList[0];
@@ -90,7 +91,7 @@ function init() {
     }
     body.append(table);
 
-    setNumber();
+    setNumber(); // ? 
 }
 
 init();
