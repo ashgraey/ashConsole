@@ -25,12 +25,12 @@ a = ""
 b = ""
 
 idx = len(A) - 1
-for i in range(len(A)) : 
+for i in range(len(A)):
     a += A[idx]
     b += B[idx]
-    idx -= 1 
+    idx -= 1
 
-if a > b : 
+if a > b:
     print(a)
-else : 
+else:
     print(b)
