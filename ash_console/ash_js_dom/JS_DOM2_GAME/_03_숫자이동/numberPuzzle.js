@@ -45,12 +45,10 @@ var nodeEvent = function(e) {
 
 function setNumber() {
     var numList = [];
-    // 5 * 5 배열에 순차적으로 값 생성
     for(var i=0; i<25; i++) {
         numList.push(i);
     }
 
-    // 셔플
     for(var i=0; i<100; i++) {
         var r = Math.floor(Math.random() * 25);
 
@@ -59,7 +57,6 @@ function setNumber() {
         numList[r] = temp;
     }
 
-    // 배열의 값이 0인 블럭에 "" 빈공백 삽입하기
     var index = 0;
     for(var i=0; i<nodeList.length; i++) {
         for(var j=0; j<nodeList[i].length; j++) {

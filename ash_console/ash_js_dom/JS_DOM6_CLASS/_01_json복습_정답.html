@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      
+
+        /*
+            [문제1]
+                strdata1 과 strdata2 를 파싱하여 아래와 같이 stList 에 json 형태로 저장하시오.
+                strdata1 은 json의 key 이다.
+                strdata2 는 json의 value 이다. 
+
+                stList = [
+                {"num" : 1001 , "name" : "김철수" , "kor" :100 , "math" : 20, },
+                {"num" : 1002 , "name" : "이영수" , "kor" :90 , "math" : 40 , },
+                {"num" : 1003 , "name" : "오민수" , "kor" :20 , "math" : 50 , },
+                
+            [문제2]
+                1등을 출력하시오.
+            [문제3]
+                새학생을 추가하시오.
+            [문제4]
+                평균60이하를 삭제하시오.
+        ]
+        */
+        function parseData(d1 , d2){
+            stList = []
+       
+            token1 = strdata1.split("/");
+            token2 = strdata2.split(",");
+
+            for(var i = 0; i < token2.length; i++){
+                var d = {}
+                var token3 = token2[i].split("/");
+                for(var j = 0; j < token3.length; j++){
+                    d[token1[j]] = token3[j];
+                }
+                stList.push(d);
+            }
+            return stList;
+        }
+
+        function printJson(arr){
+            for(var i = 0; i < arr.length; i++){
+                console.log(arr[i]);
+            }
+        }
+        strdata1 = "num/name/kor/math";
+        strdata2 = "1001/김철수/100/20,1002/이영수/90/40,1003/오민수/20/50";
+        stadd = "1004/신민아/90/89";
+        stList = []
+
+        //---[문제1]----
+        stList = parseData(strdata1 , strdata2);
+        printJson(stList);
+
+        // 나머지 문제는 직접풀어보자
+
+
+    </script>
+
+
+</body>
+</html>

@@ -13,7 +13,6 @@ function setNumber() {
         backList.push(i + 10);
     }
 
-    // 셔플
     for(var i=0; i<50; i++) {
         var r = Math.floor(Math.random() * 9);
         var temp = frontList[0];
@@ -79,7 +78,7 @@ function init() {
     for(var i=0; i<3; i++) {
         var line = document.createElement("tr");
         nodeList.push([]);
-        for(var j=0; j<3; j++) {
+        for(var j=0; j < 3; j++) {
             var node = document.createElement("td");
             node.textContent = "";
             node.addEventListener("click", nodeEvent);
@@ -91,7 +90,7 @@ function init() {
     }
     body.append(table);
 
-    setNumber(); // ? 
+    setNumber();
 }
 
 init();

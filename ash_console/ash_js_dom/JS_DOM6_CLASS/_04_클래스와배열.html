@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            클래스의 데이터는 단일 데이터이므로 보통 배열과 함께 사용한다. 
+            아래 함수들도 다음단원에서 또 다른 클래스로 구현한다. 
+        */
+        class Student{
+            num = 0;
+            name = "";
+            kor = 0;
+            math = 0;
+
+            setData(a , b , c , d) {
+                this.num = a;
+                this.name = b;
+                this.kor = c;
+                this.math = d;
+            };
+
+            printData(){
+                console.log(this.num , this.name , this.kor , this.math);
+            }
+        }
+
+        function parseData(data){
+
+            token1 = data.split(",");
+            stList = []
+            for(var i = 0; i < token1.length; i++){
+                var token2 = token1[i].split("/");
+                var temp = new Student();
+                var a = Number(token2[0]);
+                var b = (token2[1]);
+                var c = Number(token2[2]);
+                var d = Number(token2[3]);
+                temp.setData(a, b, c, d);
+                stList.push(temp);
+            }
+            return stList;
+
+        }
+        function printStList(stList){
+            for(var i = 0; i < stList.length; i++){
+                stList[i].printData();
+            }
+        }
+
+        var strdata1 = "1001/김철수/100/20,1002/이영수/90/40,1003/오민수/20/50";
+
+        var stList = parseData(strdata1); 
+
+        printStList(stList);
+       
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            [1] 클래스 기존의 json과 함수를 합쳐놓은 것 
+                [1-1] 단순히 두기능을 합친것뿐만아니라 상속을 이용해서 객체지향프로그래밍을 작성할수있다. 
+                [1-2] 상속은 추후에 다룬다.
+            [2] 클래스 정의 
+                클래스는 먼저 정의를 한후 정의된모양되로 계속 생성하기위해서 사용한다. 
+            
+        */
+       
+        /*
+            [1] 클래스 정의
+                클래스 정의 는 데이터가 생성된것은 아니고 생성했을때의 모양을 미리 정의해놓는것이다.
+                추후 똑같은 객체를 여러개 생성하기 위해서 사용된다.
+                class 클래스명 { 정의할 내용 }
+            [2] 클래서 생성 
+                변수 = new 클래스이름();
+                [예시]
+                    var st1 = new Student();
+            [3] 클래스 사용
+                (객체변수.내부변수) 로 사용한다.
+                [예시]
+                    st1.name = "김철수";
+            [4] json과 거의 유사하나 미리 정의 해놓고 사용한다는 점에서 다르다. 
+
+            [5] 보통 클래스는 json 과 마찬가지로 배열과 함께 쓰인다.
+
+            [6] 클래스 내부의 변수들을 클래스 인스턴스 변수 라고한다. 
+        */
+
+        // json
+        d = {"num" : 1001 , "name" : "김철수" , "kor" : 10 , "math" : 20 };
+
+        class Student{
+            num = 0;
+            name = "";
+            kor = 0;
+            math = 0;
+        }
+
+        var st1 = new Student(); 
+        st1.num = 1001;
+        st1.name = "이만수";
+        st1.kor = 20;
+        st1.math = 50;
+             
+        var st2 = new Student();
+        st2.num = 1002;
+        st2.name = "김철수";
+        st2.kor = 40;
+        st2.math = 60;
+
+        console.log(st1);
+        console.log(st1.num , st1.name , st1.kor , st1.name);
+        console.log(st2);
+        console.log(st2.num , st2.name , st2.kor , st2.name);
+    </script>
+
+
+</body>
+</html>

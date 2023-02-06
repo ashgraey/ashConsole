@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="test1">
+        테스트1
+    </div>
+    <br></br>  <br></br>  <br></br>
+    <div id="test2">
+        테스트2
+    </div>
+    <script>
+        class Test{
+            constructor(){
+                this.a = 10;
+                this.$test1 = document.querySelector("#test1");     
+                this.$test1.addEventListener("click", this.testEvent1);
+                
+                
+                this.b = 10;
+                this.$test2 = document.querySelector("#test2");     
+                this.$test2.addEventListener("click", this.testEvent2);
+            }
+
+            testEvent1(){    
+                this.a += 10; // this가 버튼으로 바뀌어 버린다. 클래스에서는 버튼클릭시 화살표 함수를 사용해야한다. 
+                alert(this.a);
+            }
+
+            testEvent2 = (e) => { // 화살표함수를 사용하면 e는 버튼이 저장된변수가되고 ,this는 따로 클래스내부변수가 된다. 
+                this.b += 10;
+                alert(this.b);
+            }
+
+        }
+
+        new Test();
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        border: 1px solid black;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // 달력 테이블 생성
+      function getTable(nodeList) {
+        var table = document.createElement("table");
+        for (var i = 0; i < 7; i++) {
+          var tr = document.createElement("tr");
+          nodeList.push([]);
+          for (var j = 0; j < 7; j++) {
+            var td = document.createElement("td");
+            tr.append(td);
+            nodeList[i].push(tr);
+          }
+          table.append(tr);
+        }
+        return table;
+      }
+      function setCalendar() {
+        var $calendar = document.getElementById("calendar"); // 태그를 뜻하면 변수명 앞에 관용적으로 $를 붙인다.
+        var nodeList = [];
+        var table = getTable(nodeList);
+        $calendar.append(table);
+
+        var date = new Date(); // 오늘 날짜 구하기
+
+        var thisyear = date.getFullYear();
+        var month = date.getMonth(); // 달은 1이 적게 나온다. 이유는 인덱스로 활용
+        var day = date.getDate();
+        console.log(thisyear, month, day);
+
+        var $thisyear = document.getElementById("year");
+        $thisyear.innerHTML = thisyear + "년";
+
+        var $thismonth = document.getElementById("month");
+        $thismonth.innerHTML = month + 1 + "월"; // getMonth는 1이 적게 나오기때문에 +1을 해줘야함
+
+        // [ 올해 이번달 1일 구하기 ]
+
+        // [1] 작년도 구하기
+        /*
+                [윤년계산법]
+                400년마다 1추가
+                100년마다 1감소
+                4년마다 1증가 
+
+                1년1월1일 == 월요일 기준으로 계산
+            */
+        // 윤년 계산법
+        var lastyear = thisyear - 1;
+        var total = lastyear * 365;
+        total += parseInt(lastyear / 400);
+        total -= parseInt(lastyear / 100);
+        total += parseInt(lastyear / 4);
+
+        // [2] 저번달 구하기
+        var sampleMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        for (var i = 0; i < month; i++) {
+          total += sampleMonth[i];
+        }
+
+        // [3] 이번달 1일
+        total += 1;
+        console.log(total);
+
+        // 요일 구하기
+        var weekindex = total % 7;
+        var week = ["일", "월", "화", "수", "목", "금", "토"];
+        console.log(week[weekindex]);
+
+        for (var j = 0; j < week.length; j++) {
+          table.children[0].children[j].textContent = week[j]; // 요일 저장
+        }
+
+        var max = sampleMonth[month];
+        var y = 1;
+        for (var i = 0; i < max; i++) {
+          var index = (i + weekindex) % 7;
+          table.children[y].children[index].textContent = i + 1;
+          if (index == 6) {
+            y += 1;
+          }
+        }
+      }
+    </script>
+
+    <div align="center">
+      <h1>달력</h1>
+      <h2 id="year">년</h2>
+      <h3 id="month">월</h3>
+      <div id="calendar"></div>
+    </div>
+
+    <script>
+      setCalendar();
+    </script>
+  </body>
+</html>

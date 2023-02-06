@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        class Unit{
+            health = 0;
+            power = 0;
+            level = 0;
+            name = "";
+            /*
+                setData(a , b , c , d){
+                    this.health = a;
+                    this.power = b;
+                    this.level = c;
+                    this.name = d;
+                }  
+            */
+            constructor(a, b, c, d){
+                this.health = a;
+                this.power = b;
+                this.level = c;
+                this.name = d;
+            }
+        }  
+        /*
+            위와 같이 클래스는 보통 setData 등과 같이 초기 값설정이 필요하다.
+            초기값설정을 위해 한번에 할수있도록 생성자 함수를 제공한다. 
+        */
+        var unit = new Unit(50, 10, 1 , "용사"); // new 와 동시에 할수있다. 
+
+    </script>
+    
+</body>
+</html>

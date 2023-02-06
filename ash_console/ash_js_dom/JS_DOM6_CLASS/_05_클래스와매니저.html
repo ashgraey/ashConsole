@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            [1] 대부분의 클래스는 보통 데이터를 담당하는 클래스와 그 데이터를 배열로 관리하는 매니저 클래스 두개가 세트로 작용한다. 
+            [2] 여기서 매니저는 그냥 이름으로 원하는 이름으로 변경해도된다. (Service , Cotroller 등등 )
+        */
+        class Student{
+            num = 0;
+            name = "";
+            kor = 0;
+            math = 0;
+
+            setData(a , b , c , d) {
+                this.num = a;
+                this.name = b;
+                this.kor = c;
+                this.math = d;
+            };
+
+            printData(){
+                console.log(this.num , this.name , this.kor , this.math);
+            }
+        }
+
+        class StudentManager{
+            stList = []
+            parseData(data){
+                var token1 = data.split(",");
+                for(var i = 0; i < token1.length; i++){
+                    var token2 = token1[i].split("/");
+                    var temp = new Student();
+                    var a = Number(token2[0]);
+                    var b = (token2[1]);
+                    var c = Number(token2[2]);
+                    var d = Number(token2[3]);
+                    temp.setData(a, b, c, d);
+                    this.stList.push(temp);
+                }
+            }
+
+            printStList(){
+                for(var i = 0; i < this.stList.length; i++){
+                    this.stList[i].printData();
+                }
+             }
+        }
+
+      
+
+        var strdata1 = "1001/김철수/100/20,1002/이영수/90/40,1003/오민수/20/50";
+        var stManager = new StudentManager();
+        stManager.parseData(strdata1);
+        stManager.printStList();
+
+    </script>
+
+</body>
+</html>

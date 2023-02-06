@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            [상속]
+            
+            [1] 서로 다른 클래스 두개는 상속이라는 키워드를 통해 부모 자식 관계를 형성할수있다. 
+                이는 게임으로 설명하면 이해하기 쉽다. 
+
+                플레이어 라는 클래스가 있고 , 몬스터 늑대 , 박쥐 , 호랑이가 있다고 했을때 ,
+
+                플레이어와 몬스터 늑대 박쥐 호랑이는 각각 특성이 다르지만, 
+                체력 , 공격력 , 방어력 , 레벨 , 등등의 공통 데이터가 존재한다. 
+                또한 , 게임이기때문에 공격하기 , 공격당하기 , 사망 등의 기능도 공통이다. 
+                
+                각 클래스마다 중복된느 데이터와 기능은  상속으로 처리하면 코드가 간결해진다. 
+                
+            [2] 상속하는방법
+                자식 클래스 extends 부모클래스명 {}
+                [예시]
+                    class Player extends Unit{}
+        */
+        class Unit{
+            health = 0;
+            power = 0;
+            armor = 0;
+            level = 0;
+            name = "";
+            status = "play"; // play , dead 유닛의 상태를 나타낸다. 
+            setData(a , b, c , d , e){
+                this.health = a;
+                this.power = b;
+                this.armor = c;
+                this.level = d;
+                this.name = e;
+            }
+            printData(){
+                console.log(this.name , this.level , this.health , this.power , this.armor );
+            }              
+        }
+        class Player extends Unit{
+
+        }
+        class Wolf extends Unit{
+
+        }
+        class Bat extends Unit{
+
+        }
+        class Tiger extends Unit{
+
+        }  
+
+        var player = new Player();
+        player.setData(100, 10, 5 , 1 , "용사"); // Player 클래스는 텅텅비어있지만 잘작동한다. 
+        player.printData();
+        var wolf1 = new Wolf();
+        wolf1.setData(40,5,3,1,"늑대1");
+        wolf1.printData();
+
+    </script>
+
+</body>
+</html>
