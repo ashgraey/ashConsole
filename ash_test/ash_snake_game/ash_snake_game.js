@@ -13,12 +13,13 @@ let apple = null;
 let dir = null;
 let score = 0;
 let speedCoeff = 1;
-let key = { right: false, left: false, up: false, down: false };
+var key = { right: null, left: null, up: null, down: null };
 
 const FIELD_COLOR = "#f0f0f0";
 const APPLE_COLOR = "#FF0000";
 const GRID_COLOR = "#d9d9d9"; //#d9d9d9
-const SNAKE_COLOR = "#00FF00"; //#00FF00
+const SNAKE_COLOR = "#00FF00"; //#00asdFF00
+
 // ---------------------------------------------------
 const init = () => {
   document.addEventListener("keydown", keyDownHandler);
@@ -42,35 +43,36 @@ const init = () => {
 const keyDownHandler = (e) => {
   var keyCode = e.keyCode;
   switch (keyCode) {
-    case 68:
+    case 39:
       key["right"] = true;
-    case 65:
+    case 37:
       key["left"] = true;
-    case 87:
+    case 38:
       key["up"] = true;
-    case 83:
+    case 40:
       key["down"] = true;
   }
+  //   console.log(keyCode);
 };
 
 const keyUpHandler = (e) => {
   var keyCode = e.keyCode;
   switch (keyCode) {
-    case 68:
+    case 39:
       key["right"] = false;
-    case 65:
+    case 37:
       key["left"] = false;
-    case 87:
+    case 38:
       key["up"] = false;
-    case 83:
+    case 40:
       key["down"] = false;
   }
 };
 
 const draw = () => {
   draw_field();
-  draw_apple();
   draw_snake();
+  draw_apple();
 };
 
 // map 그리기
@@ -111,6 +113,7 @@ const draw_apple = () => {
   ctx.closePath();
 };
 
+// 뱀 그리기
 const draw_snake = () => {
   ctx.fillStyle = SNAKE_COLOR; // snake 색상
   ctx.strokeStyle = "#000000"; // snake 외곽선 색상
@@ -122,7 +125,95 @@ const draw_snake = () => {
   }
 };
 
-const spawn_apple = () => {};
+// 사과 랜덤위치 생성
+const spawn_apple = () => {
+  do {
+    apple = {
+      x:
+        Math.floor(Math.round(Math.random() * width) / block_size) * block_size,
+
+      y:
+        Math.floor(Math.round(Math.random() * height) / block_size) *
+        block_size,
+    };
+  } while (isContact(apple));
+};
+
+// 사과위치 뱀위치 중복 체크, snake 몸통 충돌 체크
+const isContact = (Obj) => {
+  let contact = false;
+  for (let i = 0; i < snake.lenght; i++) {
+    if (snake[i].x == Obj.x && snake[i].y == Obj.y) {
+      contact = true;
+      break;
+    }
+  }
+  return contact;
+};
+
+// 벽 충돌 체크
+const colison = (pos) => {
+  if (0 <= pos.x && pos.x < width && 0 <= pos.y && pos.y < height) {
+    return true;
+  }
+  return false;
+};
+
+const move = () => {
+  let newPos = {};
+
+  if (key["up"]) {
+    newPos = {
+      x: snake[0].x,
+      y: snake[0].y - block_size,
+    };
+  } else if (key["down"]) {
+    newPos = {
+      x: snake[0].x,
+      y: snake[0].y + block_size,
+    };
+  } else if (key["right"]) {
+    newPos = {
+      x: snake[0].x + block_size,
+      y: snake[0].y,
+    };
+  } else if (key["left"]) {
+    newPos = {
+      x: snake[0].x - block_size,
+      y: snake[0].y,
+    };
+  }
+  console.log(key);
+
+  // 종료조건
+  //   if (!isContact(newPos) || colison(newPos)) {
+  //     alert("gameover");
+  //     alert("score : " + score);
+  //     init();
+  if (newPos.x == apple.x && newPos.y == apple.y) {
+    score += 1;
+    if (score % 3 == 0) {
+      speedCoeff += 0.5;
+    }
+    // 애플 재생성
+    spawn_apple();
+    // 스네이크 머리추가
+    snake.unshift({
+      x: newPos.x,
+      y: newPos.y,
+    });
+  } else {
+    // 꼬리삭제 머리추가
+    snake.pop();
+    snake.unshift({
+      x: newPos.x,
+      y: newPos.y,
+    });
+  }
+  draw();
+  setTimeout(move, 100 / speedCoeff);
+};
 
 init();
-draw();
+// draw();
+move();

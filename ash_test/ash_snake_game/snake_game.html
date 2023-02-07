@@ -111,25 +111,34 @@
       spawn_food();
     };
 
-    // 인수에 따라 여러기능으로 사용
-    // snake 몸통 충돌, 사과 위치 몸통과 중복
+    // 인수에 따라 여러기능으로 사용하도록 만든 함수
+    // 1) snake 몸통 충돌체크 , 사과 위치 & 몸통과 중복체크
     const isContact = (fieldObj) => {
       let contact = false;
-      for (let i = 0; i < snake.length && !contact; i++) {
-        contact = snake[i].x === fieldObj.x && snake[i].y === fieldObj.y;
+      for (let i = 0; i < snake.length; i++) {
+        // contact = snake[i].x === fieldObj.x && snake[i].y === fieldObj.y;
+        // 뱀위치와 사과의 위치가 중복인지 확인하는 조건
+        if (snake[i].x == fieldObj.x && snake[i].y == fieldObj.y) {
+          contact = true;
+          break;
+        }
       }
+      // 중복이면 return true
+      // 중복이 아니면 return false
+      // console.log(contact);
       return contact;
     };
 
-    // canvas 벽충돌, 사과위치 캔버스를 벗어나는지
+    // 1) canvas 벽충돌 체크, 사과위치가 캔버스를 벗어나는지 체크
     const isValid = (pos) => {
       // return 0 <= pos.x && pos.x < width && 0 <= pos.y && pos.y < height;
       if (0 <= pos.x && pos.x < width && 0 <= pos.y && pos.y < height) {
         return true;
       }
+      return false;
     };
 
-    // 사과생성
+    // 사과 랜덤위치 생성 및 while 조건으로 사과위치 & 뱀위치 중복 체크
     const spawn_food = () => {
       do {
         food = {
@@ -140,7 +149,10 @@
             Math.floor(Math.round(Math.random() * height) / CELL_SIZE) *
             CELL_SIZE,
         };
-      } while (isContact(food) || !isValid(food));
+      } while (isContact(food));
+      // do while :
+      // isContact의 리턴값이 true이면 do실행문이 실행
+      // isContact의 리턴값이 false이면 반복문을 빠져나옴// 위치 중복이 없다.
     };
 
     const step = () => {
@@ -166,15 +178,21 @@
           y: snake[0].y,
         };
       }
+      console.log(newPos);
+
+      // 종료 조건
       if (!isValid(newPos) || isContact(newPos)) {
         alert("Game over!\nYour score: " + score);
         init();
+      
+      // 사과 먹기
       } else if (newPos.x === food.x && newPos.y === food.y) {
         score++;
         if (score % 5 === 0) {
           speedCoeff += 0.25;
         }
         spawn_food();
+        // snake 머리 추가
         snake.unshift({
           x: newPos.x,
           y: newPos.y,
