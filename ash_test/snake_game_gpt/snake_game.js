@@ -1,91 +1,93 @@
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
+// Define the canvas and context
+var canvas = document.getElementById("snake");
+var ctx = canvas.getContext("2d");
 
-// Set canvas dimensions
-canvas.width = 500;
-canvas.height = 500;
+// Define the size of the squares
+var squareSize = 20;
 
-// Set the size of each block
-const blockSize = 10;
+// 스네이크의 시작 위치 및 방향 정의
+var x = 0;
+var y = 0;
+var dx = squareSize;
+var dy = 0;
 
-// Initialize the snake
-let snake = [];
-for (let i = 5; i >= 0; i--) {
-  snake.push({ x: i, y: 0 });
-}
+// Define the food position
+var foodX;
+var foodY;
 
-// Set the starting direction
-let direction = "right";
+// Define the array to store the positions of the snake
+var snake = [];
 
-// Draw the snake on the canvas
-function drawSnake() {
-  snake.forEach((block) => {
-    ctx.fillRect(
-      block.x * blockSize,
-      block.y * blockSize,
-      blockSize,
-      blockSize
-    );
-  });
-}
+// Define the length of the snake
+var snakeLength = 5;
 
-// Clear the canvas
-function clearCanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
+// Define the interval for moving the snake
+setInterval(function () {
+  x += dx;
+  y += dy;
 
-// Move the snake in the specified direction
-function moveSnake() {
-  let x = snake[0].x;
-  let y = snake[0].y;
-
-  switch (direction) {
-    case "right":
-      x++;
-      break;
-    case "left":
-      x--;
-      break;
-    case "up":
-      y--;
-      break;
-    case "down":
-      y++;
-      break;
+  // Check if the snake has hit the wall
+  if (x >= canvas.width || x < 0 || y >= canvas.height || y < 0) {
+    // alert("Game Over");
+    clearInterval(intervalId);
   }
 
-  // Add the new head to the front of the snake
-  snake.unshift({ x, y });
+  // Check if the snake has eaten the food
+  if (x == foodX && y == foodY) {
+    snakeLength++;
+    generateFood();
+  }
 
   // Remove the tail of the snake
-  snake.pop();
+  while (snake.length > snakeLength) {
+    snake.shift();
+  }
+
+  // Add the new head of the snake
+  snake.push({ x: x, y: y });
+
+  draw();
+}, 100);
+
+// Generate the food position
+function generateFood() {
+  foodX = Math.floor(Math.random() * (canvas.width / squareSize)) * squareSize;
+  foodY = Math.floor(Math.random() * (canvas.height / squareSize)) * squareSize;
 }
 
-// The main game loop
-function gameLoop() {
-  clearCanvas();
-  drawSnake();
-  moveSnake();
+// Draw the snake and food on the canvas
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  setTimeout(gameLoop, 100);
+  for (var i = 0; i < snake.length; i++) {
+    ctx.fillStyle = "green";
+    ctx.fillRect(snake[i].x, snake[i].y, squareSize, squareSize);
+  }
+
+  ctx.fillStyle = "red";
+  ctx.fillRect(foodX, foodY, squareSize, squareSize);
 }
 
-// Listen for arrow key presses to change the direction of the snake
+// Listen for arrow key events to change the direction of the snake
 document.onkeydown = function (event) {
   switch (event.keyCode) {
     case 37:
-      if (direction !== "right") direction = "left";
+      dx = -squareSize;
+      dy = 0;
       break;
     case 38:
-      if (direction !== "down") direction = "up";
+      dx = 0;
+      dy = -squareSize;
       break;
     case 39:
-      if (direction !== "left") direction = "right";
+      dx = squareSize;
+      dy = 0;
       break;
     case 40:
-      if (direction !== "up") direction = "down";
+      dx = 0;
+      dy = squareSize;
       break;
   }
 };
 
-gameLoop();
+generateFood();

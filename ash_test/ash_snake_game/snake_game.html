@@ -6,13 +6,16 @@
   </head>
 
   <body>
-    <canvas
-      id="game_field"
-      width="400px"
-      height="400px"
-      style="border: 1px solid black"
-    >
-    </canvas>
+    <h1 style="text-align: center">Snake Game</h1>
+    <div style="text-align: center">
+      <canvas
+        id="game_field"
+        width="500px"
+        height="500px"
+        style="border: 1px solid black"
+      >
+      </canvas>
+    </div>
   </body>
 
   <script>
@@ -31,11 +34,11 @@
     let speedCoeff = 1;
 
     const FIELD_COLOR = "#f0f0f0";
-    const FOOD_COLOR = "#00f";
+    const FOOD_COLOR = "#FF0000";
     const GRID_COLOR = "#d9d9d9";
-    const SNAKE_COLOR = "#206020";
+    const SNAKE_COLOR = "#00FF00";
 
-    addEventListener("keydown", function (e) {
+    addEventListener("keydown", (e) => {
       if (e.keyCode === 37 && dir !== "right") {
         dir = "left";
       } else if (e.keyCode === 38 && dir !== "down") {
@@ -47,13 +50,13 @@
       }
     });
 
-    const draw = function () {
+    const draw = () => {
       draw_field();
       draw_snake();
       draw_food();
     };
 
-    const draw_field = function () {
+    const draw_field = () => {
       context.fillStyle = FIELD_COLOR;
       context.fillRect(0, 0, width, height);
       context.strokeStyle = GRID_COLOR;
@@ -69,7 +72,7 @@
       }
     };
 
-    const draw_food = function () {
+    const draw_food = () => {
       context.beginPath();
       context.fillStyle = FOOD_COLOR;
       context.arc(
@@ -83,7 +86,7 @@
       context.closePath();
     };
 
-    const draw_snake = function () {
+    const draw_snake = () => {
       context.fillStyle = SNAKE_COLOR;
       context.strokeStyle = "#000000";
       for (let i = 0; i < snake.length; i++) {
@@ -92,7 +95,7 @@
       }
     };
 
-    const init = function () {
+    const init = () => {
       snake = [];
       for (let i = 0; i < 2; ++i) {
         snake.push({
@@ -101,13 +104,16 @@
         });
         snake.reverse();
       }
+      console.log(snake);
       dir = "right";
       score = 0;
       speedCoeff = 1;
       spawn_food();
     };
 
-    const isContact = function (fieldObj) {
+    // 인수에 따라 여러기능으로 사용
+    // snake 몸통 충돌, 사과 위치 몸통과 중복
+    const isContact = (fieldObj) => {
       let contact = false;
       for (let i = 0; i < snake.length && !contact; i++) {
         contact = snake[i].x === fieldObj.x && snake[i].y === fieldObj.y;
@@ -115,11 +121,16 @@
       return contact;
     };
 
-    const isValid = function (pos) {
-      return 0 <= pos.x && pos.x < width && 0 <= pos.y && pos.y < height;
+    // canvas 벽충돌, 사과위치 캔버스를 벗어나는지
+    const isValid = (pos) => {
+      // return 0 <= pos.x && pos.x < width && 0 <= pos.y && pos.y < height;
+      if (0 <= pos.x && pos.x < width && 0 <= pos.y && pos.y < height) {
+        return true;
+      }
     };
 
-    const spawn_food = function () {
+    // 사과생성
+    const spawn_food = () => {
       do {
         food = {
           x:
@@ -132,7 +143,7 @@
       } while (isContact(food) || !isValid(food));
     };
 
-    const step = function () {
+    const step = () => {
       let newPos = {};
       if (dir === "up") {
         newPos = {
@@ -179,6 +190,7 @@
       setTimeout(step, 100 / speedCoeff);
     };
 
+    // draw();
     init();
     step();
   </script>
