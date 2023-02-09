@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class aa {
+        a = 10;
+        b = 20;
+        c = 30;
+      }
+      var a = new aa();
+      var b = new aa();
+      var c = b;
+      c.c = 100;
+      console.log(b.a, b.b, b.c);
+
+      // a = {"a" : 10 , "b" : 20 , "c" : 30}
+      //  b = [10,20,30]; ==> {0:10 , 1:20 , 2:30}
+    </script>
+  </body>
+</html>

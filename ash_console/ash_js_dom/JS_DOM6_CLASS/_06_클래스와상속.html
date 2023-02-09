@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        /*
+      /*
             [상속]
             
             [1] 서로 다른 클래스 두개는 상속이라는 키워드를 통해 부모 자식 관계를 형성할수있다. 
@@ -27,45 +27,44 @@
                 [예시]
                     class Player extends Unit{}
         */
-        class Unit{
-            health = 0;
-            power = 0;
-            armor = 0;
-            level = 0;
-            name = "";
-            status = "play"; // play , dead 유닛의 상태를 나타낸다. 
-            setData(a , b, c , d , e){
-                this.health = a;
-                this.power = b;
-                this.armor = c;
-                this.level = d;
-                this.name = e;
-            }
-            printData(){
-                console.log(this.name , this.level , this.health , this.power , this.armor );
-            }              
+      class Unit {
+        health = 0;
+        power = 0;
+        armor = 0;
+        level = 0;
+        name = "";
+        status = "play"; // play , dead 유닛의 상태를 나타낸다.
+        setData(a, b, c, d, e) {
+          this.health = a;
+          this.power = b;
+          this.armor = c;
+          this.level = d;
+          this.name = e;
         }
-        class Player extends Unit{
-
+        printData() {
+          console.log(
+            this.name,
+            this.level,
+            this.health,
+            this.power,
+            this.armor
+          );
         }
-        class Wolf extends Unit{
+      }
+      class Player extends Unit {}
+      class Wolf extends Unit {}
+      class Bat extends Unit {}
+      class Tiger extends Unit {}
 
-        }
-        class Bat extends Unit{
-
-        }
-        class Tiger extends Unit{
-
-        }  
-
-        var player = new Player();
-        player.setData(100, 10, 5 , 1 , "용사"); // Player 클래스는 텅텅비어있지만 잘작동한다. 
-        player.printData();
-        var wolf1 = new Wolf();
-        wolf1.setData(40,5,3,1,"늑대1");
-        wolf1.printData();
-
+      var player = new Player();
+      player.setData(100, 10, 5, 1, "용사"); // Player 클래스는 텅텅비어있지만 잘작동한다.
+      player.printData();
+      var wolf1 = new Wolf();
+      wolf1.setData(40, 5, 3, 1, "늑대1");
+      wolf1.printData();
+      var bat = new Bat();
+      bat.setData(100, 4, 10, 2, "박쥐");
+      bat.printData();
     </script>
-
-</body>
+  </body>
 </html>

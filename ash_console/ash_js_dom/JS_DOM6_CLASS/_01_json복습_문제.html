@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="kor" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-      
-
-        /*
-            [문제1] 
+      /*
+            [문제1]
                 json과 함수를 복습한다.
-                
+
                 strdata1 과 strdata2 를 파싱하여 아래와 같이 stList 에 json 형태로 저장하시오.
                 strdata1 은 json의 key 이다.
-                strdata2 는 json의 value 이다. 
+                strdata2 는 json의 value 이다.
 
                 stList = [
                 {"num" : 1001 , "name" : "김철수" , "kor" :100 , "math" : 20, },
                 {"num" : 1002 , "name" : "이영수" , "kor" :90 , "math" : 40 , },
                 {"num" : 1003 , "name" : "오민수" , "kor" :20 , "math" : 50 , },]
 
-     
+
             [문제2]
                 1등을 출력하시오.
             [문제3]
@@ -33,19 +31,95 @@
                 평균60이하를 삭제하시오.
         */
 
+      function parseData(data1, data2) {
+        for (let i = 0; i < data2.length; i++) {
+          var a = {};
+          var data3 = data2[i].split("/");
+          for (let j = 0; j < data3.length; j++) {
+            a[data1[j]] = data3[j];
+          }
+          stList.push(a);
+        }
+        // console.log(stList);
+        return stList;
+      }
 
-        strdata1 = "num/name/kor/math";
-        strdata2 = "1001/김철수/100/20,1002/이영수/90/40,1003/오민수/20/50";
+      function maxScore(list) {
+        // 점수 토탈
+        let total = 0;
+        let max = 0;
+        let maxIdx = 0;
+        for (let i = 0; i < list.length; i++) {
+          kor = list[i]["kor"];
+          math = list[i]["math"];
+          total = Number(kor) + Number(math);
 
-        stList = []
+          if (max < total) {
+            max = total;
+            maxIdx = i;
+          }
+        }
+        return maxIdx;
+      }
 
-        stadd = "1004/신민아/90/89";
+      function stListAdd(list, st, data) {
+        // list로 스플릿
+        st = st.split("/");
+        // console.log(st);
 
+        let b = {};
+        for (i = 0; i < data.length; i++) {
+          b[data[i]] = st[i];
+        }
+        // console.log(b);
+        list.push(b);
+        return list;
+      }
 
+      function avgScore(list) {
+        // 점수 토탈
+        let total = 0;
+        let avg = 0;
+        let avgList = [];
+        for (let i = 0; i < list.length; i++) {
+          kor = list[i]["kor"];
+          math = list[i]["math"];
+          total = Number(kor) + Number(math);
+          avg = total / 2;
+          if (avg > 60) {
+            avgList.push(list[i]);
+          }
+        }
+        return avgList;
+      }
 
+      strdata1 = "num/name/kor/math";
+      strdata2 = "1001/김철수/100/20,1002/이영수/90/40,1003/오민수/20/50";
 
+      stList = [];
+
+      stadd = "1004/신민아/90/89";
+
+      // 문자열 배열로 자르기
+      data1 = strdata1.split("/");
+      data2 = strdata2.split(",");
+
+      stList = parseData(data1, data2);
+      maxIdx = maxScore(stList);
+      add = stListAdd(stList, stadd, data1);
+      avg = avgScore(add);
+
+      console.log("[문제1]");
+      console.log(stList);
+
+      console.log("[문제2]");
+      console.log(stList[maxIdx]);
+
+      console.log("[문제3]");
+      console.log(add);
+
+      console.log("[문제4]");
+      console.log(avg);
     </script>
-
-
-</body>
+  </body>
 </html>
