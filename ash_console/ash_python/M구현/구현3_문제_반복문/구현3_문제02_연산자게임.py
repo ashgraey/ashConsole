@@ -17,3 +17,28 @@
 		6. 5번반복하고 맞춘결과 출력 
 		
 """
+import random
+
+for _ in range(5):
+    a, b = map(int, input().split())
+
+    op = random.randint(1, 4)
+
+    result = 0
+    if op == 1:
+        result = a + b
+    elif op == 2:
+        result = a - b
+    elif op == 3:
+        result = a * b
+    else:
+        result = a % b
+
+    print(a, "?", b, "=", result)
+    print("[1] +, [2] -, [3] *, [4] %")
+    user = int(input())
+
+    if user == op:
+        print("정답")
+    else:
+        print("오답")

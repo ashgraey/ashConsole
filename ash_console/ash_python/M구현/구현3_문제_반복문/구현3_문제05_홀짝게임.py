@@ -9,3 +9,34 @@
 		[7] 돈이 부족하면 게임은 자동종료된다. 
  
 """
+import random
+
+money = 3000
+turn = 1
+while money > 0:
+    print("=========", turn, "=========")
+    r = random.randint(1, 10)
+    print(r)
+    a = input()
+
+    if r % 2 == 0:
+        result = "짝"
+    else:
+        result = "홀"
+
+    if a == result:
+        money += 700
+    else:
+        money -= 1000
+        if money <= 0:
+            break
+
+    print("money : ", money)
+    print("[1.한번더][2.종료]")
+    b = int(input())
+    if b == 2:
+        break
+
+    turn += 1
+
+print("잔돈 : ", money)

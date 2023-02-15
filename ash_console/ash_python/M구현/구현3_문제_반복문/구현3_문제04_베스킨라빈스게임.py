@@ -10,3 +10,28 @@
 		3) 각 플레이어가 선택한숫자는  total  변수에 계속 누적해서 더한다.
 		4) total 이 31이상에 도달하면 승리자를 출력한다.
 """
+
+total = 0
+while True:
+
+    p1 = int(input())
+    if 1 < p1 and p1 > 3:
+        print("p1 : ")
+        continue
+
+    p2 = int(input())
+    if 1 < p2 and p2 > 3:
+        print("p2 : ")
+        continue
+
+    total += p1
+    if total >= 31:
+        print("p2 승")
+        break
+
+    total += p2
+    if total >= 31:
+        print("p1 승")
+        break
+
+    print(total)
