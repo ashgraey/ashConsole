@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function Dog(color, name, age) {
+      //     this.color = color;
+
+      //     this.name = name;
+
+      //     this.age = age;
+      //   }
+
+      //   // 현재 존재하고 있는 Dog 프로토타입에 family 프로퍼티를 추가함.
+
+      //   Dog.prototype.family = "시베리안 허스키";
+
+      //   // 현재 존재하고 있는 Dog 프로토타입에 breed 메소드를 추가함.
+
+      //   Dog.prototype.breed = function () {
+      //     return this.color + " " + this.family;
+      //   };
+
+      //   var myDog = new Dog("흰색", "마루", 1);
+
+      //   var hisDog = new Dog("갈색", "콩이", 3);
+
+      //   document.write(
+      //     "우리 집 강아지는 " +
+      //       myDog.family +
+      //       "이고, 친구네 집 강아지도 " +
+      //       hisDog.family +
+      //       "입니다.<br />"
+      //   );
+
+      //   document.write(
+      //     "우리 집 강아지의 품종은 " + myDog.breed() + "입니다.<br>"
+      //   );
+
+      //   document.write("친구네 집 강아지의 품종은 " + hisDog.breed() + "입니다.");
+
+      //   function Dog(color, name, age) {
+      //     this.color = color;
+
+      //     this.name = name;
+
+      //     this.age = age;
+
+      //     this.family = "시베리안 허스키"; // 프로토타입에 프로퍼티를 추가할 때에는 기본값을 가지게 할 수 있음.
+
+      //     this.breed = function () {
+      //       return this.color + " " + this.family;
+      //     };
+      //   }
+
+      //   var myDog = new Dog("흰색", "마루", 1);
+
+      //   var hisDog = new Dog("갈색", "콩이", 3);
+
+      //   document.write(
+      //     "우리 집 강아지는 " +
+      //       myDog.family +
+      //       "이고, 친구네 집 강아지도 " +
+      //       hisDog.family +
+      //       "입니다."
+      //   );
+
+      class Hero {
+        constructor(a, b, c) {
+          this.name = a;
+          this.age = b;
+          this.gender = c;
+        }
+      }
+
+      var ahn = new Hero("안성현", 31, "남");
+      var min = new Hero("안정민", 28, "여");
+      console.log(ahn);
+      console.log();
+    </script>
+  </body>
+</html>
