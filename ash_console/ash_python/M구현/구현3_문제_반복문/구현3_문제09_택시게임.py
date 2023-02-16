@@ -18,9 +18,63 @@
 		1을 선택한경우 : [1.동][2.서][3.남][4.북] 메뉴를 보여주며, 1~4를 선택할수있다.
 		2를 선택한경우 : [1.한칸이동][2.두칸이동][3.세칸이동] 메뉴를 보여주며, 1~3을 선택할수있다.
 """
+import random
 x = 0
 y = 0
 dir = "동"
 price = 0
 rx = 0
 ry = 0
+speed = 0
+pay = 0
+
+rx = random.randint(-10, 10)
+ry = random.randint(-10, 10)
+print("x : ", rx, "y : ", ry)
+
+ch = 0
+while True:
+    print("x : ", x, "y : ", y, "pay : ", pay)
+    print("[1.방향설정하기] [2.이동하기] [0.영업종료]")
+    ch = int(input())
+
+    if dir == "동":
+        x += speed
+    elif dir == "서":
+        x -= speed
+    elif dir == "남":
+        y -= speed
+    else:
+        y += speed
+
+    if x == rx and y == ry:
+        break
+
+    if ch == 0:
+        print("영업종료")
+        break
+
+    elif ch == 1:
+        print("[1.방향설정하기]")
+        print("[1.동] [2.서] [3.남] [4.북]")
+        ch = int(input())
+        dir = ch
+        if dir == 1:
+            dir = "동"
+        elif dir == 2:
+            dir = "서"
+        elif dir == 3:
+            dir = "남"
+        else:
+            dir = "북"
+        continue
+
+    elif ch == 2:
+        print("[2.이동하기]")
+        print("[1.한칸이동] [2.두칸이동] [3.세칸이동]")
+        ch = int(input())
+        speed = ch
+        pay += 50 * speed
+        continue
+
+print(x, y, pay)
