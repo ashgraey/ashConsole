@@ -5,12 +5,11 @@
 """
 
 a = "abcdefg"
-test1 = a.find("b") # 1
+test1 = a.find("b")  # 1
 print(test1)
 
-test2 = a.find("z") # -1
+test2 = a.find("z")  # -1
 print(test2)
 
-
-
-
+test3 = a.find("a")
+print(test3)

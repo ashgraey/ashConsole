@@ -11,18 +11,29 @@
     콘칩 3
     오징어볼 0
 """
-itemData = ["새우깡" , "감자깡" , "오징어볼" , "콘칩"]
+itemData = ["새우깡", "감자깡", "오징어볼", "콘칩"]
 salesData = "새우깡 5,감자깡 6,새우깡 4,콘칩 3,감자깡 7"
 viewData = {}
 
+sale = salesData.split(",")
+saleList = []
+for i in range(len(sale)):
+    saleList.append(sale[i].split(" "))
 
+print(saleList)
+# 아이템 이름 먼저 복사
+for key in itemData:
+    viewData[key] = 0
+print(viewData)
 
+# 딕셔너리로 모으기
+for key in viewData.keys():
+    for j in range(len(saleList)):
+        if key == saleList[j][0]:
+            viewData[key] += int(saleList[j][1])
 
-
-
-
-
-
-
-
-
+print(viewData)
+print()
+sortedItem = sorted(viewData.items(), key=lambda x: x[1], reverse=True)
+for i in sortedItem:
+    print(i)

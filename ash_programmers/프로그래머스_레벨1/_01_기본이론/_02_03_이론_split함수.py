@@ -16,3 +16,11 @@ for i in range(len(tokenList)):
     viewList.append(token)
 print(viewList)
 
+# temp = salesData.split(",")
+# print(temp)
+# tempList = []
+# for i in range(len(temp)):
+#     tempList.append(temp[i].split(" "))
+
+# for i in range(len(tempList)):
+#     print(tempList[i])
