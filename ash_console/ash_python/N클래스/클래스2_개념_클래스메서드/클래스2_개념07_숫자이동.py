@@ -36,18 +36,20 @@ class Game:
 
     def run(self):
         self.set_player()
-        
+
         while True:
             self.print_game()
 
             number = int(input("1)좌 2)우 3)종료 : "))
-            
+
             if number == 1:
                 self.move_left()
             elif number == 2:
                 self.move_right()
             elif number == 3:
                 break
-#----------------------------------------------------------
+
+
+# ----------------------------------------------------------
 g = Game()
 g.run()

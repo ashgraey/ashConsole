@@ -1,36 +1,40 @@
-
+# data
 class Member:
     number = 0
     name = str()
     score = 0
-    
+
     def printMember(self):
-        print(self.number , " : " , self.name , " : " , self.score)
-    
+        print(self.number, " : ", self.name, " : ", self.score)
+
+# DAO(탈중앙화?)
+# 메서드 통합본 느낌이랄까?
+
+
 class MemberDAO:
-    memberList = [] 
+    memberList = []
+
     def insertMember(self, member):
         self.memberList.append(member)
-        
+
     def deleteMember(self, index):
         self.memberList.remove(index)
-    
-    def getMember(self , index):
+
+    def getMember(self, index):
         return self.memberList[index]
-    
-    def updateMember(self, index , member):
+
+    def updateMember(self, index, member):
         self.memberList[index] = member
-        
-    
+
     def printAllMember(self):
         for i in range(len(self.memberList)):
             print(self.memberList[i].printMember())
-        
-    
+
+
 class MemberController:
     memberDAO = MemberDAO()
-    
-    def init(self, member_data):     
+
+    def init(self, member_data):
         token1 = member_data.split("/")
         for i in range(len(token1)):
             token2 = token1[i].split(",")
@@ -42,11 +46,10 @@ class MemberController:
 
     def insert(self):
         pass
-    
+
     def printAll(self):
-        self.memberDAO.printAllMember();
-            
-    
+        self.memberDAO.printAllMember()
+
     def run(self):
         while True:
             print("[1]추가 [2]삭제 [3]수정 [4]전체출력 [0]종료")
@@ -61,7 +64,8 @@ class MemberController:
                 self.printAll()
             elif select == 0:
                 break
-    
+
+
 member_data = "1001,김철수,30/1002,이만수,40/1003,이영희,69"
 
 memberController = MemberController()
