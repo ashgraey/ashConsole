@@ -10,5 +10,15 @@
     5 => [1,4,5]
 """
 b = [7,2,2,5,5]
-
 a = [1,4,5,7]
+
+for i in range(len(b)) :
+    a.append(b[i])
+
+    if len(a) >= 2 :
+        t1 = a[-1]
+        t2 = a[-2]
+        if t1 == t2 :
+            del(a[-1])
+            del(a[-1])
+    print(a)

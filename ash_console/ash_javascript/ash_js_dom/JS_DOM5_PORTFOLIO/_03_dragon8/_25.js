@@ -66,6 +66,7 @@ function drawSpot() {
     ctx.closePath();
   }
 }
+// meteo setting 
 function setMeteoTimer(wait) {
   gameData["meteoTimer"] += 1;
   if (gameData["meteoTimer"] % wait == 0) {
@@ -110,6 +111,7 @@ function createEnemy() {
   }
 }
 
+// meteo create
 function createMeteo() {
   if (gameData["stage"] <= 2) return;
   console.log("!!2");
@@ -169,6 +171,7 @@ function moveEnmeyList() {
   }
 }
 
+// meteo move and meteo splice
 function moveMeteoList() {
   for (var i = 0; i < meteoList.length; i++) {
     if (enemyDeadTime(meteoList[i])) {
@@ -192,6 +195,8 @@ function drawEnmeyList() {
     );
   }
 }
+
+// meto draw 
 function drawMeteoList() {
   for (var i = 0; i < meteoList.length; i++) {
     drawRect(meteoList[i]);
@@ -204,6 +209,8 @@ function drawMeteoList() {
     );
   }
 }
+
+// move boss
 function moveBoss() {
   if (boss == null) return;
   //console.log(boss["state"]);
@@ -247,9 +254,11 @@ function moveBoss() {
       boss["typeTimer"] = 0;
     }
   } else if (boss["state"] == "dead") {
+      boss["img"] = new Image();
   }
 }
 
+// create boss
 function createBoss() {
   boss = {
     x: 125,
@@ -270,6 +279,7 @@ function createBoss() {
   boss["img"].src = "image/boss.png";
 }
 
+// draw boss
 function drawBoss() {
   if (boss == null) return;
   drawRect(boss);
@@ -542,9 +552,10 @@ function collision_boss_boltlist() {
   for (var i = 0; i < boltList.length; i++) {
     if (collision(boltList[i], boss)) {
       boss["life"] -= boltList[i]["power"];
-      console.log(boss["life"]);
+      console.log("boss life : ", boss["life"]);
       if (boss["life"] <= 0) {
         gameData["state"] = "gameover";
+        boss["state"] = "dead";
       }
       boltList.splice(i, 1);
       return;
@@ -561,7 +572,7 @@ function collision_enemylist_boltlist() {
 
         if (enemyList[i]["life"] <= 0) {
           gameData["score"] += 1;
-          if (gameData["score"] >= 10) {
+          if (gameData["score"] >= 1) {
             gameData["stage"] += 1;
             changeStage(gameData["stage"]);
             gameData["score"] = 0;
