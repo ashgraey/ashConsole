@@ -14,7 +14,7 @@ import random
 # class를 활용하여 풀어보자
 
 
-class StarTypingData:
+class StarTypingGame:
 
     def __init__(self, a) :
         self.a = a
@@ -83,5 +83,5 @@ class StarTypingData:
                  
 a = ["mysql", "jsp", "javascript", "python", "java"]
 
-data = StarTypingData(a)
+data = StarTypingGame(a)
 data.run()
