@@ -10,4 +10,52 @@
 	* 입력 : jsp
 
 """
-a = ["mysql" , "jsp" , "javascript" , "python" , "java"]
+import random
+# class를 활용하여 풀어보자
+
+
+class StarTypingData:
+
+    def __init__(self, a):
+        self.a = a
+
+        # print(a)
+
+    def setDataShuffle(self):
+        # 문제를 섞는다. 셔플
+        for _ in range(10):
+            r = random.randint(0, len(self.a) - 1)
+            temp = self.a[0]
+            self.a[0] = self.a[r]
+            self.a[r] = temp
+
+    def setDataStar(self):
+        tempList = []
+        for i in range(len(self.a)):
+            r = random.randint(0, len(self.a[i]) - 1)
+
+            temp = ""
+            for j in range(len(self.a[i])):
+                temp += self.a[i][j]
+                if r == j:
+                    temp += "*"
+            tempList.append(temp)
+
+        for i in range(len(tempList)):
+            self.a[i] = tempList[i]
+
+        print(self.a)
+
+
+class StarTypingGame(StarTypingData):
+    def __init__(self):
+        StarTypingData.__init__(self)
+
+    def out(self):
+        print(self.b)
+
+
+a = ["mysql", "jsp", "javascript", "python", "java"]
+
+data = StarTypingData(a)
+data.setDataStar()
