@@ -16,10 +16,7 @@ import random
 
 class StarTypingData:
 
-    def __init__(self, a):
-        self.a = a
-
-        # print(a)
+    cnt = 0
 
     def setDataShuffle(self):
         # 문제를 섞는다. 셔플
@@ -41,21 +38,23 @@ class StarTypingData:
                     temp += "*"
             tempList.append(temp)
 
-        for i in range(len(tempList)):
-            self.a[i] = tempList[i]
+        return tempList
 
-        print(self.a)
+    def run(self):
+        tempList = self.setDataStar()
+        print(a)
+        # self.idx = 0
+        # while True:
+        #     print(a[self.idx])
+        #     user = input()
 
-
-class StarTypingGame(StarTypingData):
-    def __init__(self):
-        StarTypingData.__init__(self)
-
-    def out(self):
-        print(self.b)
+        #     for i in range(len(a)):
+        #         ck = False
+        #         for j in range(len(a[i])):
+        #             if a[]
 
 
 a = ["mysql", "jsp", "javascript", "python", "java"]
 
 data = StarTypingData(a)
-data.setDataStar()
+data.run()
