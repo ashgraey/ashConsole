@@ -16,15 +16,26 @@ import random
 
 class StarTypingData:
 
-    cnt = 0
+    def __init__(self, a) :
+        self.a = a
+        self.cnt = 0
+        self.end = True 
 
     def setDataShuffle(self):
+        tempList = self.setDataStar()
         # 문제를 섞는다. 셔플
         for _ in range(10):
             r = random.randint(0, len(self.a) - 1)
-            temp = self.a[0]
+            temp1 = self.a[0]
             self.a[0] = self.a[r]
-            self.a[r] = temp
+            self.a[r] = temp1
+
+            temp2 = tempList[0]
+            tempList[0] = tempList[r]
+            tempList[r] = temp2
+
+            return tempList
+
 
     def setDataStar(self):
         tempList = []
@@ -33,27 +44,43 @@ class StarTypingData:
 
             temp = ""
             for j in range(len(self.a[i])):
-                temp += self.a[i][j]
+                
                 if r == j:
                     temp += "*"
+                else :
+                    temp += self.a[i][j]
+
             tempList.append(temp)
 
         return tempList
 
     def run(self):
-        tempList = self.setDataStar()
-        print(a)
-        # self.idx = 0
-        # while True:
-        #     print(a[self.idx])
-        #     user = input()
+        tempList = self.setDataShuffle()
+        print(tempList)
+        print(self.a)
+        self.cnt = 0
+        while self.end :
+            print("문제", self.cnt + 1, ":", tempList[self.cnt])
+            user = input()
 
-        #     for i in range(len(a)):
-        #         ck = False
-        #         for j in range(len(a[i])):
-        #             if a[]
+            ck = False
+            for i in range(len(self.a[self.cnt])) :
+                if len(user) == len(self.a[self.cnt]) :
+                    if user[i] != self.a[self.cnt][i] :
+                        ck = True
+                        break
+                else :
+                    ck = True
+                    break
 
+            if ck == False :
+                self.cnt += 1 
 
+            if len(tempList) - 1 == self.cnt :
+                print("게임종료")
+                self.end = False
+
+                 
 a = ["mysql", "jsp", "javascript", "python", "java"]
 
 data = StarTypingData(a)
