@@ -34,7 +34,16 @@
             위와 같이 클래스는 보통 setData 등과 같이 초기 값설정이 필요하다.
             초기값설정을 위해 한번에 할수있도록 생성자 함수를 제공한다. 
         */
+      //  객체화 시킨 클래스는 인스턴스가 되면서 생성자 메소드로써 인자를 받을 수 있다.
       var unit = new Unit(50, 10, 1, "용사"); // new 와 동시에 할수있다.
+      console.log(unit.health, unit.power, unit.level, unit.name);
+      
+      /*
+      == 같은 의미이다. 기존의 인스턴스의 메소드에 인자를 넣어주어야하는 번거로움과
+      코드 한줄을 줄인다는데 의미가 있다.
+      var unit = new Unit();
+      unit.setData(50, 10, 1, "용사");
+      */
     </script>
   </body>
 </html>

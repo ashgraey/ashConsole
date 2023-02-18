@@ -42,6 +42,8 @@
             printStudentInfo(){
                 console.log("전체학생")
                 for(var i = 0; i < this.studentManager.stList.length; i++){
+                    // return을 통해 값을 받은게 아니라 
+                    // 객체를 전달받았기 때문에 studentManager에 있는 프로퍼티인 stList를 불러서 써야한다.
                     console.log(this.studentManager.stList[i])
                 }
             }
