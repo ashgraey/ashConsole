@@ -22,9 +22,11 @@ export class ManagerGame{
         ManagerPlayer.getInstance().start();
         ManagerScene.getInstance().changeScene("title");
     }
+
     update(){
         ManagerScene.getInstance().update();
     }
+    
     draw(){
         ManagerScene.getInstance().draw();
     }

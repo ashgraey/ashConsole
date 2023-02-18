@@ -13,6 +13,22 @@
 		80, 50, 40, 30, 19, 10	
 '''
 score = [10, 50, 30, 40, 80, 19]
+
+for i in range(len(score)):
+    max = score[i]
+    maxIdx = i
+    for j in range(i, len(score)):
+        if max < score[j]:
+            max = score[j]
+            maxIdx = j
+
+    temp = score[i]
+    score[i] = score[maxIdx]
+    score[maxIdx] = temp
+
+print(score)
+# print(max)
+
 # 정답
 # i = 0
 # while i < len(score):
@@ -26,7 +42,7 @@ score = [10, 50, 30, 40, 80, 19]
 # 			max = score[j]
 # 			maxIndex = j
 # 		j += 1
-		
+
 # 	temp = score[i]
 # 	score[i] = score[maxIndex]
 # 	score[maxIndex] = temp
@@ -35,17 +51,17 @@ score = [10, 50, 30, 40, 80, 19]
 
 # print(score)
 
-score = [10, 50, 30, 40, 80, 19]
-#1123
-for i in range(len(score)) :
+# score = [10, 50, 30, 40, 80, 19]
+# #1123
+# for i in range(len(score)) :
 
-	max = 0 
-	maxIdx = 0 
-	j = i 
-	while j < len(score) :
-		if max < score[j] :
-			max = score[j]
-			maxIdx = j 
+# 	max = 0
+# 	maxIdx = 0
+# 	j = i
+# 	while j < len(score) :
+# 		if max < score[j] :
+# 			max = score[j]
+# 			maxIdx = j
 
-	temp = score[i]
-	score[i] = score[i]
+# 	temp = score[i]
+# 	score[i] = score[i]

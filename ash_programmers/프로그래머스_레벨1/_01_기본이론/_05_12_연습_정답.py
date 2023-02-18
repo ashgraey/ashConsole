@@ -38,4 +38,5 @@ for i in range(len(b)):
         if a[j][index] != 0:
             a[j][index] = 0
             break
-print(a)
+for i in a :
+    print(i)

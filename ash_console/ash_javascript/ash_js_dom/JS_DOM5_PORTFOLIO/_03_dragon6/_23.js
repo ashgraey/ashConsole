@@ -124,6 +124,7 @@ function moveEnmeyList() {
             enemyList.splice(i, 1);
             return
         }
+        // enemy dead시 item 생성 
         if (enemyDeadLife(enemyList[i])) {
 
             var ran = Math.floor(Math.random() * 4); // 확률 4 ==> 25%
@@ -152,6 +153,7 @@ function drawEnmeyList() {
 // ============== Enemy ======================
 
 // -------------- Item ----------------------
+// item Create
 function createItem(posx , posy){
     var item1 = { x: posx, y: posy, w: 50, h: 50, img: new Image(), speed: 0.5 , 
         imagew : 50 , imageh : 50};
@@ -261,6 +263,7 @@ function shootPlayer() {
         createBolt();
     }
 }
+// boltLevelSetting
 function boltLevelSet(){
     if(player["level"] == 1){
         for(var i = 0; i < boltList.length; i++){
@@ -280,11 +283,14 @@ function boltLevelSet(){
         }    
     }
 }
+// levelSetting 세분화
 function levelSetPlayer(plus){
+    // item collison + 1
     player["level"] += plus;
     if(player["level"] >= 3){
         player["level"] = 3;
     }
+    // Enemy collison - 1
     if(player["level"] <= 1){
         player["level"] = 1;
     }
@@ -355,6 +361,7 @@ function collision_enemylist_player(){
     }   
 }
 
+// item_player collison check
 function collision_itemList_player(){
     for(var i = 0; i < itemList.length; i++){
         if(collision(player , itemList[i])){

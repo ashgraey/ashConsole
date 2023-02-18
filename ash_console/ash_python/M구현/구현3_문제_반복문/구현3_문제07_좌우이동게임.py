@@ -15,6 +15,22 @@
 		[1.left] [2.right] 번호를 고르세요.
 		
 """
+import random
 
-x = 0
-r = 0
+r = random.randint(-5, 5)
+print(r)
+positionX = 0
+# r = 0
+while True:
+    print("[1.left] [2.right]")
+    a = int(input())
+
+    if a == 1:
+        positionX -= 1
+    else:
+        positionX += 1
+
+    print(positionX)
+    if positionX == r:
+        print("목적지 도착")
+        break

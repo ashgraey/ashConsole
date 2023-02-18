@@ -2,12 +2,13 @@
 
 import random
 
+
 class MemoryGame:
     count = 0                  # 정답을 맞춘 개수
     size = 10
     front = []
     back = []
-    
+
     def set_game(self):
         j = 1
         for i in range(10):
@@ -17,12 +18,13 @@ class MemoryGame:
             self.front.append(j)
 
     def suffle_front(self):
+        # print(self.front)
         for i in range(100):
             r = random.randint(0, 9)
 
             temp = self.front[0]
             self.front[0] = self.front[r]
-            self.front[r] = temp       
+            self.front[r] = temp
 
     def run(self):
         self.set_game()
@@ -44,8 +46,8 @@ class MemoryGame:
                 self.back[index2] = self.front[index2]
 
                 self.count += 1
-        
 
-#------------------------------------------------------------------
+
+# ------------------------------------------------------------------
 mg = MemoryGame()
 mg.run()

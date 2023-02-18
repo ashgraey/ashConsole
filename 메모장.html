@@ -70,18 +70,80 @@
       //       "입니다."
       //   );
 
-      class Hero {
-        constructor(a, b, c) {
-          this.name = a;
-          this.age = b;
-          this.gender = c;
-        }
-      }
+      // class Hero {
+      //   constructor(a, b, c) {
+      //     this.name = a;
+      //     this.age = b;
+      //     this.gender = c;
+      //   }
+      // }
 
-      var ahn = new Hero("안성현", 31, "남");
-      var min = new Hero("안정민", 28, "여");
-      console.log(ahn);
-      console.log();
+      // var ahn = new Hero("안성현", 31, "남");
+      // var min = new Hero("안정민", 28, "여");
+      // console.log(ahn);
+      // console.log();
+    </script>
+
+    <script>
+      // splice
+      const arr = [1, 2, 3, 4, 5];
+
+      // remove one element at index 2
+      const removed = arr.splice(2, 1); // 3
+      console.log(arr); // [1, 2, 4, 5]
+      console.log(removed); // [3]
+
+      // replace two elements starting at index 1 with two new elements
+      arr.splice(1, 2, "a", "b");
+      console.log(arr); // [1, 'a', 'b', 5]
+
+      // add two new elements starting at index 2
+      arr.splice(2, 0, "x", "y");
+      console.log(arr); // [1, 'a', 'x', 'y', 'b', 5] // 삭제하지 않고 값만 추가, 원하는 위치에 값을 추가하는 용도로 사용도 가능하다.
+    </script>
+
+    <script>
+      // class
+      // 자바스크립트 클래스(Class)는 ES6(ECMAScript 2015)에서 도입된 개념으로,
+      // 객체 지향 프로그래밍(OOP)에서 클래스를 정의하기 위한 문법입니다.
+      // 클래스는 객체의 상태를 나타내는 속성과 객체의 동작을 나타내는 메서드를 포함하며,
+      // 이를 통해 객체를 생성할 수 있습니다.
+      // 자바스크립트에서 클래스는 다음과 같은 구조를 가집니다.
+
+      class MyClass {
+        constructor(arg1, arg2) {
+          // 객체를 생성하고 초기화하기 위한 생성자 함수
+          console.log(arg1 + arg2);
+        }
+        method1(arg1, arg2) {
+          // 객체의 동작을 나타내는 메서드 함수
+          console.log("안녕");
+        }
+        method2(arg1, arg2) {
+          // 객체의 다른 동작을 나타내는 메서드 함수
+        }
+        // ...
+      }
+      my = new MyClass("안녕", "하세요");
+      // my.method1();
+      console.log(my);
+
+      /*
+      위와 같은 구조에서 constructor 메서드는 객체를 생성하고 초기화하기 위한 함수입니다. 
+      이 함수는 객체가 생성될 때 자동으로 호출되며, 
+      객체가 가지는 초기 상태를 설정할 수 있습니다. 
+      method1, method2와 같은 메서드는 객체가 가지는 동작을 나타내는 함수입니다.
+      클래스를 사용하면 다음과 같이 객체를 생성할 수 있습니다.
+      */
+      const myObj = new MyClass(arg1, arg2);
+      /*
+      위와 같이 생성된 객체는 MyClass 클래스의 인스턴스(instance)라고 부릅니다. 
+      인스턴스는 클래스에서 정의된 속성과 메서드를 모두 상속받으며, 
+      인스턴스마다 고유한 상태를 가질 수 있습니다.
+
+      자바스크립트 클래스는 기존의 프로토타입 기반 상속 방식과는 다소 차이가 있지만, 
+      클래스를 사용하는 것은 객체 지향 프로그래밍에서 일반적으로 사용되는 클래스 개념과 유사합니다.
+      */
     </script>
   </body>
 </html>

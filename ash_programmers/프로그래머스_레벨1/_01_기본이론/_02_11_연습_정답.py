@@ -12,14 +12,15 @@
     오징어볼 0
 """
 
-itemData = ["새우깡" , "감자깡" , "오징어볼" , "콘칩"]
+itemData = ["새우깡", "감자깡", "오징어볼", "콘칩"]
 salesData = "새우깡 5,감자깡 6,새우깡 4,콘칩 3,감자깡 7"
 viewData = {}
+
 
 def printView(viewData):
     print("----------------------------")
     for key in viewData.keys():
-        print(key , " " , viewData[key])
+        print(key, " ", viewData[key])
     print("----------------------------")
 
 
@@ -30,25 +31,13 @@ for i in range(len(itemData)):
 printView(viewData)
 
 # 판매개수 누적하기
+# 쪼개면서 값을 담는다.
 for i in range(len(tokenList)):
     token = tokenList[i].split(" ")
     viewData[token[0]] += int(token[1])
 printView(viewData)
 
-# 정렬 
-# 단, 데이터가 리스트안의 튜플로 바뀐다. 
+# 정렬
+# 단, 데이터가 리스트안의 튜플로 바뀐다.
 sortedView = sorted(viewData.items(), key=lambda x: x[1], reverse=True)
 print(sortedView)
-
-
-
-
-
-
-
-
-
-
-
-
-

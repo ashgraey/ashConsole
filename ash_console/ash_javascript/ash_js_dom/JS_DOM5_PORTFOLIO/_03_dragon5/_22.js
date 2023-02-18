@@ -165,6 +165,7 @@ function checkLine(){
         return true;
     }
 }
+// player Dead가 생김
 function deadPlayer(){
     if(player["life"] <= 0){
         gameState = "gameover";
@@ -172,6 +173,7 @@ function deadPlayer(){
     }
 }
 function movePlayer() {
+    // Dead 체크
     deadPlayer();
 
     if (key["right"]) {      
@@ -201,7 +203,8 @@ function movePlayer() {
 
 function moveBoltList() {
     for (var i = 0; i < boltList.length; i++) {
-
+        // bolt y축이 --임
+        // 즉, gameline을 벗어난 경우 boltList를 splice함
         if( boltList[i]["y"] < gameline["y"]){
             boltList.splice(i, 1);
             return;
@@ -221,10 +224,13 @@ function createBolt() {
         imagew : 80 , imageh : 80 , img: new Image(), dead: 200 , power : 1
     }
     bolt["img"].src = "image/bolt_1.png";
+    // bort가 생겨날때마다 boltList에 추가함
     len = boltList.length;
     boltList[len] = bolt;
  //   console.log(boltList);
 }
+
+ 
 function shootPlayer() {
     if (shootkey["up"] == "shoot") {
         shootkey["up"] = "wait";
@@ -244,6 +250,7 @@ function drawBoltList() {
     }
 }
 
+// 목숨 표시하기
 function drawLife() {
     for(var i = 0; i < player["life"]; i++){
         ctx.drawImage(player["lifeImg"],  i * 50 , 300 , 60 , 50 );
@@ -364,6 +371,7 @@ function draw() {
         drawGameover();
     }  
 }
+// gameover ctx가 생김
 function drawGameover(){
     ctx.drawImage(gameover["img"], gameover["x"], gameover["y"], gameover["w"], gameover["h"]);
 }

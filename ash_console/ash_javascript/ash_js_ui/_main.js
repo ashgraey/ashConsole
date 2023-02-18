@@ -3,6 +3,8 @@ import { ManagerGame } from "./managerGame.js"; // js에서 다른 class import
 function draw() {
   ctx.clearRect(0, 0, $canvas.width, $canvas.height);
   //-----------------------------------------------
+
+  // 초기화 식인거 같음
   ManagerGame.getInstance().update();
   ManagerGame.getInstance().draw();
   //-----------------------------------------------
