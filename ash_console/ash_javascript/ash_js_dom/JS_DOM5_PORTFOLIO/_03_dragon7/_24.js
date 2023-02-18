@@ -371,10 +371,12 @@ function collision_enemylist_boltlist(){
             if(collision(boltList[j] , enemyList[i])){
                 enemyList[i]["y"] -= 10;
                 enemyList[i]["life"] -= boltList[j]["power"];    
-
+                
+                // score에 따른 stage change
+                // 10마리 잡아야함
                 if(enemyList[i]["life"] <= 0){
                     gameData["score"] += 1;
-                    if(gameData["score"] >= 10){
+                    if(gameData["score"] >= 1){
                         gameData["stage"] += 1;
                         changeStage(gameData["stage"]);
                         gameData["score"] = 0;
@@ -403,6 +405,8 @@ function moveBg() {
         bg3["y"] = -500;
     }
 }
+
+// change stage
 function changeStage(stage){
     if(stage == 1){
         bg1["img"].src = "image/stage_01.png";
