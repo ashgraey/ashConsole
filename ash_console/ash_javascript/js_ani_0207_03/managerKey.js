@@ -1,11 +1,13 @@
+
+
 export class ManagerKey {
     static instance = new ManagerKey();
     static getInstance(){
         return this.instance;
     }
 
-    // 1 
     start(){
+        
         this.keyStayList = {"KeyD" : false , "KeyA" : false , "KeyW" : false , "KeyS" : false };
         this.keyOnceList = {"KeyJ" : "ready" , "KeyK" : "ready"};
 

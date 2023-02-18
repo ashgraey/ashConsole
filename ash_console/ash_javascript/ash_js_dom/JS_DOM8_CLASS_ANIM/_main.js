@@ -9,3 +9,5 @@ function draw(){
 var $tetris = document.querySelector("#tetris");
 ManagerGame.getInstance().start($tetris);
 setInterval(draw, 10);
+
+
