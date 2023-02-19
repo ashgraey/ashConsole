@@ -1,10 +1,17 @@
 import { ManagerImage } from "./managerImage.js";
+// var bg1 = { x: 0, y: 500, w: 400, h: 500, img: new Image(), speed: 0.5 };
+// bg1["img"].src = "image/stage_01.png";
+// var bg2 = { x: 0, y: 0, w: 400, h: 500, img: new Image(), speed: 0.5 };
+// bg2["img"].src = "image/stage_01.png";
+// var bg3 = { x: 0, y: -500, w: 400, h: 500, img: new Image(), speed: 0.5 };
+// bg3["img"].src = "image/stage_01.png";
 
 export class UnitCloudList{
     constructor(){  
         this.cloudList = [];
         for(var i = 0; i < 4; i++){
             var rnum = i + 1;
+            // 문자 + 숫자 = 문자 + 문자 = 스테이지01_구름1
             var cloudName = "스테이지01_구름" + rnum;
             var rx = Math.random() * 3000 - 1500;
             var ry = Math.random() * 200 - 100;
