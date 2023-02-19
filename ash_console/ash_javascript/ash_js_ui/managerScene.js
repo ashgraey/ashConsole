@@ -12,7 +12,8 @@ export class ManagerScene {
     start(){
         this.sceneList =  {};
         this.setScene();
-
+        
+        // 값이 안들어왔을 경우를 대비하는거임
         this.curScene = null;
         this.curSceneName = "";
     }
