@@ -35,6 +35,7 @@
             }
 
             testEvent2 = (e) => { // 화살표함수를 사용하면 e는 버튼이 저장된변수가되고 ,this는 따로 클래스내부변수가 된다. 
+                this.$test2.style["background-color"] = "red";
                 this.b += 10;
                 alert(this.b);
             }

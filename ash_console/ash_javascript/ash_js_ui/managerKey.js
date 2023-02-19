@@ -4,6 +4,7 @@ export class ManagerKey {
         return this.instance;
     }
 
+    // 1 
     start(){
         this.keyStayList = {"KeyD" : false , "KeyA" : false , "KeyW" : false , "KeyS" : false };
         this.keyOnceList = {"KeyJ" : "ready" , "KeyK" : "ready"};
