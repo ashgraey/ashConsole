@@ -18,8 +18,8 @@ export class ManagerGame{
         ManagerImage.getInstance().start();
         ManagerButton.getInstance().start();
         ManagerScene.getInstance().start();
-        ManagerStage.getInstance().start();
-        ManagerPlayer.getInstance().start();
+        // ManagerStage.getInstance().start();
+        // ManagerPlayer.getInstance().start();
         ManagerScene.getInstance().changeScene("title");
     }
 

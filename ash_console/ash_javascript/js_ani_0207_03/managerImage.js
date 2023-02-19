@@ -164,15 +164,20 @@ export class ManagerImage {
 
     }
 
+    // image 사이즈(w, h), src 설정, 인자를 managerImage에서 받아옴 
+    // 기본 이미지 크기설정
     managerImageSet(imageName , w , h , imagePath){
         var nodeImage = new NodeImage(w , h , imagePath);
         this.imageList[imageName] = nodeImage;
     }
 
+    // 가오용
     managerImageGet(imageName){
         return this.imageList[imageName];
     }
 
+    // image 위치(좌표), 인자를 scene에서 받아옴
+    // 움직이는 좌표를 scene에서 받아오고
     managerImageDraw(imageName , x , y){
         var nodeImage = this.imageList[imageName];     
         if(nodeImage == null){

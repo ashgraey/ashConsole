@@ -15,3 +15,4 @@ export class NodeImage {
         ManagerGame.getInstance().ctx.drawImage(this.image , x , y , this.image.width , this.image.height);
     }
 }
+

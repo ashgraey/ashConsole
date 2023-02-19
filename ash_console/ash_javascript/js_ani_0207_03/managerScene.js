@@ -43,6 +43,7 @@ export class ManagerScene {
         if(this.curSceneName == sceneName){
             return;
         }
+        // 여기서 객체담음 ㅜㅜ 당한거에 또 당함
         this.curScene = this.sceneList[sceneName];        
     
         if(this.curScene != null){
