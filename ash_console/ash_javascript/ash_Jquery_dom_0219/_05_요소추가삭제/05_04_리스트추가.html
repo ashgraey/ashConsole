@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추가</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
+    <script>
+
+
+        $(document).ready(function(){
+
+            var $menu = $("#menu");
+            $menu.append("<li>menu2</li>");
+            $menu.append("<li>menu3</li>");
+            $menu.append("<li>menu4</li>");
+            $menu.append("<li>menu5</li>");
+            $menu.css("border", "1px solid green");
+        });
+    </script>
+</head>
+<body>    
+    <ul id="menu">
+        <li>menu1</li>
+    </ul>
+</body>
+</html>

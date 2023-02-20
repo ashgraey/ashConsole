@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 생성-생성된 노드 확인 및 자바스크립트 코드로 추가하기</title>
+    <style>
+        body {
+            font-size: 35px;
+            font-family: "맑은 고딕";
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 30px;
+            list-style: none;
+        }
+        ul {
+            padding: 30px;
+        }
+        
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
+    <script>
+        var count = 1;
+        $(document).ready(function(){
+            $("#btnAdd").click(function(){
+                count+= 1;
+                //신규노드를 만들고 있다.
+                var li = document.createElement("li");
+                var menu = document.getElementById("menu");
+                var liText = document.createTextNode("메뉴" + count);
+                //Text노드를 li노드에게 추가
+                li.appendChild(liText);
+                //menu선택자노드에게 li노드를 추가
+                menu.appendChild(li);             
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <button id="btnAdd">추가하기</button>
+    <ul id="menu">
+        <li>메뉴1</li>
+    </ul>
+    
+</body>
+</html>

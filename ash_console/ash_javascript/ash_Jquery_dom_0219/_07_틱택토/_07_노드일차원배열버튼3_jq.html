@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- jQuery라이브러리를 사이트에서 직접 참조한 형태 -->
+   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+ 
+</head>
+
+
+<body>
+    짝수를 클릭하세요.
+    <script>
+        var body = document.body; 
+        var table = document.createElement("table");
+        var line = document.createElement("tr");
+        for(var i = 0; i < 5; i++){
+            var node = document.createElement("td");
+            node.textContent = (i + 1);
+            line.append(node);
+        }
+        table.append(line);
+        body.append(table);
+
+        $(document).ready(function(){
+            $("td").css("background", "red");
+            $("td").css("border", "1px solid black");
+            $("td").css("width", "40px");
+            $("td").css("height", "40px");
+
+            var list = document.querySelectorAll("td");
+           
+            $("td").click(function(e){
+
+                for(var i=0; i<list.length; i++) {
+                    if(e.target == list[i]){
+                        
+                        alert(i + "인덱스");
+                        
+                    }
+                }     
+
+             
+            });
+        });
+
+    </script>
+
+   
+
+</body>
+</html>

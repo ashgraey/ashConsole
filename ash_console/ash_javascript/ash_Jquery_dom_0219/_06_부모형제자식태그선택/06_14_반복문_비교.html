@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 다루기-for문</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li {
+            border: 1px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $liList = $("#menu li");
+            $("#index").click(function(){
+                for(var i=0; i<$liList.length; i++){
+                    var $li = $liList.eq(2);
+                    $li.css("border", "4px solid #f00");
+                }
+            });            
+        });
+    </script>
+</head>
+<body>
+    <button id="index">실행</button>
+    <ul id="menu">
+        <li>메뉴0</li>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴5</li>
+    </ul> 
+</body>
+</html>

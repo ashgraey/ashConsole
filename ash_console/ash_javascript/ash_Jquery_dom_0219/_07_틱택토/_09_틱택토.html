@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+       <!-- jQuery라이브러리를 사이트에서 직접 참조한 형태 -->
+   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <style>  
+        td{
+          border:1px solid black;
+          width : 100px;
+          height : 100px;
+          text-align: center;        
+        }
+        #game table{
+           margin : 0 auto;
+        }
+      </style>
+</head>
+<body>
+  <div id="game"></div>
+ 
+  <script>
+    
+    function win_check() {
+      for(var i = 0; i < 3; i++){
+          text1 = nodelist[i][0].textContent;
+          text2 = nodelist[i][1].textContent;
+          text3 = nodelist[i][2].textContent;
+          if(text1 == "O" && text2 =="O" && text3 == "O" ){
+              win = 1;
+              console.log(win);
+          }
+          if(text1 == "X" && text2 =="X" && text3 == "X" ){
+              win = 2;
+            
+          }
+      }
+      for(var i = 0; i < 3; i++){
+          text1 = nodelist[0][i].textContent;
+          text2 = nodelist[1][i].textContent;
+          text3 = nodelist[2][i].textContent;
+          if(text1 == "O" && text2 =="O" && text3 == "O" ){
+              win = 1;          
+          }
+          if(text1 == "X" && text2 =="X" && text3 == "X" ){
+              win = 2;
+            
+          }
+      }
+      text1 = nodelist[0][0].textContent;
+      text2 = nodelist[1][1].textContent;
+      text3 = nodelist[2][2].textContent;
+      if(text1 == "O" && text2 =="O" && text3 == "O" ){
+          win = 1;      
+      }
+      if(text1 == "X" && text2 =="X" && text3 == "X" ){
+          win = 2;       
+      }
+      text1 = nodelist[0][2].textContent;
+      text2 = nodelist[1][1].textContent;
+      text3 = nodelist[2][0].textContent;
+      if(text1 == "O" && text2 =="O" && text3 == "O" ){
+          win = 1;   
+      }
+      if(text1 == "X" && text2 =="X" && text3 == "X" ){
+          win = 2;      
+      }
+      
+      if(win == 0 && win_count == 9){
+          win = 3;
+      }
+      console.log(win);
+    }
+
+
+    var body = document.body;
+    var nodelist = [];
+    var turn = true;
+    var win = 0;
+    var win_count = 0;
+    var game= document.getElementById("game");
+    var table = document.createElement("table");
+    for(var i  = 0; i < 3; i+=1){
+        var line = document.createElement("tr");   
+        nodelist.push([])
+        for(var n = 0; n <3; n+= 1){
+            var node = document.createElement("td");
+            node.textContent = "";
+            line.append(node);
+            nodelist[i].push(node);
+        }
+        table.append(line);
+    }
+    game.appendChild(table);
+    body.append(game);
+
+    $(document).ready(function(){
+
+
+      var list = document.querySelectorAll("td");
+      
+      $("td").click(function(e){
+
+          for(var i=0; i<list.length; i++) {
+              if(e.target == list[i]){
+                if(String(list[i].textContent) === ""){
+                    if(turn){
+                        list[i].textContent = "O";   
+                        turn = false;
+                        win_count+= 1;
+
+                    }
+                    else{
+                      list[i].textContent = "X";
+                        turn = true;
+                        win_count+= 1;
+                    }  
+                    win_check();
+                  }        
+                
+                  
+              }
+          }       
+      });
+    });
+
+  </script>
+</body>
+</html>

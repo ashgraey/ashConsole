@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 다루기-index()주의점</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li {
+            border: 1px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: #ccc;
+        }
+    </style>
+      <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            /*
+                아래와 같은경우는 ul li 안의 a이므로 사실상 하나이다. 
+            */
+            var $aList = $("ul li a");
+            $("ul li a").click(function(){
+                // alert($(this).index()); // 이렇게 찾으면 0만 나온다.
+                alert($aList.index(this)); // 이렇게 찾아야한다.
+            });
+          
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+    </ul>
+   
+</body>
+</html>

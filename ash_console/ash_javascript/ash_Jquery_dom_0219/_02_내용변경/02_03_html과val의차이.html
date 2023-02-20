@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Insert title here</title>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<script>
+	$(document).ready(function(){	
+        $("#btn").click(function(){
+			
+			// id가 msg1인요소의 html 얻어오기 
+			// input이나 button등의 컨트롤은 .val로 값을 가져오지만
+			// 일반 태그는 .html()로 내용을 가져온다.
+			var msg1 = $("#msg1").html();
+			alert("msg1 : " + msg1);
+			$("#msg2").html("<h2>메세지2의 값변경</h2>");
+			//document.getElementById("msg2").innerHTML = "<h2>값변경</h2>"; 
+		});       
+	});
+</script>
+</head>
+
+<body>
+	<input type="button" id="btn" value="버튼클릭">
+
+	<div id="msg1">메세지1</div>
+	<div id="msg2">메세지2</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

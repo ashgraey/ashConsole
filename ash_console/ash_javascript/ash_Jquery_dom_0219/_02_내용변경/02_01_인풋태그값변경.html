@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Insert title here</title>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<script>
+	$(document).ready(function(){	
+		// btn을 클릭하면 사용자가 입력한 
+		// 메세지를 가져와서 경고창에 띄우기
+		$("#btn").click(function(){
+			var msg = $("input#msg").val();	
+		
+			alert(msg);
+			// input 태그의 내용이 바뀜
+			$("#msg").val("내용을 바뀜");
+
+			// this는 버튼을 의미
+			$(this).val("버튼의 제목도 바뀜");
+		});
+	});
+</script>
+</head>
+
+<body>
+	메세지: <input type="text" id="msg" />
+	<br>
+	<input type="button" id="btn" value="입력된 메시지" >
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
