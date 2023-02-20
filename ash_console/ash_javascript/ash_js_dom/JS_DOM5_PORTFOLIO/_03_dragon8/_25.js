@@ -354,6 +354,7 @@ function deadPlayer() {
     return;
   }
 }
+
 function movePlayer() {
   deadPlayer();
 
@@ -410,6 +411,8 @@ function createBolt() {
   boltList[len] = bolt;
   boltLevelSet();
 }
+
+// bolt 하나씩 나가도록
 function shootPlayer() {
   if (shootkey["up"] == "shoot") {
     shootkey["up"] = "wait";
