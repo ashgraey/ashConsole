@@ -26,6 +26,7 @@ export class ManagerGame{
         ManagerImage.getInstance().start();
         // button data setting
         ManagerButton.getInstance().start();
+        // scene 화면 구현 data setting
         ManagerScene.getInstance().start();
         ManagerStage.getInstance().start();
         //--------------------------------------

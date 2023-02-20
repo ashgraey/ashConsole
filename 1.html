@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div align="center">
+        <div id="떠든">『떠든사람』</div>
+        <br />
+        <div id="춤춘">『춤춘사람』</div>
+    </div>
+
+    <script>
+        class c사람 {
+            constructor(이름, 행위) {
+                this.이름 = 이름;
+            }
+        }
+        class c떠든사람 extends c사람 {
+            constructor(이름) {
+                super(이름);
+                this.행위 = "떠들다";
+            }
+        }
+        class c춤춘사람 extends c사람 {
+            constructor(이름) {
+                super(이름);
+                this.행위 = "춤추다";
+            }
+        }
+
+        class c사람매니저 {
+            static instance = new c사람매니저();
+            static getInstance() {
+                return this.instance;
+            }
+
+            constructor() {
+                this.사람들 = [];
+                var 떠든사람 = new c떠든사람("신정규");
+                this.사람들.push(떠든사람);
+                var 떠든사람 = new c떠든사람("권종률");
+                this.사람들.push(떠든사람);
+                var 춤춘사람 = new c춤춘사람("송민수");
+                this.사람들.push(춤춘사람);
+            }
+        }
+
+        class c칠판에_이름_적기 {
+            constructor() {}
+
+            칠판에_이름_적기() {
+                var $떠든 = document.querySelector("#떠든");
+                var $춤춘 = document.querySelector("#춤춘");
+
+                var 사람매니저 = c사람매니저.getInstance();
+                for (var i = 0; i < 사람매니저.사람들.length; i += 1) {
+                    var $node = document.createElement("div");
+
+                    if (사람매니저.사람들[i].행위 == "떠들다") {
+                        $node.textContent = 사람매니저.사람들[i].이름;
+                        $떠든.append($node);
+
+                    } else if (사람매니저.사람들[i].행위 == "춤추다") {
+                        $node.textContent = 사람매니저.사람들[i].이름;
+                        $춤춘.append($node);
+                    }
+                }
+            }
+        }
+
+        var 떠들거나_춤춘_사람들 = new c칠판에_이름_적기();
+        떠들거나_춤춘_사람들.칠판에_이름_적기();
+    </script>
+</body>
+
+</html>s
