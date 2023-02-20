@@ -163,6 +163,7 @@ var key = { right: false, left: false, up: false, down: false };
 var shootkey = { up: "ready" }; // ready , shoot , wait
 var timer = 0;
 var gameUpdate = true;
+
 var player = {
   x: 150,
   y: 600,
@@ -173,6 +174,7 @@ var player = {
   img: new Image(),
 };
 player["img"].src = "image/player.png";
+
 var bg1 = { x: 0, y: 500, w: 400, h: 500, img: new Image(), speed: 0.5 };
 bg1["img"].src = "image/stage_01.png";
 var bg2 = { x: 0, y: 0, w: 400, h: 500, img: new Image(), speed: 0.5 };

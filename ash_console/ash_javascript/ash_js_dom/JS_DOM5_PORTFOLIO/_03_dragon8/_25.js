@@ -716,7 +716,7 @@ var gameData = {
 var gameline = { x: 0, y: 300, w: 350, h: 750 }; // 경계선
 //===================================================================================
 var startx = 150;
-var starty = 600;
+var starty = 500;
 var startw = 50;
 var starth = 50;
 var player = {

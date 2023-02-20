@@ -12,7 +12,7 @@ export class ManagerStage {
     start(){
         this.stageList= {};
         this.setStage();
-        this.curStageName = "stageTest1"; // 여기서 시작페이지를 정한다. 
+        this.curStageName = "stage01"; // 여기서 시작페이지를 정한다. 
     }
 
     getCurStage(){

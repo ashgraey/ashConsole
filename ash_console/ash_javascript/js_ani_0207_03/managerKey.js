@@ -1,5 +1,3 @@
-
-
 export class ManagerKey {
     static instance = new ManagerKey();
     static getInstance(){

@@ -121,9 +121,9 @@ export class UnitTestPlayer {
 
     }
 
-    drawBox(){
-        ManagerGame.getInstance().ctx.beginPath () ;
-        ManagerGame.getInstance().ctx.strokeRect(this.xCol, this.yCol, this.wCol, this.hCol);
-        ManagerGame.getInstance().ctx.closePath () ;
-    }
+    // drawBox(){
+    //     ManagerGame.getInstance().ctx.beginPath () ;
+    //     ManagerGame.getInstance().ctx.strokeRect(this.xCol, this.yCol, this.wCol, this.hCol);
+    //     ManagerGame.getInstance().ctx.closePath () ;
+    // }
 }

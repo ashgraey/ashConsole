@@ -43,13 +43,13 @@ export class SceneSelect{
         }
 
         else if(ManagerButton.getInstance().managerButtonClick("셀렉트_버튼_01_on" , x , y)){
-        //    ManagerScene.getInstance().changeScene("stage");
-        //    event.stopImmediatePropagation();
+           ManagerScene.getInstance().changeScene("stage");
+           event.stopImmediatePropagation();
         } 
 
         else if(ManagerButton.getInstance().managerButtonClick("셀렉트_버튼_10_on" , x , y)){
-            ManagerScene.getInstance().changeScene("stage");
-            event.stopImmediatePropagation();
+            // ManagerScene.getInstance().changeScene("stage");
+            // event.stopImmediatePropagation();
         } 
     }
 }

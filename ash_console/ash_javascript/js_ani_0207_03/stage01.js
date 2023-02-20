@@ -7,8 +7,8 @@ export class Stage01{
         this.setCloudList();
 
         ManagerPlayer.getInstance().setPlayer(100, 300);
-  
     }
+  
    
     update(){
         this.cloudListMove();
