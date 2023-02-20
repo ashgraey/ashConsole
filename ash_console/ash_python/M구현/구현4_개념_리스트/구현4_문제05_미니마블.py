@@ -24,6 +24,53 @@
 		   0 0 0 1 0 0 0 0 0 0
 		   2 0 0 0 0 0 0 0 0 0 
 """
+import random
 
+# 예외처리해야할게 많아서 시간나면 다시 해봐야겠음
+class MiniMable : 
+    def __init__(self, a, b) :
+        self.p1 = a
+        self.p2 = b
+        self.p1Position = 0
+        self.p2Position = 0
+        self.win = 0
+        self.run()
+	
+    def turnP1Update(self) :
+        print("[1.주사위][2.패스]")
+        choice = int(input())
+        
+        if choice == 1 :
+            dice = random.randint(1, 4)
+            self.p1Position += dice
+        else :
+            self.p1Position += 0
+    
+    def turnP2Update(self) :
+        print("[1.주사위][2.패스]")
+        choice = int(input())
+        
+        if choice == 1 :
+            dice = random.randint(1, 4)
+            self.p1Position += dice
+        else :
+            self.p1Position += 0
+            
+            
+             
+        
+    def run(self) :
+        self.turnP1Update()
+        self.turnP2Update()
+        
+        while True :
+            # 안전지대
+            if self.p1Position == 0 and self.p2Position == 0 :
+                print(p1)
+                print(p2)
+            else :
+                
+# var
 p1 = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 p2 = [2, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+miniMable = MiniMable(p1, p2)
