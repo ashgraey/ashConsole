@@ -17,6 +17,53 @@
 		[주의]
 		    인덱스를 이와같이 똑같은 자리는 고를수없다. [5,5,6] 
 """
+import random 
+class PlusGame :
+	def __init__(self, a, r) :
+		self.a = a 
+		self.r = r
+		self.idx1 = 0
+		self.idx2 = 0
+		self.idx3 = 0 
+		# self.idxList = []
+		self.run()
+	
+	def setRandom(self) :
+		for _ in range(7) :
+			self.a.append(random.randint(1, 10))
+	
+	def indexSet(self) :
+		while True :
+			print("인덱스를 3개 입력하시오.")
+			self.idx1, self.idx2, self.idx3 = map(int, input().split())
+			idxList = [self.idx1, self.idx2, self.idx3]
+			# print(idxList)
+			
+			# 중복검사
+			if idxList[0] == idxList[1] or idxList[0] == idxList[2] or idxList[1] == idxList[2] :
+				# print(True)
+				continue
+			break
+			
+	def run(self) :
+		self.setRandom()
+		print(self.a)
+
+		while True :
+			self.indexSet()
+
+			print("결과값을 입력해주세요.")
+			self.r = int(input())
+
+			total = self.a[self.idx1] + self.a[self.idx2] +self.a[self.idx3]
+			print("total : ", total)
+
+			if self.r == total :
+				print("정답입니다.")
+				break
+			else :
+				continue 
 
 a = []
 r = 0
+plusGame = PlusGame(a,r)
