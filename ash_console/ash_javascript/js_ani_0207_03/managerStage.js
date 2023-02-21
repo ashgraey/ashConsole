@@ -9,6 +9,7 @@ export class ManagerStage {
         return this.instance;
     }
 
+    
     start(){
         this.stageList= {};
         this.setStage();

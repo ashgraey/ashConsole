@@ -68,14 +68,14 @@ export class SkillSword  {
 
     draw(){    
         this.animationList.nodeAnimListDraw(this.xPos , this.yPos); 
-     //   this.drawBox();
+    //    this.drawBox();
     }
 
-    drawBox(){
-        ManagerGame.getInstance().ctx.beginPath () ;
-        ManagerGame.getInstance().ctx.strokeRect(this.xCol, this.yCol, this.wCol, this.hCol);
-        ManagerGame.getInstance().ctx.closePath () ;
-    }
+    // drawBox(){
+    //     ManagerGame.getInstance().ctx.beginPath () ;
+    //     ManagerGame.getInstance().ctx.strokeRect(this.xCol, this.yCol, this.wCol, this.hCol);
+    //     ManagerGame.getInstance().ctx.closePath () ;
+    // }
 
     monsterListCollision(){
         var monsterListAll = ManagerMonster.getInstance().monsterListAll;
