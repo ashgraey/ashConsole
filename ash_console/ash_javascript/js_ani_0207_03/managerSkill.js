@@ -42,7 +42,8 @@ export class ManagerSkill{
                 skillObject.skillPlay(skillDirName, x , y , direction  , power);
                 break;
             }
-        }       
+        }
+        console.log(skillObjectList);       
     }
 
     update(){
