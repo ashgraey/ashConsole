@@ -169,6 +169,7 @@ export class ManagerImage {
     managerImageSet(imageName , w , h , imagePath){
         var nodeImage = new NodeImage(w , h , imagePath);
         this.imageList[imageName] = nodeImage;
+        // console.log(this.imageList)
     }
 
     // 가오용

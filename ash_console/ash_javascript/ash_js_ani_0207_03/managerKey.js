@@ -34,7 +34,7 @@ export class ManagerKey {
       
     }
 
-    // 공격 버튼, keyUp 상태에선 공격이 안 나가도록
+    // keyDown상태에서 연속으로 공격이 안나감
     // unitPlayer에 연결 시켜야함
     getKeyOnce(key){
         if(this.keyOnceList[key] == "push"){

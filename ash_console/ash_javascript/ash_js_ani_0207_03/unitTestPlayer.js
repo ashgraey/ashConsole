@@ -57,6 +57,7 @@ export class UnitTestPlayer {
         var w = ManagerKey.getInstance().getKeyStay("KeyW");
         var s = ManagerKey.getInstance().getKeyStay("KeyS");
 
+        // keyUp 상태에서는 공격이 안나가도록 
         var j = ManagerKey.getInstance().getKeyOnce("KeyJ");
         var k = ManagerKey.getInstance().getKeyOnce("KeyK");
 
