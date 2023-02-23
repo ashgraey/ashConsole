@@ -73,7 +73,7 @@ export class UnitCyclops  {
         }else{
             this.animationList.nodeAnimListDraw(this.xPos , this.yPos);
         }
-           //    this.drawBox();
+              this.drawBox();
     }
 
     drawBox(){
