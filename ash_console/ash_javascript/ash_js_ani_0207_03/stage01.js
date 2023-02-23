@@ -1,6 +1,8 @@
 import { ManagerImage } from "./managerImage.js";
 import { ManagerPlayer } from "./managerPlayer.js";
 import { ManagerSkill } from "./managerSkill.js";
+import { ManagerMonster} from "./managerMonster.js";
+
 export class Stage01{
     start(){  
         this.cloudList = []
@@ -21,6 +23,7 @@ export class Stage01{
 
         ManagerPlayer.getInstance().draw();
         ManagerSkill.getInstance().draw();
+        // ManagerMonster.getInstance().draw();
     }
 
 

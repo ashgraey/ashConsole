@@ -7,7 +7,7 @@ import { ManagerSort } from "./managerSort.js";
 export class StageTest1{
     start(){  
         ManagerPlayer.getInstance().setPlayer(100, 300);
-   //     ManagerMonster.getInstance().setOrcList(1 , 1000, 100);
+        ManagerMonster.getInstance().setOrcList(1 , 1000, 100);
         ManagerMonster.getInstance().setCyclopsList(10, 1700, 200);
     }
    
@@ -20,12 +20,13 @@ export class StageTest1{
     draw(){
         ManagerImage.getInstance().managerImageDraw("스테이지01_파란배경" , 0, 0);   
         ManagerImage.getInstance().managerImageDraw("스테이지01_왕실배경" , 0, 0);  
-        ManagerSort.getInstance().unitSortDraw();
+        // ManagerSort.getInstance().unitSortDraw();
 
-    //    ManagerPlayer.getInstance().draw();
-    //    ManagerSkill.getInstance().draw();
-    //    ManagerMonster.getInstance().draw();
+       ManagerPlayer.getInstance().draw();
+       ManagerSkill.getInstance().draw();
+       ManagerMonster.getInstance().draw();
     }
 
    
+
 }

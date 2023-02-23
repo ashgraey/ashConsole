@@ -64,7 +64,7 @@ export class UnitCyclops  {
     }
 
     draw(){
- 
+        console.log(this.animationList);
         if(this.hit == true){
             if(this.startTime % 10 < 5){
                 this.animationList.nodeAnimListDraw(this.xPos , this.yPos);
