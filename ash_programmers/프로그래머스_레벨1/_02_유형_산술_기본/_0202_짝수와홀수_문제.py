@@ -1,7 +1,13 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/12937
 def solution(num):
-   return ""
+   answer = ""
+   if num % 2 == 0 :
+      answer = "Even"
+   else :
+      answer = "Odd"
 
-num = 3
+   return answer
+
+num = int(input())
 a = solution(num)
 print(a)
