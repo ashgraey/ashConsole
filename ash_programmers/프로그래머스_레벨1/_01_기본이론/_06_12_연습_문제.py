@@ -12,7 +12,18 @@
 a = [1,5,7,8]
 b = [3,4,6]
 
+for i in range(len(b)) :
+    c = b[i] + 1 
+    d = b[i] - 1 
 
+    if c in a :
+        idx = a.index(c)
+        del(a[idx])
+    if d in a :
+        idx = a.index(d)
+        del(a[idx])
+
+print(a)
 
 
 

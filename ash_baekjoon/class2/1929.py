@@ -10,6 +10,7 @@ output//
 한 줄에 하나씩, 증가하는 순서대로 소수를 출력한다.
 '''
 import sys
+import math
 
 # front, back = map(int, sys.stdin.readline().split())
 
@@ -47,18 +48,46 @@ import sys
 '''
 
 
+# def sosu(front, back):
+#     sList = []
+#     for num in range(front, back + 1):
+#         if num == 3 or num == 5 or num == 7:
+#             sList.append(num)
+#         elif num % 2 != 0 and num % 3 != 0 and num % 5 != 0 and num % 7 != 0:
+#             sList.append(num)
+
+#     return sList
+
+
+# front, back = map(int, sys.stdin.readline().split())
+# sosuList = sosu(front, back)
+# for i in sosuList:
+#     print(i)
+
 def sosu(front, back):
-    sList = []
-    for num in range(front, back + 1):
-        if num == 3 or num == 5 or num == 7:
-            sList.append(num)
-        elif num % 2 != 0 and num % 3 != 0 and num % 5 != 0 and num % 7 != 0:
-            sList.append(num)
+    # sList = []
+    i = front
+    while i <= back :
+        cnt = 0
+        j = 2 
+        while j <= math.sqrt(i) :
+            # print(math.sqrt(i))
+            if i % j == 0 :
+                cnt += 1 
+                break
+            j += 1 
 
-    return sList
-
+        if cnt == 0 :
+            # sList.append(i)
+            print(i)
+        
+        i += 1 
+        
+    # return sList
 
 front, back = map(int, sys.stdin.readline().split())
-sosuList = sosu(front, back)
-for i in sosuList:
-    print(i)
+sosu(front, back)
+# sosuList = sosu(front, back)
+# for v in sosuList:
+#     print(v)
+# print(sosuList)
