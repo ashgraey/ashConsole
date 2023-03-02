@@ -1,0 +1,84 @@
+
+<script>
+    function drawHeader(){
+        jQuery.ajax({
+            type: "post",
+            url: "getLog",
+            data: {},         
+            success: function(data) {
+                //console.log(data);
+                var text = '';
+                text += 
+                `<div class="container">
+                    <div class="row my-3">
+                        <div class="col-12 col-xl-12">
+                            <div class="d-flex justify-content-center justify-content-xl-end"> 
+                                <ul class="nav ">`;
+                                if (data == 0){
+                                    text += 
+                                    `<li class="nav-item"><a class="nav-link" href="memberJoinForm">회원가입</a></li>
+                                     <li class="nav-item"><a class="nav-link" href="memberLoginForm">로그인</a></li>
+                                     <li class="nav-item "><a class="nav-link" href="">고객센터</a></li>`;
+                                }else if(data == 1){
+                                    text += 
+                                    `<li class="nav-item"><a class="nav-link" href="">로그아웃</a></li>
+                                     <li class="nav-item"><a class="nav-link" href="">장바구니</a></li>
+                                     <li class="nav-item "><a class="nav-link" href="">주문내역</a></li>
+                                     <li class="nav-item "><a class="nav-link" href="">고객센터</a></li>`;
+                                }                    
+                        text += `</ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+                var $header = document.querySelector("#header");
+                $header.innerHTML = text;
+
+                var text = '';
+
+                text += 
+                `<div class="container ">
+                    <div class="row mb-3">
+                        <div class="col ">
+                            <div class="d-flex justify-content-center">
+                                <img src="/logo.png" width="150px">
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+                var $logo = document.querySelector("#logo");
+                $logo.innerHTML = text;              
+            }
+        });
+    }  
+    window.onload=drawHeader();
+</script>
+
+<div id="header"></div>
+<div id="logo"></div>
+
+<!--
+<div class="container ">
+    <div class="row mb-3">
+        <div class="col ">
+            <div class="d-flex justify-content-center">
+                <img src="/logo.png" width="150px">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container bg-light">
+    <div class="row my-3">
+        <div class="col-12 col-xl-12">
+            <div class="d-flex justify-content-center justify-content-xl-end"> 
+                <ul class="nav ">
+                    <li class="nav-item"><a class="nav-link" href="">신상품</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">베스트</a></li>
+                    <li class="nav-item "><a class="nav-link" href="">알뜰쇼핑</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+-->
