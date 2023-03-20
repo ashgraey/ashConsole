@@ -22,7 +22,7 @@ module.exports = function(app){
     });
 
     app.post("/postFormPro", urlencodedParser, function(req, res){
-        // [1] post 는 urlencodedParser 을 사용하여 인코딩을 한다. 
+        // [1] post 는 urlencodedParser 을 사용하여 인코딩을 한다. get대신 post로 넣어야 함
         // [2] post 는 req.body.변수명 을 사용한다. 
         var id = req.body.id;
         var pw = req.body.pw;
