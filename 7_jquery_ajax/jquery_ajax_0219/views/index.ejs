@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT BOOK</title>
+
+    <!-- jQuery 라이브러리 다운(CDN) -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+         $(document).ready(function(){
+            // 로그아웃 버튼
+            $("#memberLogout").click(function() {
+                $.ajax({
+                    type: "post",
+                    url: "memberLogout",
+                    success: function(data) {
+                        alert("로그아웃");
+						window.location.href="/";
+                    }
+                });
+            });
+
+            $(document).on("click", "#cartInfo", function() {
+                $.ajax({
+                    type: "post",
+                    url: "cartInfo",
+                    success: function(data) {
+                        var result = JSON.stringify(data);
+                        alert("result = " + result);
+
+                        if(data == "no") {
+                            window.location.href="/";
+                        } else if(data == "yes"){
+                          //  window.location.href="/cartInfo";
+                        }
+                    }
+                });
+            });
+         });
+    </script>
+</head>
+<body>
+    <div align="center">
+        <a href="/">
+            <img alt="메인로고" src="logo.png" height="90px">
+        </a>
+    </div>
+    <br><br>
+    <div id="menu" align="center">
+        <div id="delete" align="center">
+            <% if(log == null) { %>
+                <span style="color: red;">로그아웃 상태</span>&nbsp;&nbsp;&nbsp;
+                <button onclick="location.href='memberJoin'">회원가입</button>&nbsp;&nbsp;&nbsp;
+                <button onclick="location.href='memberLogin'">로그인</button>&nbsp;&nbsp;&nbsp;
+            <% } else { %>
+                <%= log %> 로그인&nbsp;&nbsp;&nbsp;
+                <button id='memberLogout'>로그아웃</button>&nbsp;&nbsp;&nbsp;
+            <% } %>
+            <button onclick="location.href='bookAllList'">전체 상품 목록</button>&nbsp;&nbsp;&nbsp;
+            <button onclick="location.href='cartInfo'">장바구니</button>&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+</body>
+</html>

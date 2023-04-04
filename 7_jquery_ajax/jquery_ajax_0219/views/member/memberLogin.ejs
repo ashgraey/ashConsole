@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT BOOK</title>
+
+    <!-- jQuery 라이브러리 다운(CDN) -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+        function focusFunction(e) {
+            e.style.background = "rgb(233, 233, 233)";
+        }
+        function blurFunction(e) {
+            e.style.background = "rgb(255, 255, 255)";
+        }
+
+        function checkValue() {
+			// id를 입력하지 않았다면,
+			if(!$("#memberId").val()) {
+				alert("아이디를 입력해주세요.");
+				$("#memberId").focus();
+				return false;
+			}
+			// pw를 입력하지 않았다면,
+			if(!$("#memberPw").val()) {
+				alert("비밀번호를 입력해주세요.");
+				$("#memberPw").focus();
+				return false;
+			}
+			return true;
+		}
+
+        $(document).ready(function(){
+			$("#login").click(function(){
+				// id와 pw가 모두 입력된 상태라면
+				if(checkValue()) {
+					
+					$.ajax({
+						type: "post",
+						url: "memberLoginPro",
+						data: {
+							memberId: $("#memberId").val(),
+							memberPw: $("#memberPw").val()
+						},
+						
+						success: function(data) {
+                            var count = data.count;
+
+							if(count === 1) {
+								alert("로그인 성공!");
+								window.location.href="/";
+							} else {
+								alert("아이디와 비밀번호를 확인해주세요.");
+								window.location.href="memberLogin";
+							}
+						}
+					});
+				}
+			});
+		});
+    </script>
+</head>
+<body>
+    <%- include("../index.ejs") %>
+
+    <div align="center">
+        <br><br>
+        <h2>로그인</h2>
+
+        <table border="1">
+            <tr>
+                <td>
+                    <input type="text" id="memberId" name="memberId" placeholder="아이디" onfocus="focusFunction(this)" onblur="blurFunction(this)" autofocus="autofocus">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" id="memberPw" name="memberPw" placeholder="비밀번호" onfocus="focusFunction(this)" onblur="blurFunction(this)">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <button id="login">로그인</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
