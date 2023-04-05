@@ -1,0 +1,7 @@
+._4006replyList, ._0406removeList {
+    border: 1px solid black;
+    width: 500px;
+}
+._0406removeList {
+    cursor: pointer;
+}
