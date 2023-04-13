@@ -1,0 +1,40 @@
+npx create-react-app rt_0321
+
+라우터 설치
+npm install react-router-dom@6
+
+axios 설치
+npm install axios
+
+서버 설치 및 실행 (db.json 파일명)
+npx json-server --watch db.json --port 3001
+
+{
+  "memberJson": [
+    {
+      "memberId": "qwer1234",
+      "memberPw": "Qwer1234!",
+      "memberName": "홍길동",
+      "id": 1
+    },
+    {
+      "memberId": "asdf1234",
+      "memberPw": "Asdf1234!",
+      "memberName": "에스디",
+      "id": 2
+    },
+    {
+      "memberId": "abcd1234",
+      "memberPw": "Abcd1234!",
+      "memberName": "에이비",
+      "id": 3
+    },
+    {
+      "memberId": "hello1234",
+      "memberPw": "Hello1234!",
+      "memberName": "헬로아",
+      "id": 4
+    }
+
+  ]
+}
