@@ -12,6 +12,7 @@ app.use(express.urlencoded({extended: true}));
 
 // path 설정
 const path = require("path");
+
 // 폴더 설정
 app.use(express.static(path.join(__dirname, "../client_member/build")));
 
