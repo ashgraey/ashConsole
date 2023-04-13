@@ -1,0 +1,20 @@
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+
+create database react_member_202304;
+use react_member_202304;
+
+create table member_json(
+	memberNo int not null primary key auto_increment,
+    memberId varchar(20),
+    memberPw varchar(20),
+    memberName varchar(10)
+);
+
+insert into member_json values(1, 'qwer1234', 'Qwer1234!', '홍길동');
+
+select * from member_json;
+
+
+
+
+

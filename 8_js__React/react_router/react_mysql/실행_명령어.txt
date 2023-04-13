@@ -1,0 +1,89 @@
+[1] 
+npx create-react-app client_member
+
+[2] 
+cd client_member
+npm start
+
+[3]
+public폴더 > index.html 제외한 파일 모두 제거한 후,
+내용을 아래와 같이 수정한다.
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
+
+
+[4]
+src폴더 > index.js 제외한 파일 모두 제거한 후,
+아래와 같이 내용을 수정한다.
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.Fragment>
+    </React.Fragment>
+);
+
+[5] 라우터 설치
+npm install react-router-dom@6
+
+[6] 라우터 컨트롤러 셋팅
+import React from 'react'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import Main from './Main'
+
+function Controller() {
+  return (
+    <>
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<Main></Main>}></Route>
+          </Routes>
+      </BrowserRouter>
+    </>
+  )
+}
+
+export default Controller
+
+[7] axios 설치
+npm install axios
+
+----------------------------------------------------------------------
+* 서버 셋팅
+[주의] 서버와 클라를 잘 구분해서 진행해야 한다!!!
+
+
+[8 서버 셋팅] 터미널 추가 실행 및 설치
+(1) 폴더 이동 : cd server_member
+(2) express 설치 : npm install express
+(3) mysql 설치 : npm install mysql
+
+[09 클라 셋팅] 빌드 명령어
+npm run-script build
+
+[10 서버 셋팅] path 라이브러리 설치
+npm install path
+
+[11 서버 실행] 실행
+node index.js
+
+
+
+
+
