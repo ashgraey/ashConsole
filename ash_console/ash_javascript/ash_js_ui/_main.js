@@ -4,7 +4,7 @@ function draw() {
   ctx.clearRect(0, 0, $canvas.width, $canvas.height);
   //-----------------------------------------------
 
-  // 초기화 식인거 같음
+  // update이후 draw
   ManagerGame.getInstance().update();
   ManagerGame.getInstance().draw();
   //-----------------------------------------------
@@ -24,3 +24,6 @@ ManagerGame.getInstance().start(ctx);
 $canvas.style.border = "1px solid black"; // 외곽선
 
 setTimeout(loading, 10);
+
+// 순서
+// start(init) => update => draw

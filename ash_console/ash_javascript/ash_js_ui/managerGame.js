@@ -18,8 +18,8 @@ export class ManagerGame{
         ManagerImage.getInstance().start(); // imageDB setting
         ManagerButton.getInstance().start();
         ManagerScene.getInstance().start(); // sceneDB setting
-        // ManagerStage.getInstance().start();
-        // ManagerPlayer.getInstance().start();
+        ManagerStage.getInstance().start();
+        ManagerPlayer.getInstance().start();
         ManagerScene.getInstance().changeScene("title"); // curScene이 title인지 아닌지 검사, title이면 return 계속 타이틀 화면을 유지
     }
 
