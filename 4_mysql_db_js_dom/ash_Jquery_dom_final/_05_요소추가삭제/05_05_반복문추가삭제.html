@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 생성-jQuey 모든 자식노드를 제거하기(html(),remove())</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li {
+            border: 1px solid gray;
+            margin: 20px;
+            padding: 20px;
+            list-style: none;
+        }
+     
+     
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $("#add").click(function(){
+                var data = "";
+                for(var i=0; i<5; i++){
+                    data += "<li>메뉴" + i + "</li>";
+                }
+                $("#menu").html(data);
+            }); 
+
+            $("#remove").click(function(){
+                $("#menu li").remove();
+            }); 
+            
+        });
+    </script>
+</head>
+<body>
+    <button id="add">추가하기</button>
+    <button id="remove">제거하기</button>
+    <ul id="menu">        
+    </ul>    
+</body>
+</html>

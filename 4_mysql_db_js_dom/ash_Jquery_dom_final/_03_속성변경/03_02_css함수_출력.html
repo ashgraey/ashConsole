@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 VS jQuery 스타일 다루기-1</title>
+    <style>
+        div {
+            margin: 20px;
+            padding: 20px;
+            font-size: 30px;
+            border: 1px solid green;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+      
+
+        //jQuery로 스타일 접근
+        $(document).ready(function(){
+            var $content = $("#test");
+            console.log("color = ", $content.css("color"));
+            console.log("border = ", $content.css("border"));
+            console.log("font-size = ", $content.css("font-size"));
+            console.log("margin = ", $content.css("margin"));
+        });
+
+
+    </script>
+</head>
+<body>
+    <div id="test" class="content" style="color: blue;">
+        속성변경
+    </div>
+    
+</body>
+</html>

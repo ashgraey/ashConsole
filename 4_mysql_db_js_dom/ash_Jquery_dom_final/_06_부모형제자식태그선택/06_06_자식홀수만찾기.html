@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홀수짝수</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 10px;
+            padding: 10px;
+            list-style: none;
+        }    
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+
+            //모든 자식 중 인덱스가 홀수번째 노드만 삭제하기    
+            $("#removeOdd").click(function(){
+                $("#menu li:odd").remove();
+            });
+
+            $("#removeEven").click(function(){
+                $("#menu li:even").remove();
+             });
+
+        });
+    </script>
+</head>
+<body>
+    <button id="removeOdd">홀수자식 삭제하기</button>
+    <button id="removeEven">짝수자식 삭제하기</button>
+    <ul id="menu">
+        <li>메뉴0</li>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴5</li>
+    </ul>
+    
+</body>
+</html>

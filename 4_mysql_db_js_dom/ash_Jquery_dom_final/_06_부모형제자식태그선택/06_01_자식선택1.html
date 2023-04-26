@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 생성-jQuey메서드 html(), text()의 차이점-2</title>
+    <style>
+        body {
+            font-size: 35px;
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 20px;
+        }
+        ul {
+            padding: 20px;
+            list-style: none;
+        }
+       
+    </style>
+<script src="http://code.jquery.com/jquery-1.10.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            /*  
+                this 를 통해 여러개중 자기를 찾을수있다. 
+            */
+
+            $("#menu li").click(function(){
+                var $item = $(this);
+                $item.text("클릭됨");
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴5</li>
+    </ul>
+    
+</body>
+</html>

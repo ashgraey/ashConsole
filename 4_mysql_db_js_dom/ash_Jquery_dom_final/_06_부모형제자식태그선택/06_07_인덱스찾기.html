@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 다루기-특정노드를 찾아서 인덱스값을 출력하기(index())</title>
+    <style>
+        body {
+            font-size: 30px;
+        }
+        div, p, ul, li {
+            border: 1px solid gray;
+            margin: 30px;
+        }
+       
+        ul {
+            padding: 20px;
+            list-style: none;
+        }
+       
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("ul.menu1 li").click(function(){
+                //클릭한 객체가 몇 번째 인덱스인지 값을 출력하는 코드이다.
+                alert($(this).index());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="content">
+        <h2>menu1</h2>
+        <ul class="menu1">
+            <li class="item">item1</li>
+            <li class="item">item2</li>
+            <li class="item">item3</li>
+            <li class="item">item4</li>
+        </ul>
+
+        <h2>menu2</h2>
+        <ul class="menu2">
+            <li class="item">item1</li>
+            <li class="item">item2</li>
+            <li class="item">item3</li>
+            <li class="item">item4</li>
+        </ul>
+    </div>
+
+    
+</body>
+</html>

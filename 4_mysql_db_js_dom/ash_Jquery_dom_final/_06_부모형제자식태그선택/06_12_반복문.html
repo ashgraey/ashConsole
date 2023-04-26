@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문으로 출력하기</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li {
+            border: 1px solid gray;
+            margin: 10px;
+            padding: 10px;
+            list-style: none;
+        }
+       
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           
+            //li객체들을 찾아서 배열로 리턴을 받는다.
+            var $liList = $("ul li");
+            $("#print").click(function(){
+                $liList.each(function(index){
+                    console.log($liList.get(index));
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="print">반복문으로 출력하기</button>
+    <ul id="menu">
+        <li>메뉴0</li>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴5</li>
+    </ul>
+</body>
+</html>

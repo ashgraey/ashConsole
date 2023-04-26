@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성으로 노드찾기</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li {
+            border: 1px solid gray;
+            margin: 10px;
+            padding: 10px;
+            list-style: none;
+        }
+       
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+       //속성 옵션 
+       // $("E[A]") : 속성 A를 포함한 모든 E노드를 찾기
+       // $("E[A=V]") : 속성 A의 값이 V인 모든 E노드를 찾기
+       // $("E[A^=V]") : 속성 A의 값이 V로 시작하는 모든 E노드를 찾기
+       // $("E[A$=V]") : 속성 A의 값이 V로 끝나는 모든 E노드를 찾기
+       // $("E[A*=V]") : 속성 A의 값이 V를 포함하고 있는 모든 E노드를 찾기
+
+       $(document).ready(function(){
+
+           $("[class^=m]").css("border","1px solid red");
+
+           $("[class$=d]").css("border","2px solid blue");
+          
+       });
+    </script>
+</head>
+<body>
+    <ul class="menu">
+        <li class="child">메뉴1</li>
+        <li class="child">메뉴2</li>
+    </ul>
+       
+</body>
+</html>

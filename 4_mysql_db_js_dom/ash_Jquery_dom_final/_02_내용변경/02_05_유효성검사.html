@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Insert title here</title>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<script>
+	$(document).ready(function(){	
+        $("#regBtn").click(function(){
+            // 유효성 검사 
+			if(invalidation()){
+			   // 입력값 초기화
+			   clearInputValue();
+			}
+        });
+
+        function invalidation(){
+			// 아이디를 입력하지 않으면 
+			// 해당 div에 아이디를 입력하세요 라는 문구 추가 
+			if($("#userId").val()==""){
+				// id를 빼고 실행하면 
+				if($("#idValid").text()==""){
+					$("#idValid").html("아이디를 입력하세요");
+				}
+				return false;
+			}
+            
+			if($("#pwd").val() !=$("#repwd").val() ){
+				alert("암호가 일치하지 않습니다.")
+				return false;
+			}
+			alert("회원가입을 축하합니다");
+			return true;
+		}       
+	});
+</script>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    아이디
+                </td>
+                <td>
+                    <input type="text" id="userId">
+                </td>
+                <td>
+                    <div id="idValid"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    패스워드
+                </td>
+                <td colspan="2">
+                    <input type="password" id="pwd">
+                </td>
+            </tr>         
+            <tr>
+                <td>
+                    패스워드 확인
+                </td>
+                <td colspan="2">
+                    <input type="password" id="repwd">
+                </td>
+            </tr>      
+            <tr>
+                <td colspan="3">
+                    <input type="button" id="regBtn" value="회원가입">
+                </td>
+            </tr>           
+        </table>
+    </div>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

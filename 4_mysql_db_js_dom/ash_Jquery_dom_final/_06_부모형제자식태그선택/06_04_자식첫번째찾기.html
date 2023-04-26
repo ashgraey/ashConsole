@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 생성-jQuey로 추가하기(prepend(), prependTo())</title>
+    <style>
+        body {
+            font-size: 30px;
+            font-family: "맑은 고딕";
+        }
+        ul, li {
+            border: 1px solid gray;
+            margin: 30px;
+            
+        }
+        ul {
+            padding: 30px;
+            list-style: none;
+        }
+       
+    </style>
+     <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            var cnt = 2;
+            $("#btnAdd").click(function(){
+                cnt++;
+                var $li = $("<li>메뉴" + cnt + "</li>");
+                $li.insertBefore("#menu li:first");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btnAdd">추가하기</button>
+    <ul id="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+    </ul>
+    
+</body>
+</html>

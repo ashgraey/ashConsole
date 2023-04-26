@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMLoaded Event와 Window의 load이벤트의 차이점</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        
+        $(document).ready(function() {
+            /*
+                이미지속성은 attr 로 찾을수있다. 
+            */
+            console.log("image1 = "+ $("#image1").attr("src"));
+            console.log("image2 = "+ $("#image2").attr("src"));
+        });
+        
+    </script>
+</head>
+<body>
+    <img src="player.png" id="image1">   
+    <img src="monster.png" id="image2">   
+</body>
+</html>

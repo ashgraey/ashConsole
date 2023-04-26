@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT BOOK</title>
+
+    <!-- jQuery 라이브러리 다운(CDN) -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+
+        // 화면 새로 그리기
+        function drawCart(list, total) {
+            let text = "<div id='remove' align='center'><br><br><h2>장바구니</h2>";
+
+            let size = list.length;
+
+            if(size == 0) {
+                text += "<h2>장바구니가 비었습니다.</h2><div>";
+            } else {
+                let count = 0;
+                for(var i=0; i<list.length; i++) {
+                    var cart = list[i];
+                    count += 1;
+
+                    text += '<table>';
+                    text += '<tr height="40px">';
+                    text += '<td width="50px" align="center">';
+                    text += count;
+                    text += '</td>';
+                    text += '<td width="100px" align="center">';
+                    text += '<img alt="상품" src="' + cart['cartBookImage'] + '" height="40px" border="1px">';
+                    text += '</td>';
+                    text += '<td width="300px">';
+                    text += '<font size="3"><b>' + cart['cartBookName'] + '</b></font>';
+                    text += '</td>';
+                    text += '<td width="100px" align="center">';
+                    text += '<font size="3">';
+                    text += '<button class="minusButton">-</button>';
+                    text += ' <input type="text" class="buyCount" name="buyCount" value="' + cart['cartBuyCount'] +'" style="width: 30px; text-align: center;">';
+                    text += ' <button class="plusButton">+</button>';
+                    text += '</font>';
+                    text += '</td>';
+                    text += '<td width="100px" align="center">';
+                    text += '<input type="hidden" class="buyPrice" value="' + cart['cartBuyBookPrice'] + '">';
+                    text += '<span class="total">' +  (cart['cartBuyBookPrice'] * cart['cartBuyCount']).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</span>원';
+                    text += '</td>';
+                    text += '<td width="40px" align="center">';
+                    text += '<input type="hidden" class="cartNo" value="' + cart['cartNo'] + '">';
+                    text += '<img class="deleteButton" alt="삭제" src="09_delete.png" style="cursor: pointer;">';
+                    text += '</td>';
+                    text += '</tr>';
+                    text += '</table>';
+                    text += '<hr size="1" width="680px" color="gray">';
+                }
+
+                text += '<table>';
+                text += '<tr height="70px">';
+                text += '<td width="480px" align="right">';
+                text += '<font size="3" color="#3a3a3a"><b>총 상품금액</b></font>';
+                text += '</td>';
+                text += '<td width="200px" align="right">';
+                text += '<font size="3" color="#3a3a3a">';
+                text += '<b><span id="totalPrice1">' + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원</span></b>';
+                text += '</font>';
+                text += '</td>';
+                text += '</tr>';
+                text += '<tr height="70px">';
+                text += '<td width="480px" align="right">';
+                text += '<font size="3" color="#3a3a3a"><b>배송비</b></font>';
+                text += '</td>';
+                text += '<td width="200px" align="right">';
+
+                var deliveryPrice = 3000;
+                if(total >= 40000) {
+                    deliveryPrice = 0;
+                    text += '<font size="3" color="#3a3a3a">';
+                    text += '<b><span id="test">' + deliveryPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</span>원</b>';
+                    text += '</font><br>';
+                } else {
+                    text += '<font size="3" color="#3a3a3a">';
+                    text += '<b><span id="test">' + deliveryPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</span>원</b>';
+                    text += '</font><br>';
+                    text += '<font size="2" color="#196ab3">' + (40000 - total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원 추가주문 시, 무료배송</font>';
+                }
+                text += '</td>';
+                text += '</tr>';
+                text += '<tr height="70px">';
+                text += '<td width="480px" align="right">';
+                text += '<font size="4" color="#3a3a3a"><b>총 결제금액</b></font>';
+                text += '</td>';
+                text += '<td width="200px" align="right">';
+                text += '<font size="4" color="#3a3a3a">';
+                text += '<b><span id="totalPrice2">' + (total + deliveryPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</span>원</b>';
+                text += '</font>';
+                text += '</td>';
+                text += '</tr>';
+                text += '<tr height="70px">';
+                text += '<td colspan="2" align="right">';
+                text += '<input type="image" src="order.jpg" style="width: 200px;">';
+                text += '</td>';
+                text += '</tr>';
+                text += '</table>';
+                text += '</div>';
+            }
+            return text;
+        }
+
+        $(document).ready(function() {
+
+            // 콤마 추가하기
+			function addComma(value) {
+				return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+			}
+
+            // 콤마 제거하기
+            function removeComma(value) {
+                return value.toString().replace(/[^\d]+/g, '');
+            }
+
+            // 총 상품가격 변경하기
+            function setPrice(index) {
+                // 클래스명이 total인 요소들의 개수
+                var len = $(".total").length;
+                
+                let sum = 0;
+                if(len > 0) {
+                    for(var i=0; i<len; i++) {
+                        var data = $($(".total")[i]).html();
+                        data = Number(removeComma(data));
+
+                        sum += data;
+                    }
+                }
+
+                // 총 상품금액 수정
+                $("#totalPrice1").html(addComma(sum));
+
+                // 배송비 수정
+                var deliverPrice = 3000;
+                if(sum >= 40000) {
+                    deliverPrice = 0;
+                }
+                $("#test").html(addComma(deliverPrice));
+
+                // 총 결제금액 수정
+                var totalPrice = sum + deliverPrice;
+                //alert(totalPrice);
+                $("#totalPrice2").html(addComma(totalPrice));
+
+            }
+
+			// 수량증가(+) 버튼을 클릭하면
+			// $(".plusButton").click(function(){
+            $(document).on("click", ".plusButton", function() {
+                var index = $(".plusButton").index(this);
+				var buyCount = parseInt($(".buyCount").eq(index).val());
+				buyCount += 1;
+				$(".buyCount").eq(index).val(buyCount);
+                var buyPrice = parseInt($(".buyPrice").eq(index).val());
+				var total = buyCount * buyPrice;
+                total = addComma(total);
+				$(".total").eq(index).html(total);
+
+                // db 값 변경하기
+                $.ajax({
+                    type: "post",
+                    url: "priceUp",
+                    data: {
+                        cartNo : $(".cartNo").eq(index).val()
+                    },
+                    success: function(data) {
+                        // 화면에 금액 변경
+                        setPrice(index);
+                    }
+                });
+			});
+
+			// 수량감소(-) 버튼을 클릭하면
+			// $(".minusButton").click(function(){
+            $(document).on("click", ".minusButton", function() {
+                var index = $(".minusButton").index(this);
+				var buyCount = parseInt($(".buyCount").eq(index).val());
+				
+				// 수량이 최소 1개가 되도록 설정
+				if(buyCount > 1) {
+                    buyCount -= 1;
+					$(".buyCount").eq(index).val(buyCount);
+                    var buyPrice = parseInt($(".buyPrice").eq(index).val());
+                    var total = buyCount * buyPrice;
+                    total = addComma(total);
+                    $(".total").eq(index).html(total);
+
+                    // 화면에 금액 변경
+                    setPrice(index);
+
+                     // db 값 변경하기
+                    $.ajax({
+                        type: "post",
+                        url: "priceDown",
+                        data: {
+                            cartNo : $(".cartNo").eq(index).val()
+                        },
+                        success: function(data) {}
+                    });
+                }
+			});
+
+            // 장바구니 삭제 버튼을 클릭하면
+            // $(".deleteButton").click(function() {
+            $(document).on("click", ".deleteButton", function() {
+                var index = $(".deleteButton").index(this);
+                var cartNo = $(".cartNo").eq(index).val();
+
+
+                $.ajax({
+                    type: "post",
+                    url: "deleteCart",
+                    data: {
+                        cartNo : cartNo
+                    },
+
+                    success: function(data) {
+                        var list = data["cartList"];
+                        var total = Number(data["total"]);
+                        
+                        var text = drawCart(list, total);
+                        $("#remove").remove();
+                        $("#cart").append(text);
+                    }
+                });
+            });
+
+        });
+        
+    </script>
+
+</head>
+<body>
+
+    <%- include("../index.ejs") %>
+
+    <div id="cart">
+    <div id="remove" align="center">
+        <br><br>
+        <h2>장바구니</h2>
+
+        <% if(cartList.length == 0) { %>
+            <h2>장바구니가 비었습니다.</h2>
+        <% 
+            } else {
+         
+                var count = 0;
+                for(var i=0; i<cartList.length; i++) { 
+                    var cart = cartList[i];
+                    count += 1;
+        %>
+                <table>
+                    <tr height="40px">
+                        <td width="50px" align="center">
+                            <%= count %>
+                        </td>
+                        <td width="100px" align="center">
+                            <img alt="상품" src="<%= cart['cartBookImage'] %>" height="40px" border="1px">
+                        </td>
+                        <td width="300px">
+                            <font size="3"><b><%= cart['cartBookName'] %></b></font>
+                        </td>
+                        <td width="100px" align="center">
+                            <font size="3">
+                                <button class="minusButton">-</button>
+                                    <input type="text" class="buyCount" name="buyCount" value="<%= cart['cartBuyCount'] %>" style="width: 30px; text-align: center;">
+                                <button class="plusButton">+</button>
+                            </font>
+                        </td>
+                        <td width="100px" align="center">
+                            <input type="hidden" class="buyPrice" value="<%= cart['cartBuyBookPrice'] %>">
+                            <span class="total"><%= (cart['cartBuyBookPrice'] * cart['cartBuyCount']).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></span>원
+                        </td>
+                        <td width="40px" align="center">
+                            <input type="hidden" class="cartNo" value="<%= cart['cartNo'] %>">
+                            <img class="deleteButton" alt="삭제" src="09_delete.png" style="cursor: pointer;">
+                        </td>
+                    </tr>
+                </table>  
+                <hr size="1" width="680px" color="gray">
+        <%   
+                } // end of for
+
+        %>
+            <table>
+                <tr height="70px">
+                    <td width="480px" align="right">
+                        <font size="3" color="#3a3a3a"><b>총 상품금액</b></font>
+                    </td>
+                    <td width="200px" align="right">
+                        <font size="3" color="#3a3a3a">
+                            <b><span id="totalPrice1"><%= total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></span>원</b>
+                        </font>
+                    </td>
+                </tr>
+                <tr height="70px">
+                    <td width="480px" align="right">
+                        <font size="3" color="#3a3a3a"><b>배송비</b></font>
+                    </td>
+                    <td width="200px" align="right">
+                        <%
+                            var deliveryPrice = 3000;
+                            if(total >= 40000) {
+                                deliveryPrice = 0;
+                        %>
+                            <font size="3" color="#3a3a3a">
+                                <b><span id="test"><%= deliveryPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></span>원</b>
+                            </font> 
+                            <br>
+                        <% } else { %>
+                            <font size="3" color="#3a3a3a">
+                                <b><span id="test"><%= deliveryPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></span>원</b>
+                            </font><br>
+                            <font size="2" color="#196ab3"><%= (40000 - total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %>원 추가주문 시, 무료배송</font>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr height="70px">
+                    <td width="480px" align="right">
+                        <font size="4" color="#3a3a3a"><b>총 결제금액</b></font>
+                    </td>
+                    <td width="200px" align="right">
+                        <font size="4" color="#3a3a3a">
+                            <b><span id="totalPrice2"><%= (total + deliveryPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></span>원</b>
+                        </font>
+                    </td>
+                </tr>
+                <tr height="70px">
+                    <td colspan="2" align="right">
+                        <input type="image" src="order.jpg" style="width: 200px;">
+                    </td>
+                </tr>
+            </table>
+    <% 
+        }
+    %>
+    </div>
+</div>
+</body>
+</html>
